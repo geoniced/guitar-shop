@@ -1,6 +1,9 @@
+import electroGuitar1 from "../../assets/img/electro-1.png";
 import electroGuitar2 from "../../assets/img/electro-2.png";
 import electroGuitar3 from "../../assets/img/electro-3.png";
+import electroGuitar4 from "../../assets/img/electro-4.png";
 import ukulele1 from "../../assets/img/ukulele-1.png";
+import ukulele2 from "../../assets/img/ukulele-2.png";
 import {ReactComponent as IconStar} from "../../assets/img/icon-star-whole.svg";
 import {ReactComponent as IconStarHalf} from "../../assets/img/icon-star-half.svg";
 import {ReactComponent as IconStarEmpty} from "../../assets/img/icon-star-empty.svg";
@@ -98,7 +101,7 @@ const PageContent = () => {
             <article className="guitar-catalog__guitar guitar-card">
               <h3 className="guitar-card__title">Честер Bass</h3>
               <p className="guitar-card__price">17 500 ₽</p>
-              <img src={electroGuitar3} alt="Электрогитара Честер Bass" className="guitar-card__image" width="68" height="190" />
+              <img src={electroGuitar1} alt="Электрогитара Честер Bass" className="guitar-card__image" width="68" height="190" />
 
               <ul className="guitar-card__stars">
                 <li className="guitar-card__stars-item"><IconStar /></li>
@@ -155,6 +158,150 @@ const PageContent = () => {
               <a href="#" className="guitar-card__buy">Купить</a>
 
             </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">СURT T300</h3>
+              <p className="guitar-card__price">30 000 ₽</p>
+              <img src={electroGuitar3} alt="Электрогитара СURT T300" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarHalf/></li>
+              </ul>
+              <p className="guitar-card__reviews-count">15</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Dania Super</h3>
+              <p className="guitar-card__price">3 500 ₽</p>
+              <img src={ukulele2} alt="Укулеле Dania Super" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">5</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Честер WX</h3>
+              <p className="guitar-card__price">15 300 ₽</p>
+              <img src={electroGuitar1} alt="Электрогитара Честер WX" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarHalf /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">17</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Dania VX</h3>
+              <p className="guitar-card__price">2 200 ₽</p>
+              <img src={ukulele1} alt="Укулеле Dania VX" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">5</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Честер Plus</h3>
+              <p className="guitar-card__price">30 000 ₽</p>
+              <img src={electroGuitar4} alt="Электрогитара Честер Plus" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">27</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Виолана 300</h3>
+              <p className="guitar-card__price">1 700 ₽</p>
+              <img src={ukulele2} alt="Укулеле Виолана 300" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">3</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+        </ul>
+
+        <ul className="guitar-catalog__pagination pagination">
+          <li className="pagination__item pagination__item--active">
+            <a className="pagination__link">1</a>
+          </li>
+          <li className="pagination__item">
+            <a href="#" className="pagination__link">2</a>
+          </li>
+          <li className="pagination__item">
+            <a className="pagination__link">...</a>
+          </li>
+          <li className="pagination__item">
+            <a href="#" className="pagination__link">7</a>
+          </li>
+          <li className="pagination__item">
+            <a href="#" className="pagination__link">Далее</a>
           </li>
         </ul>
       </section>
