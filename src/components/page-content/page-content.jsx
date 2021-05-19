@@ -1,3 +1,11 @@
+import electroGuitar2 from "../../assets/img/electro-2.png";
+import electroGuitar3 from "../../assets/img/electro-3.png";
+import ukulele1 from "../../assets/img/ukulele-1.png";
+import {ReactComponent as IconStar} from "../../assets/img/icon-star-whole.svg";
+import {ReactComponent as IconStarHalf} from "../../assets/img/icon-star-half.svg";
+import {ReactComponent as IconStarEmpty} from "../../assets/img/icon-star-empty.svg";
+
+
 const PageContent = () => {
   return (
     <main className="page-content">
@@ -58,8 +66,97 @@ const PageContent = () => {
           <button className="guitar-filters__show button" type="submit">Показать</button>
         </form>
       </section>
+
       <section className="page-content__guitar-catalog guitar-catalog">
         <h2 className="visually-hidden">Список гитар</h2>
+        <div className="guitar-catalog__sorting sorting">
+          <p className="sorting__text">
+            Сортировать:
+          </p>
+
+          <ul className="sorting__sort-types">
+            <li className="sorting__sort-type-item">
+              <a href="#" className="sorting__sort-type-text sorting__sort-type-text--price">по цене</a>
+            </li>
+            <li className="sorting__sort-type-item">
+              <a href="#" className="sorting__sort-type-text sorting__sort-type-text--popularity">по по популярности</a>
+            </li>
+          </ul>
+
+          <ul className="sorting__sort-orders">
+            <li className="sorting__sort-order-item">
+              <a href="#" className="sort-order-button">От меньшего к большему</a>
+            </li>
+            <li className="sorting__sort-order-item">
+              <a href="#" className="sort-order-button">От большего к меньшему</a>
+            </li>
+          </ul>
+        </div>
+
+        <ul className="guitar-catalog__guitars">
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Честер Bass</h3>
+              <p className="guitar-card__price">17 500 ₽</p>
+              <img src={electroGuitar3} alt="Электрогитара Честер Bass" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarHalf /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">15</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">СURT Z300</h3>
+              <p className="guitar-card__price">29 500 ₽</p>
+              <img src={electroGuitar2} alt="Электрогитара СURT Z300" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">9</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+
+          <li className="guitar-catalog__guitar-item">
+            <article className="guitar-catalog__guitar guitar-card">
+              <h3 className="guitar-card__title">Roman LX</h3>
+              <p className="guitar-card__price">6 800 ₽</p>
+              <img src={ukulele1} alt="Укулеле Roman LX" className="guitar-card__image" width="68" height="190" />
+
+              <ul className="guitar-card__stars">
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStar /></li>
+                <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+              </ul>
+              <p className="guitar-card__reviews-count">21</p>
+
+              <a href="#" className="guitar-card__more">Подробнее</a>
+              <a href="#" className="guitar-card__buy">Купить</a>
+
+            </article>
+          </li>
+        </ul>
       </section>
     </main>
   )
