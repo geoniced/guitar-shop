@@ -1,0 +1,65 @@
+.page-footer {
+  font-size: 10px;
+  color: $white;
+  background-color: $black-faded;
+}
+
+.page-footer__section-title {
+  font-size: 14px;
+  line-height: 44px;
+  letter-spacing: 0.1em;
+
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+.page-footer__about-text {
+  line-height: 12px;
+}
+
+.page-footer__catalog-guitars {
+  @include list-reset;
+}
+
+.page-footer__catalog-guitars-link {
+  line-height: 20px;
+  letter-spacing: 0.1em;
+  color: $white;
+  text-decoration: none;
+
+  @include basic-interactions;
+}
+
+.page-footer__info {
+  @include list-reset;
+}
+
+.page-footer__info-link {
+  line-height: 20px;
+  letter-spacing: 0.1em;
+  color: $white;
+  text-decoration: none;
+
+  @include basic-interactions;
+}
+
+
+.page-footer__contacts-address {
+  line-height: 12px;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+.page-footer__contacts-phone {
+  line-height: 13px;
+  color: $white;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+
+  @include basic-interactions;
+}
+
+.page-footer__contacts-schedule {
+  line-height: 12px;
+  letter-spacing: 0.1em;
+}

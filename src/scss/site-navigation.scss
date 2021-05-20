@@ -10,12 +10,5 @@
   color: $black;
   text-decoration: none;
 
-  &:hover,
-  &:focus {
-    color: $link-hover;
-  }
-
-  &:active {
-    color: $link-active;
-  }
+  @include link-interactions;
 }
