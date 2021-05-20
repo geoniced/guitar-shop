@@ -1,0 +1,21 @@
+.site-navigation {
+  @include list-reset;
+
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.site-navigation__link {
+  color: $black;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link-hover;
+  }
+
+  &:active {
+    color: $link-active;
+  }
+}
