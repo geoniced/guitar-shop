@@ -1,8 +1,26 @@
-.page-content__title {
+.page-content {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
+}
+
+.page-content__title {
+  margin: 0;
+  margin-bottom: 20px;
 
   font-size: 22px;
   line-height: 26px;
+}
+
+.page-content__wrapper {
+  display: flex;
+}
+
+.page-content__guitar-filters {
+  width: 208px;
+  margin-right: 32px;
+}
+
+.page-content__guitar-catalog {
+  width: 699px;
 }

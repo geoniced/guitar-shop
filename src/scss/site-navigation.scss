@@ -1,9 +1,19 @@
 .site-navigation {
   @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
 
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.05em;
+}
+
+.site-navigation__item {
+  margin-right: 40px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .site-navigation__link {

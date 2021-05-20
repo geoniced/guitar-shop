@@ -1,5 +1,15 @@
 .breadcrumbs {
   @include list-reset;
+
+  display: flex;
+}
+
+.breadcrumbs__item {
+  margin-right: 10px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .breadcrumbs__link {
