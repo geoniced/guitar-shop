@@ -58,6 +58,12 @@ img {
   height: auto;
 }
 
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
 input[type="radio"].visually-hidden {
