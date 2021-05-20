@@ -14,12 +14,12 @@ const PageContent = () => {
     <main className="page-content">
       <h1 className="page-content__title">Каталог гитар</h1>
 
-      <ul className="page-content__breadcrumbs">
-        <li className="page-content__breadcrumbs__item">
-          <a href="#" className="page-content__breadcrumbs__link">Главная</a>
+      <ul className="page-content__breadcrumbs breadcrumbs">
+        <li className="breadcrumbs__item">
+          <a href="#" className="breadcrumbs__link">Главная</a>
         </li>
-        <li className="page-content__breadcrumbs__item">
-          <a className="page-content__breadcrumbs__link page-content__breadcrumbs__link--current">Каталог</a>
+        <li className="breadcrumbs__item">
+          <a className="breadcrumbs__link breadcrumbs__link--current">Каталог</a>
         </li>
       </ul>
 

@@ -2,9 +2,15 @@
 @import "./mixins.scss";
 @import "./scaffolding.scss";
 
+@import "./button.scss";
+
 @import "./page-header.scss";
 @import "./site-navigation.scss";
 @import "./user-navigation.scss";
+
+@import "./page-content.scss";
+@import "./breadcrumbs.scss";
+@import "./guitar-filters.scss";
 
 @import "./page-footer.scss";
 @import "./socials.scss";

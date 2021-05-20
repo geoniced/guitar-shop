@@ -1,0 +1,40 @@
+.guitar-filters__title {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.guitar-filters__fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.guitar-filters__legend {
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: bold;
+}
+
+.guitar-filters__numeric-input {
+  font-size: 14px;
+  line-height: 10px;
+  letter-spacing: 0.05em;
+
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.guitar-filters__checkbox-label {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.guitar-filters__show {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  background-color: $gray;
+}
