@@ -9,6 +9,8 @@ import {ReactComponent as IconStarHalf} from "../../assets/img/icon-star-half.sv
 import {ReactComponent as IconStarEmpty} from "../../assets/img/icon-star-empty.svg";
 import {ReactComponent as IconArrowRight} from "../../assets/img/icon-arrow-right.svg";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
+import {ReactComponent as IconArrowUp} from "../../assets/img/icon-arrow-up.svg";
+import {ReactComponent as IconArrowDown} from "../../assets/img/icon-arrow-down.svg";
 
 
 const PageContent = () => {
@@ -98,12 +100,14 @@ const PageContent = () => {
 
             <ul className="sorting__sort-orders">
               <li className="sorting__sort-order-item">
-                <a href="#" className="sort-order-button">
+                <a href="#" className="sorting__sort-order-button">
+                  <IconArrowUp className="sorting__sort-order-icon" />
                   <span className="visually-hidden">От меньшего к большему</span>
                 </a>
               </li>
               <li className="sorting__sort-order-item">
-                <a href="#" className="sort-order-button">
+                <a href="#" className="sorting__sort-order-button">
+                  <IconArrowDown className="sorting__sort-order-icon" />
                   <span className="visually-hidden">От большего к меньшему</span>
                 </a>
               </li>

@@ -1,11 +1,32 @@
 .sorting {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  margin-bottom: 30px;
+
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.05em;
 }
 
+.sorting__text {
+  margin: 0;
+  margin-right: 19px;
+}
+
 .sorting__sort-types {
   @include list-reset;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sorting__sort-type-item {
+  margin-right: 34px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .sorting__sort-type-text {
@@ -20,4 +41,20 @@
 
 .sorting__sort-orders {
   @include list-reset;
+
+  display: grid;
+  max-width: 130px;
+  grid-template-columns: repeat(auto-fit, 22px);
+  gap: 14px;
+  margin-left: auto;
+}
+
+.sorting__sort-orders-item {
+  display: flex;
+}
+
+.sorting__sort-order-button {
+  display: flex;
+
+  @include basic-interactions;
 }
