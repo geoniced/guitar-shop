@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Droid Sans";
+  src:
+    url("../assets/fonts/droid-sans.woff2") format("woff2"),
+    url("../assets/fonts/droid-sans.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Droid Sans";
+  src:
+    url("../assets/fonts/droid-sans-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src:
+    url("../assets/fonts/poppins-regular.woff2") format("woff2"),
+    url("../assets/fonts/poppins-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Droid Sans", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  color: $black;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
