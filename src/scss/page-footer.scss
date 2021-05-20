@@ -1,10 +1,42 @@
 .page-footer {
   flex-shrink: 0;
   flex-basis: auto;
+  padding-top: 61px;
+  padding-bottom: 63px;
 
   font-size: 10px;
   color: $white;
   background-color: $black-faded;
+}
+
+.page-footer__wrapper {
+  display: flex;
+}
+
+.page-footer__column {
+  &--logo-with-socials {
+    width: 118px;
+    margin-right: 122px;
+  }
+
+  &--about {
+    width: 142px;
+    margin-right: 20px;
+  }
+
+  &--catalog {
+    width: 150px;
+    margin-right: 20px;
+  }
+
+  &--info {
+    width: 153px;
+  }
+
+  &--contacts {
+    width: 140px;
+    margin-left: auto;
+  }
 }
 
 .page-footer__section-title {
