@@ -6,7 +6,7 @@
   // Commented properties above and below make the same thing as grids do,
   // but I chose to practice grids :P
   display: grid;
-  width: 142px;
+  max-width: 142px;
   grid-template-columns: repeat(auto-fit, 40px);
   gap: 11px;
 }
