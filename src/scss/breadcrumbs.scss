@@ -7,6 +7,11 @@
 .breadcrumbs__item {
   margin-right: 10px;
 
+  &--arrow {
+    display: flex;
+    align-items: center;
+  }
+
   &:last-of-type {
     margin-right: 0;
   }

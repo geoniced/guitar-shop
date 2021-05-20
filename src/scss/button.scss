@@ -1,9 +1,14 @@
 .button {
+  display: inline-flex;
   color: $white;
   border: none;
   background-color: $gray;
+  border-radius: 2px;
+
 
   &--orange {
     background-color: $orange;
   }
+
+  @include basic-interactions;
 }
