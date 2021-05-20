@@ -4,7 +4,7 @@ import logo from "../../assets/img/logo.svg";
 const PageHeader = () => {
   return (
     <header className="page-header">
-      <nav className="page-header__main-navigation main-navigation">
+      <nav className="page-header__main-navigation main-navigation container">
         <a className="main-navigation__logo logo">
           <img className="logo__image" src={logo} alt="Логотип Guitar Shop" width="67" height="70"/>
         </a>
