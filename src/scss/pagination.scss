@@ -1,0 +1,24 @@
+.pagination {
+  @include list-reset;
+}
+
+.pagination__link {
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: $black;
+  border: 0.7px solid $darker-gray;
+  border-radius: 2px;
+
+  &--active,
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $black-lightest;
+    border-color: $black-lightest;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
+}

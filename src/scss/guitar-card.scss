@@ -1,0 +1,42 @@
+.guitar-card__title {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+
+.guitar-card__price {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.guitar-card__stars {
+  @include list-reset;
+}
+
+.guitar-card__reviews-count {
+  font-family: "Poppins", "Arial", sans-serif;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: $darker-gray;
+}
+
+.guitar-card__more {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.guitar-card__buy {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}

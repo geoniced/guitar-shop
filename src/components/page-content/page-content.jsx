@@ -79,19 +79,23 @@ const PageContent = () => {
 
           <ul className="sorting__sort-types">
             <li className="sorting__sort-type-item">
-              <a href="#" className="sorting__sort-type-text sorting__sort-type-text--price">по цене</a>
+              <a href="#" className="sorting__sort-type-text sorting__sort-type-text--price sorting__sort-type-text--active">по цене</a>
             </li>
             <li className="sorting__sort-type-item">
-              <a href="#" className="sorting__sort-type-text sorting__sort-type-text--popularity">по по популярности</a>
+              <a href="#" className="sorting__sort-type-text sorting__sort-type-text--popularity">по популярности</a>
             </li>
           </ul>
 
           <ul className="sorting__sort-orders">
             <li className="sorting__sort-order-item">
-              <a href="#" className="sort-order-button">От меньшего к большему</a>
+              <a href="#" className="sort-order-button">
+                <span className="visually-hidden">От меньшего к большему</span>
+              </a>
             </li>
             <li className="sorting__sort-order-item">
-              <a href="#" className="sort-order-button">От большего к меньшему</a>
+              <a href="#" className="sort-order-button">
+                <span className="visually-hidden">От большего к меньшему</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -112,8 +116,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">15</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -133,8 +137,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">9</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -154,8 +158,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">21</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -175,8 +179,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">15</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -196,8 +200,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">5</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -217,8 +221,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">17</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -238,8 +242,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">5</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -259,8 +263,8 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">27</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
@@ -280,16 +284,16 @@ const PageContent = () => {
               </ul>
               <p className="guitar-card__reviews-count">3</p>
 
-              <a href="#" className="guitar-card__more">Подробнее</a>
-              <a href="#" className="guitar-card__buy">Купить</a>
+              <a href="#" className="guitar-card__more button">Подробнее</a>
+              <a href="#" className="guitar-card__buy button button--orange">Купить</a>
 
             </article>
           </li>
         </ul>
 
         <ul className="guitar-catalog__pagination pagination">
-          <li className="pagination__item pagination__item--active">
-            <a className="pagination__link">1</a>
+          <li className="pagination__item">
+            <a className="pagination__link pagination__link--active">1</a>
           </li>
           <li className="pagination__item">
             <a href="#" className="pagination__link">2</a>

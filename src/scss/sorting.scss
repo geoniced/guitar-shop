@@ -1,0 +1,23 @@
+.sorting {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.sorting__sort-types {
+  @include list-reset;
+}
+
+.sorting__sort-type-text {
+  color: $black-lightest;
+
+  &--active {
+    color: $black;
+  }
+
+  @include link-interactions;
+}
+
+.sorting__sort-orders {
+  @include list-reset;
+}
