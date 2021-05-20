@@ -2,6 +2,10 @@
   @include list-reset;
   display: flex;
   flex-wrap: wrap;
+  max-width: 510px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
 
   font-size: 14px;
   line-height: 20px;
@@ -10,6 +14,7 @@
 
 .site-navigation__item {
   margin-right: 40px;
+  margin-bottom: 10px;
 
   &:last-of-type {
     margin-right: 0;

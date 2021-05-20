@@ -1,3 +1,29 @@
 .user-navigation {
   @include list-reset;
+
+  // display: flex;
+
+  // Commented properties above and below make the same thing as grids do,
+  // but I chose to practice grids :P
+  display: grid;
+  width: 142px;
+  grid-template-columns: repeat(auto-fit, 40px);
+  gap: 11px;
+}
+
+// .user-navigation__item {
+//   margin-right: 11px;
+
+//   &:last-of-type {
+//     margin-right: 0;
+//   }
+// }
+
+.user-navigation__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
 }

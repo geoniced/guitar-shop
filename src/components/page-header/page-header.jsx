@@ -1,5 +1,8 @@
 import React from "react";
 import logo from "../../assets/img/logo.svg";
+import {ReactComponent as IconMap} from "../../assets/img/icon-map.svg";
+import {ReactComponent as IconSearch} from "../../assets/img/icon-search.svg";
+import {ReactComponent as IconCart} from "../../assets/img/icon-basket.svg";
 
 const PageHeader = () => {
   return (
@@ -27,16 +30,19 @@ const PageHeader = () => {
         <ul className="main-navigation__user-navigation user-navigation">
           <li className="user-navigation__item">
             <a href="#" className="user-navigation__link">
+              <IconMap className="user-navigation__icon user-navigation__icon--map" />
               <span className="visually-hidden">Карта</span>
             </a>
           </li>
           <li className="user-navigation__item">
             <a href="#" className="user-navigation__link">
+              <IconSearch className="user-navigation__icon user-navigation__icon--search" />
               <span className="visually-hidden">Поиск</span>
             </a>
           </li>
           <li className="user-navigation__item">
             <a href="#" className="user-navigation__link">
+              <IconCart className="user-navigation__icon user-navigation__icon--cart" />
               <span className="visually-hidden">Корзина</span>
             </a>
           </li>
