@@ -1,4 +1,9 @@
 import logo from "../../assets/img/logo-footer.svg";
+import {ReactComponent as IconFacebook} from "../../assets/img/icon-facebook.svg";
+import {ReactComponent as IconInstagram} from "../../assets/img/icon-instagram.svg";
+import {ReactComponent as IconTwitter} from "../../assets/img/icon-twitter.svg";
+import {ReactComponent as IconPhone} from "../../assets/img/icon-phone.svg";
+import {ReactComponent as IconClock} from "../../assets/img/icon-clock.svg";
 
 const PageFooter = () => {
   return (
@@ -12,16 +17,19 @@ const PageFooter = () => {
           <ul className="page-footer__socials socials">
             <li className="socials__item">
               <a href="" className="socials__link">
+                <IconFacebook className="socials__icon" />
                 <span className="visually-hidden">Фейсбук</span>
               </a>
             </li>
             <li className="socials__item">
               <a href="" className="socials__link">
+                <IconInstagram className="socials__icon" />
                 <span className="visually-hidden">Инстаграм</span>
               </a>
             </li>
             <li className="socials__item">
               <a href="" className="socials__link">
+                <IconTwitter className="socials__icon" />
                 <span className="visually-hidden">Твиттер</span>
               </a>
             </li>
@@ -80,14 +88,20 @@ const PageFooter = () => {
         <div className="page-footer__column page-footer__column--contacts">
           <h2 className="page-footer__section-title">Контакты</h2>
           <address className="page-footer__contacts-address">
-            г. Санкт-Петербург,
-            м. Невский проспект, ул. Казанская 6.
+            г. Санкт-Петербург,<br />
+            м. Невский проспект,<br />
+            ул. Казанская 6.
           </address>
-          <a href="tel:88125005050" className="page-footer__contacts-phone">8-812-500-50-50</a>
+          <a href="tel:88125005050" className="page-footer__contacts-phone">
+            <IconPhone className="page-footer__contacts-phone-icon" />
+            8-812-500-50-50
+          </a>
 
           <p className="page-footer__contacts-schedule">
-            Режим работы:
-            с 11:00 до 20:00,
+            Режим работы: <br />
+            <span className="page-footer__contacts-schedule-time">
+              <IconClock className="page-footer__contacts-schedule-time-icon"/>с 11:00 до 20:00,
+            </span><br />
             без выходных.
           </p>
         </div>

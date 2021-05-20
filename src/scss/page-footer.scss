@@ -40,12 +40,23 @@
 }
 
 .page-footer__section-title {
+  margin: 0;
+  margin-bottom: 13px;
+
   font-size: 14px;
   line-height: 44px;
   letter-spacing: 0.1em;
 
   font-weight: normal;
   opacity: 0.7;
+}
+
+.page-footer__column--about .page-footer__section-title {
+  margin-bottom: 17px;
+}
+
+.page-footer__logo {
+  margin-bottom: 55px;
 }
 
 .page-footer__about-text {
@@ -86,12 +97,26 @@
 }
 
 .page-footer__contacts-phone {
+  display: grid;
+  grid-template-columns: 10px 1fr;
+  gap: 5px;
+
   line-height: 13px;
   color: $white;
   text-decoration: none;
   letter-spacing: 0.1em;
 
   @include basic-interactions;
+}
+
+.page-footer__contacts-phone-icon {
+  margin-top: 1px;
+}
+
+.page-footer__contacts-schedule-time {
+  display: grid;
+  grid-template-columns: 10px 1fr;
+  gap: 5px;
 }
 
 .page-footer__contacts-schedule {

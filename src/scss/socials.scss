@@ -1,3 +1,18 @@
 .socials {
   @include list-reset;
+
+  display: grid;
+  max-width: 118px;
+  grid-template-columns: repeat(auto-fit, 24px);
+  gap: 22px;
+
+  opacity: 0.65;
+}
+
+.socials__link {
+  display: flex;
+  width: 24px;
+  height: 24px;
+
+  @include basic-interactions;
 }
