@@ -4,15 +4,17 @@ import {ReactComponent as IconInstagram} from "../../assets/img/icon-instagram.s
 import {ReactComponent as IconTwitter} from "../../assets/img/icon-twitter.svg";
 import {ReactComponent as IconPhone} from "../../assets/img/icon-phone.svg";
 import {ReactComponent as IconClock} from "../../assets/img/icon-clock.svg";
+import Logo from "../logo/logo";
 
 const PageFooter = () => {
   return (
     <footer className="page-footer">
       <div className="page-footer__wrapper container">
         <div className="page-footer__column page-footer__column--logo-with-socials">
-          <a href="#" className="page-footer__logo logo">
-            <img src={logo} alt="Логотип Guitar Shop" className="logo__image" width="67" height="70" />
-          </a>
+          <Logo
+            className="page-footer__logo"
+            logo={logo}
+          />
 
           <ul className="page-footer__socials socials">
             <li className="socials__item">

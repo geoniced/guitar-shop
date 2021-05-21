@@ -5,18 +5,21 @@ import {ReactComponent as IconMap} from "../../assets/img/icon-map.svg";
 import {ReactComponent as IconSearch} from "../../assets/img/icon-search.svg";
 import {ReactComponent as IconCart} from "../../assets/img/icon-basket.svg";
 import {AppRoute} from "../../const";
+import Logo from "../logo/logo";
+import LinkToRoot from "../link-to-root/link-to-root";
 
 const PageHeader = () => {
   return (
     <header className="page-header">
       <nav className="page-header__main-navigation main-navigation container">
-        <a className="main-navigation__logo logo">
-          <img className="logo__image" src={logo} alt="Логотип Guitar Shop" width="67" height="70"/>
-        </a>
+        <Logo
+          className="main-navigation__logo"
+          logo={logo}
+        />
 
         <ul className="main-navigation__site-navigation site-navigation">
           <li className="site-navigation__item">
-            <Link to={AppRoute.ROOT} className="site-navigation__link">Каталог</Link>
+            <LinkToRoot className="site-navigation__link">Каталог</LinkToRoot>
           </li>
           <li className="site-navigation__item">
             <a href="#" className="site-navigation__link">Где купить?</a>
