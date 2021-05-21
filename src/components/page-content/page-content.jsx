@@ -117,189 +117,252 @@ const PageContent = () => {
           <ul className="guitar-catalog__guitars">
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Честер Bass</h3>
-                <p className="guitar-card__price">17 500 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Честер Bass</h3>
+                  <p className="guitar-card__price">17 500 ₽</p>
+                </div>
+
                 <img src={electroGuitar1} alt="Электрогитара Честер Bass" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarHalf /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">15</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarHalf /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">15</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">СURT Z300</h3>
-                <p className="guitar-card__price">29 500 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">СURT Z300</h3>
+                  <p className="guitar-card__price">29 500 ₽</p>
+                </div>
+
                 <img src={electroGuitar2} alt="Электрогитара СURT Z300" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarEmpty /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">9</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">9</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Roman LX</h3>
-                <p className="guitar-card__price">6 800 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Roman LX</h3>
+                  <p className="guitar-card__price">6 800 ₽</p>
+                </div>
+
                 <img src={ukulele1} alt="Укулеле Roman LX" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarEmpty /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">21</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">21</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">СURT T300</h3>
-                <p className="guitar-card__price">30 000 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">СURT T300</h3>
+                  <p className="guitar-card__price">30 000 ₽</p>
+                </div>
+
                 <img src={electroGuitar3} alt="Электрогитара СURT T300" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarHalf/></li>
-                </ul>
-                <p className="guitar-card__reviews-count">15</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarHalf/></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">15</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Dania Super</h3>
-                <p className="guitar-card__price">3 500 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Dania Super</h3>
+                  <p className="guitar-card__price">3 500 ₽</p>
+                </div>
+
                 <img src={ukulele2} alt="Укулеле Dania Super" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarEmpty /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">5</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">5</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Честер WX</h3>
-                <p className="guitar-card__price">15 300 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Честер WX</h3>
+                  <p className="guitar-card__price">15 300 ₽</p>
+                </div>
+
                 <img src={electroGuitar1} alt="Электрогитара Честер WX" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarHalf /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">17</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarHalf /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">17</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Dania VX</h3>
-                <p className="guitar-card__price">2 200 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Dania VX</h3>
+                  <p className="guitar-card__price">2 200 ₽</p>
+                </div>
+
                 <img src={ukulele1} alt="Укулеле Dania VX" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarEmpty /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">5</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">5</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Честер Plus</h3>
-                <p className="guitar-card__price">30 000 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Честер Plus</h3>
+                  <p className="guitar-card__price">30 000 ₽</p>
+                </div>
+
                 <img src={electroGuitar4} alt="Электрогитара Честер Plus" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">27</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">27</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>
 
             <li className="guitar-catalog__guitar-item">
               <article className="guitar-catalog__guitar guitar-card">
-                <h3 className="guitar-card__title">Виолана 300</h3>
-                <p className="guitar-card__price">1 700 ₽</p>
+                <div className="guitar-card__title-with-price-wrapper">
+                  <h3 className="guitar-card__title">Виолана 300</h3>
+                  <p className="guitar-card__price">1 700 ₽</p>
+                </div>
+
                 <img src={ukulele2} alt="Укулеле Виолана 300" className="guitar-card__image" width="68" height="190" />
 
-                <ul className="guitar-card__stars">
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStar /></li>
-                  <li className="guitar-card__stars-item"><IconStarEmpty /></li>
-                </ul>
-                <p className="guitar-card__reviews-count">3</p>
+                <div className="guitar-card__review-stars-wrapper">
+                  <ul className="guitar-card__stars">
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStar /></li>
+                    <li className="guitar-card__stars-item"><IconStarEmpty /></li>
+                  </ul>
+                  <p className="guitar-card__reviews-count">3</p>
+                </div>
 
-                <a href="#" className="guitar-card__more button">Подробнее</a>
-                <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                <div className="guitar-card__buttons-wrapper">
+                  <a href="#" className="guitar-card__more button">Подробнее</a>
+                  <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+                </div>
 
               </article>
             </li>

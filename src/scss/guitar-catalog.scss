@@ -1,3 +1,8 @@
 .guitar-catalog__guitars {
   @include list-reset;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 220px);
+  column-gap: 20px;
+  row-gap: 30px;
 }

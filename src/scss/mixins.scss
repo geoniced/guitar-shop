@@ -15,6 +15,32 @@
   }
 }
 
+@mixin gray-button-interactions {
+  &:hover,
+  &:focus {
+    background-color: $black-lightest;
+    opacity: 1;
+  }
+
+  &:active {
+    background-color: $darker-gray;
+    opacity: 1;
+  }
+}
+
+@mixin orange-button-interactions {
+  &:hover,
+  &:focus {
+    background-color: $lighter-orange;
+    opacity: 1;
+  }
+
+  &:active {
+    background-color: $darker-orange;
+    opacity: 1;
+  }
+}
+
 // there were no states for such links in figma
 @mixin basic-interactions {
   &:hover,
