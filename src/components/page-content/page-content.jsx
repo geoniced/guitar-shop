@@ -1,6 +1,7 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
 import {AppRoute} from "../../const";
+import CartPage from "../cart-page/cart-page";
 import GuitarCatalogPage from "../guitar-catalog-page/guitar-catalog-page";
 
 const PageContent = () => {
@@ -16,7 +17,7 @@ const PageContent = () => {
         exact
         path={AppRoute.CART}
       >
-        <div>TODO</div>
+        <CartPage />
       </Route>
     </Switch>
   )

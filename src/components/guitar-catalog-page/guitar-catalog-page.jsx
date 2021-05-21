@@ -1,3 +1,5 @@
+import React from "react";
+import {Link} from "react-router-dom";
 import electroGuitar1 from "../../assets/img/electro-1.png";
 import electroGuitar2 from "../../assets/img/electro-2.png";
 import electroGuitar3 from "../../assets/img/electro-3.png";
@@ -11,6 +13,7 @@ import {ReactComponent as IconArrowRight} from "../../assets/img/icon-arrow-righ
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
 import {ReactComponent as IconArrowUp} from "../../assets/img/icon-arrow-up.svg";
 import {ReactComponent as IconArrowDown} from "../../assets/img/icon-arrow-down.svg";
+import {AppRoute} from "../../const";
 
 
 const GuitarCatalogPage = () => {
@@ -20,7 +23,7 @@ const GuitarCatalogPage = () => {
 
       <ul className="page-content__breadcrumbs breadcrumbs">
         <li className="breadcrumbs__item">
-          <a href="#" className="breadcrumbs__link">Главная</a>
+          <Link to={AppRoute.ROOT} className="breadcrumbs__link">Главная</Link>
         </li>
         <li className="breadcrumbs__item breadcrumbs__item--arrow">
           <IconArrowRight className="breadcrumbs__arrow" />
@@ -30,7 +33,7 @@ const GuitarCatalogPage = () => {
         </li>
       </ul>
 
-      <div className="page-content__wrapper">
+      <div className="page-content__catalog-wrapper">
         <section className="page-content__guitar-filters guitar-filters">
           <h2 className="guitar-filters__title">Фильтр</h2>
 
