@@ -1,8 +1,10 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import {ReactComponent as IconMap} from "../../assets/img/icon-map.svg";
 import {ReactComponent as IconSearch} from "../../assets/img/icon-search.svg";
 import {ReactComponent as IconCart} from "../../assets/img/icon-basket.svg";
+import {AppRoute} from "../../const";
 
 const PageHeader = () => {
   return (
@@ -14,7 +16,7 @@ const PageHeader = () => {
 
         <ul className="main-navigation__site-navigation site-navigation">
           <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Каталог</a>
+            <Link to={AppRoute.ROOT} className="site-navigation__link">Каталог</Link>
           </li>
           <li className="site-navigation__item">
             <a href="#" className="site-navigation__link">Где купить?</a>
@@ -41,10 +43,10 @@ const PageHeader = () => {
             </a>
           </li>
           <li className="user-navigation__item">
-            <a href="#" className="user-navigation__link">
+            <Link to={AppRoute.CART} className="user-navigation__link">
               <IconCart className="user-navigation__icon user-navigation__icon--cart" />
               <span className="visually-hidden">Корзина</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
