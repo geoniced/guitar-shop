@@ -5,6 +5,13 @@
   justify-content: space-between;
 }
 
+.guitar-info-card__description-column {
+  align-items: center;
+
+  display: flex;
+  width: 298px;
+}
+
 .guitar-info-card__title {
   margin: 0;
   margin-bottom: 14px;
@@ -26,6 +33,7 @@
 
 .guitar-info-card__guitar-info {
   margin: 0;
+  margin-bottom: 20px;
 
   font-size: 14px;
   line-height: 15px;
@@ -33,8 +41,21 @@
 }
 
 .guitar-info-card__guitar-price {
+  margin: 0;
+
   font-size: 20px;
   line-height: 15px;
   font-weight: bold;
   letter-spacing: 0.05em;
+}
+
+.guitar-info-card__image {
+  order: -1;
+  margin-right: 40px;
+}
+
+.guitar-info-card__buttons-column {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
 }

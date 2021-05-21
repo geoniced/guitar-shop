@@ -13,10 +13,13 @@ const DeleteFromCartPopup = () => {
 
       <article className="delete-from-cart-popup__guitar-info-card guitar-info-card">
         <div className="guitar-info-card__description-column">
-          <h3 className="guitar-info-card__title">Гитара Честер bass</h3>
-          <p className="guitar-info-card__vendor-code">Артикул: SO757575</p>
-          <p className="guitar-info-card__guitar-info">Электрогитара, 6 струнная</p>
-          <p className="guitar-info-card__guitar-price">Цена: 17 500 ₽</p>
+          <div className="guitar-info-card__characteristics">
+            <h3 className="guitar-info-card__title">Гитара Честер bass</h3>
+            <p className="guitar-info-card__vendor-code">Артикул: SO757575</p>
+            <p className="guitar-info-card__guitar-info">Электрогитара, 6 струнная</p>
+            <p className="guitar-info-card__guitar-price">Цена: 17 500 ₽</p>
+          </div>
+
           <img className="guitar-info-card__image" src={electroGuitar1} alt="Гитара Честер bass" width="56" height="128" />
         </div>
 
