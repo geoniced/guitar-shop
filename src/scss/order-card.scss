@@ -1,4 +1,24 @@
+.order-card {
+  display: flex;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0.7px solid $light-gray;
+
+  &:last-of-type {
+    border-bottom: 0.7px solid $light-gray;
+  }
+}
+
+.order-card__guitar-info-wrapper {
+  width: 255px;
+  margin-right: 97px;
+}
+
 .order-card__title {
+  margin: 0;
+  margin-bottom: 14px;
+
   font-size: 16px;
   line-height: 15px;
   letter-spacing: 0.05em;
@@ -6,33 +26,101 @@
 }
 
 .order-card__vendor-code {
+  margin: 0;
+  margin-bottom: 6px;
+
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.05em;
 }
 
 .order-card__guitar-info {
+  margin: 0;
+
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.05em;
 }
 
+.order-card__image {
+  order: -1;
+  margin-right: 68px;
+}
+
 .order-card__original-price {
+  align-self: center;
+
+  margin: 0;
+  margin-right: 85px;
+
   font-size: 20px;
   line-height: 15px;
   letter-spacing: 0.05em;
 }
 
+.order-card__amount-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 28px);
+}
+
+.order-card__amount-button {
+  @include button-reset;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 30px;
+  border: 1px solid $darker-gray;
+
+  @include basic-interactions;
+}
+
 .order-card__amount-input {
+  width: 28px;
+  height: 30px;
+
   color: $darker-gray;
   font-size: 16px;
   line-height: 15px;
   letter-spacing: 0.05em;
+  text-align: center;
+
+  border: none;
+  border-top: 1px solid $darker-gray;
+  border-bottom: 1px solid $darker-gray;
+
+  @include basic-hover;
+}
+
+.order-card__amount-input::-webkit-outer-spin-button,
+.order-card__amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .order-card__total-price {
+  align-self: center;
+
+  margin: 0;
+  margin-left: auto;
+
   font-size: 20px;
   line-height: 15px;
   font-weight: bold;
   letter-spacing: 0.05em;
+}
+
+.order-card__delete-order {
+  @include button-reset;
+
+  align-self: flex-start;
+  order: -2;
+
+  display: flex;
+  width: 18px;
+  height: 18px;
+  margin-right: 25px;
+
+  @include basic-interactions;
 }

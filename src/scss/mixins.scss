@@ -4,6 +4,12 @@
   list-style: none;
 }
 
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
 @mixin link-interactions {
   &:hover,
   &:focus {
@@ -41,12 +47,16 @@
   }
 }
 
-// there were no states for such links in figma
-@mixin basic-interactions {
+@mixin basic-hover {
   &:hover,
   &:focus {
     opacity: 0.7;
   }
+}
+
+// there were no states for such links in figma
+@mixin basic-interactions {
+  @include basic-hover;
 
   &:active {
     opacity: 0.4;

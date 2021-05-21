@@ -1,6 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {ReactComponent as IconArrowRight} from "../../assets/img/icon-arrow-right.svg";
+import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
+import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
+import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 import {AppRoute} from "../../const";
 import electroGuitar1 from "../../assets/img/electro-1.png";
 import electroGuitar2 from "../../assets/img/electro-2.png";
@@ -34,9 +37,11 @@ const CartPage = () => {
         <form action="#" className="cart-checkout__form">
           <ul className="cart-checkout__orders">
             <li className="cart-checkout__order-item order-card">
-              <h3 className="order-card__title">ЭлектроГитара Честер bass</h3>
-              <p className="order-card__vendor-code">Артикул: SO757575</p>
-              <p className="order-card__guitar-info">Электрогитара, 6 струнная</p>
+              <div className="order-card__guitar-info-wrapper">
+                <h3 className="order-card__title">ЭлектроГитара Честер bass</h3>
+                <p className="order-card__vendor-code">Артикул: SO757575</p>
+                <p className="order-card__guitar-info">Электрогитара, 6 струнная</p>
+              </div>
 
               <img className="order-card__image" src={electroGuitar1} alt="ЭлектроГитара Честер bass" width="48" height="124" />
 
@@ -45,10 +50,12 @@ const CartPage = () => {
               <div className="order-card__amount-wrapper">
                 <label htmlFor="checkout-order-amount-1" className="visually-hidden">Количество товара</label>
                 <button className="order-card__amount-button order-card__amount-button--minus" type="button">
+                  <IconMinus className="order-card__amount-icon" />
                   <span className="visually-hidden">Уменьшить</span>
                 </button>
-                <input className="order-card__amount-input" type="number" name="checkout-order-amount-1" id="checkout-order-amount-1" />
+                <input className="order-card__amount-input" type="number" name="checkout-order-amount-1" id="checkout-order-amount-1" placeholder="1" />
                 <button className="order-card__amount-button order-card__amount-button--plus" type="button">
+                  <IconPlus className="order-card__amount-icon" />
                   <span className="visually-hidden">Увеличить</span>
                 </button>
               </div>
@@ -56,15 +63,17 @@ const CartPage = () => {
               <p className="order-card__total-price">17 500 ₽</p>
 
               <button className="order-card__delete-order" type="button">
-
+                <IconCross className="order-card__delete-icon" />
                 <span className="visually-hidden">Удалить товар</span>
               </button>
             </li>
 
             <li className="cart-checkout__order-item order-card">
-              <h3 className="order-card__title">Электрогитара СURT Z300</h3>
-              <p className="order-card__vendor-code">Артикул: AO757599</p>
-              <p className="order-card__guitar-info">Электрогитара, 6 струнная</p>
+              <div className="order-card__guitar-info-wrapper">
+                <h3 className="order-card__title">Электрогитара СURT Z300</h3>
+                <p className="order-card__vendor-code">Артикул: AO757599</p>
+                <p className="order-card__guitar-info">Электрогитара, 6 струнная</p>
+              </div>
 
               <img className="order-card__image" src={electroGuitar2} alt="Электрогитара СURT Z300" width="48" height="124" />
 
@@ -73,10 +82,12 @@ const CartPage = () => {
               <div className="order-card__amount-wrapper">
                 <label htmlFor="checkout-order-amount-2" className="visually-hidden">Количество товара</label>
                 <button className="order-card__amount-button order-card__amount-button--minus" type="button">
+                  <IconMinus className="order-card__amount-icon" />
                   <span className="visually-hidden">Уменьшить</span>
                 </button>
-                <input className="order-card__amount-input" type="number" name="checkout-order-amount-2" id="checkout-order-amount-2" />
+                <input className="order-card__amount-input" type="number" name="checkout-order-amount-2" id="checkout-order-amount-2" placeholder="1" />
                 <button className="order-card__amount-button order-card__amount-button--plus" type="button">
+                  <IconPlus className="order-card__amount-icon" />
                   <span className="visually-hidden">Увеличить</span>
                 </button>
               </div>
@@ -84,7 +95,7 @@ const CartPage = () => {
               <p className="order-card__total-price">29 500 ₽</p>
 
               <button className="order-card__delete-order" type="button">
-
+                <IconCross className="order-card__delete-icon" />
                 <span className="visually-hidden">Удалить товар</span>
               </button>
             </li>

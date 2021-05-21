@@ -47,6 +47,8 @@
   letter-spacing: 0.05em;
 
   color: rgba(0, 0, 0, 0.6);
+
+  @include basic-hover;
 }
 
 .guitar-filters__price-separator {
@@ -63,6 +65,9 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  // TODO: change to values from figma
+  @include basic-interactions;
 }
 
 .guitar-filters__show {
