@@ -1,0 +1,47 @@
+.cart-checkout__orders {
+  @include list-reset;
+}
+
+.cart-checkout__promocode-title {
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.cart-checkout__promocode-description {
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.cart-checkout__promocode-input {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.cart-checkout__apply-promocode {
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+
+  @include gray-button-interactions;
+}
+
+.cart-checkout__order-total-sum {
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.cart-checkout__order-submit {
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+
+  @include orange-button-interactions;
+}

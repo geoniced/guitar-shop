@@ -47,7 +47,7 @@ const CartPage = () => {
                 <button className="order-card__amount-button order-card__amount-button--minus" type="button">
                   <span className="visually-hidden">Уменьшить</span>
                 </button>
-                <input type="number" name="checkout-order-amount-1" id="checkout-order-amount-1" />
+                <input className="order-card__amount-input" type="number" name="checkout-order-amount-1" id="checkout-order-amount-1" />
                 <button className="order-card__amount-button order-card__amount-button--plus" type="button">
                   <span className="visually-hidden">Увеличить</span>
                 </button>
@@ -75,7 +75,7 @@ const CartPage = () => {
                 <button className="order-card__amount-button order-card__amount-button--minus" type="button">
                   <span className="visually-hidden">Уменьшить</span>
                 </button>
-                <input type="number" name="checkout-order-amount-2" id="checkout-order-amount-2" />
+                <input className="order-card__amount-input" type="number" name="checkout-order-amount-2" id="checkout-order-amount-2" />
                 <button className="order-card__amount-button order-card__amount-button--plus" type="button">
                   <span className="visually-hidden">Увеличить</span>
                 </button>
@@ -94,13 +94,14 @@ const CartPage = () => {
             <h3 className="cart-checkout__promocode-title">Промокод на скидку</h3>
             <p className="cart-checkout__promocode-description">Введите свой промокод, если он у вас есть.</p>
 
-            <input className="cart-checkout__promocode-input" type="text" name="checkout-order-promocode" id="checkout-order-promocode" />
-            <button className="cart-checkout__apply-promocode" type="button">Применить купон</button>
+            <label htmlFor="checkout-order-promocode" className="visually-hidden">Промокод:</label>
+            <input className="cart-checkout__promocode-input" type="text" name="checkout-order-promocode" id="checkout-order-promocode" defaultValue="GITARAHIT"/>
+            <button className="cart-checkout__apply-promocode button" type="button">Применить купон</button>
           </section>
 
           <div className="cart-checkout__order-total">
             <p className="cart-checkout__order-total-sum">Всего: 47 000 ₽ </p>
-            <button type="submit">Оформить заказ</button>
+            <button className="cart-checkout__order-submit button button--orange" type="submit">Оформить заказ</button>
           </div>
         </form>
       </section>

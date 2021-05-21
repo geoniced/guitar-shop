@@ -1,0 +1,38 @@
+.order-card__title {
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.order-card__vendor-code {
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.order-card__guitar-info {
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.order-card__original-price {
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.order-card__amount-input {
+  color: $darker-gray;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+}
+
+.order-card__total-price {
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
