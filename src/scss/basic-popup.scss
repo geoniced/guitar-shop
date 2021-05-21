@@ -1,0 +1,19 @@
+.basic-popup {
+  background-color: $white;
+  box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
+  border-radius: 4px;
+}
+
+.basic-popup__title {
+  font-size: 18px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+  color: $black-lighter;
+}
+
+.basic-popup__button {
+  font-size: 16px;
+  line-height: 15px;
+
+  letter-spacing: 0.05em;
+}

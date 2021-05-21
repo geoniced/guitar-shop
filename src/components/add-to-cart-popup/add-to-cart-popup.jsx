@@ -21,7 +21,7 @@ const AddToCartPopup = () => {
         </div>
 
         <div className="guitar-info-card__buttons-column">
-          <button className="guitar-info-card__add button button--orange" type="button">Добавить в корзину</button>
+          <button className="basic-popup__button button button--orange" type="button">Добавить в корзину</button>
         </div>
       </article>
     </div>
