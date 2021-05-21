@@ -38,7 +38,10 @@
 .guitar-card__image {
   order: -1;
   align-self: center;
+  width: 68px;
+  height: 190px;
   margin-bottom: 8px;
+  object-fit: cover;
 }
 
 .guitar-card__review-stars-wrapper {

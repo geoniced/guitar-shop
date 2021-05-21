@@ -1,8 +1,25 @@
 .pagination {
   @include list-reset;
+
+  align-self: flex-end;
+  display: flex;
+}
+
+.pagination__item {
+  margin-right: 14px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .pagination__link {
+  display: flex;
+  padding-top: 2px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-left: 9px;
+
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.05em;
