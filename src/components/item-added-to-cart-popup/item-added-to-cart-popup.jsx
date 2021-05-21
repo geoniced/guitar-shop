@@ -11,8 +11,8 @@ const ItemAddedToCartPopup = () => {
       </a>
 
       <div className="item-added-to-cart-popup__buttons-wrapper">
-        <button className="basic-popup__button button button--orange" type="button">Перейти в корзину</button>
-        <button className="basic-popup__button button button--white" type="button">Продолжить покупки</button>
+        <button className="item-added-to-cart-popup__button basic-popup__button button button--orange" type="button">Перейти в корзину</button>
+        <button className="item-added-to-cart-popup__button basic-popup__button button button--white" type="button">Продолжить покупки</button>
       </div>
     </div>
   );

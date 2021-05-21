@@ -1,4 +1,12 @@
 .basic-popup {
+  position: relative;
+
+  width: 740px;
+  padding-top: 30px;
+  padding-right: 50px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+
   background-color: $white;
   box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
   border-radius: 4px;
@@ -9,6 +17,12 @@
   line-height: 15px;
   letter-spacing: 0.02em;
   color: $black-lighter;
+}
+
+.basic-popup__close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .basic-popup__button {

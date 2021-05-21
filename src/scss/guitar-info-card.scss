@@ -1,5 +1,9 @@
 // title, vendor-code and info are the same as in order-card.scss
 // TODO: make these styles the same
+.guitar-info-card {
+  display: flex;
+  justify-content: space-between;
+}
 
 .guitar-info-card__title {
   margin: 0;

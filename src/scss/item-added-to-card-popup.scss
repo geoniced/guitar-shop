@@ -1,0 +1,14 @@
+.item-added-to-cart-popup__buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item-added-to-cart-popup__button {
+  margin-right: 37px;
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
