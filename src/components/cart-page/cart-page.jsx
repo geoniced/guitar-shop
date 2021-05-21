@@ -90,18 +90,20 @@ const CartPage = () => {
             </li>
           </ul>
 
-          <section className="cart-checkout__promocode">
-            <h3 className="cart-checkout__promocode-title">Промокод на скидку</h3>
-            <p className="cart-checkout__promocode-description">Введите свой промокод, если он у вас есть.</p>
+          <div className="cart-checkout__order-wrapper">
+            <section className="cart-checkout__promocode">
+              <h3 className="cart-checkout__promocode-title">Промокод на скидку</h3>
+              <p className="cart-checkout__promocode-description">Введите свой промокод, если он у вас есть.</p>
 
-            <label htmlFor="checkout-order-promocode" className="visually-hidden">Промокод:</label>
-            <input className="cart-checkout__promocode-input" type="text" name="checkout-order-promocode" id="checkout-order-promocode" defaultValue="GITARAHIT"/>
-            <button className="cart-checkout__apply-promocode button" type="button">Применить купон</button>
-          </section>
+              <label htmlFor="checkout-order-promocode" className="visually-hidden">Промокод:</label>
+              <input className="cart-checkout__promocode-input" type="text" name="checkout-order-promocode" id="checkout-order-promocode" defaultValue="GITARAHIT"/>
+              <button className="cart-checkout__apply-promocode button" type="button">Применить купон</button>
+            </section>
 
-          <div className="cart-checkout__order-total">
-            <p className="cart-checkout__order-total-sum">Всего: 47 000 ₽ </p>
-            <button className="cart-checkout__order-submit button button--orange" type="submit">Оформить заказ</button>
+            <div className="cart-checkout__order-total">
+              <p className="cart-checkout__order-total-sum">Всего: 47 000 ₽ </p>
+              <button className="cart-checkout__order-submit button button--orange" type="submit">Оформить заказ</button>
+            </div>
           </div>
         </form>
       </section>
