@@ -2,16 +2,16 @@ import React from "react";
 import electroGuitar1 from "../../assets/img/electro-1.png";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 
-const AddToCartPopup = () => {
+const DeleteFromCartPopup = () => {
   return (
-    <div className="basic-popup add-to-cart-popup">
-      <h2 className="basic-popup__title">Добавить товар в корзину</h2>
+    <div className="basic-popup delete-from-cart-popup">
+      <h2 className="basic-popup__title">Удалить этот товар? </h2>
       <a className="basic-popup__close-button" href="#">
         <IconCross className="basic-popup__close-icon" />
         <span className="visually-hidden">Закрыть окно</span>
       </a>
 
-      <article className="add-to-cart-popup__guitar-info-card guitar-info-card">
+      <article className="delete-from-cart-popup__guitar-info-card guitar-info-card">
         <div className="guitar-info-card__description-column">
           <h3 className="guitar-info-card__title">Гитара Честер bass</h3>
           <p className="guitar-info-card__vendor-code">Артикул: SO757575</p>
@@ -21,11 +21,12 @@ const AddToCartPopup = () => {
         </div>
 
         <div className="guitar-info-card__buttons-column">
-          <button className="guitar-info-card__add button button--orange" type="button">Добавить в корзину</button>
+          <button className="guitar-info-card__delete-item button button--orange" type="button">Удалить товар</button>
+          <button className="guitar-info-card__continue button button--white" type="button">Продолжить покупки</button>
         </div>
       </article>
     </div>
   );
 };
 
-export default AddToCartPopup;
+export default DeleteFromCartPopup;
