@@ -19,12 +19,12 @@
   &::after {
     content: "";
     position: absolute;
-    top: calc(100% - 32px);
-    right: 0;
+    top: calc(100% - 38px);
+    right: -53px;
     width: 878px;
-    height: 282px;
+    height: 298px;
 
     background-image: url("../assets/img/header-guitar.png");
-    background-size: 878px 282px;
+    background-repeat: no-repeat;
   }
 }

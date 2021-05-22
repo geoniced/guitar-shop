@@ -6,9 +6,9 @@
   // Commented properties above and below make the same thing as grids do,
   // but I chose to practice grids :P
   display: grid;
-  max-width: 142px;
-  grid-template-columns: repeat(auto-fit, 40px);
-  gap: 11px;
+  max-width: 146px;
+  grid-template-columns: 40px 40px 44px;
+  gap: 10px;
 }
 
 // .user-navigation__item {
@@ -32,12 +32,17 @@
 
   &--cart {
     position: relative;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10px;
+    padding-top: 10px;
   }
 }
 
 .user-navigation__cart-items-number {
   position: absolute;
-  left: 30px;
+  left: 29px;
   top: 10px;
   width: 30px;
 
