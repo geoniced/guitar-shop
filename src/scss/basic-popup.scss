@@ -13,9 +13,12 @@
 }
 
 .basic-popup__title {
+  margin: 0;
+  margin-bottom: 22px;
+
   font-size: 18px;
   line-height: 15px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.043em;
   color: $black-lighter;
 }
 

@@ -6,10 +6,14 @@
 }
 
 .guitar-info-card__description-column {
-  align-items: center;
+  align-items: flex-start;
 
   display: flex;
   width: 298px;
+}
+
+.guitar-info-card__characteristics {
+  margin-top: 17px;
 }
 
 .guitar-info-card__title {
@@ -18,46 +22,53 @@
 
   font-size: 16px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .guitar-info-card__vendor-code {
   margin: 0;
   margin-bottom: 6px;
+  padding-left: 1px;
 
   font-size: 14px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.065em;
 }
 
 .guitar-info-card__guitar-info {
   margin: 0;
   margin-bottom: 20px;
+  padding-left: 1px;
 
   font-size: 14px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.076em;
 }
 
 .guitar-info-card__guitar-price {
   margin: 0;
+  padding-left: 1px;
 
   font-size: 20px;
   line-height: 15px;
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .guitar-info-card__image {
   order: -1;
+  margin-top: 0;
+  height: 139px;
   margin-right: 40px;
+  object-fit: none;
 }
 
 .guitar-info-card__buttons-column {
   display: flex;
   flex-direction: column;
   width: 220px;
+  padding-top: 17px;
 }
 
 .guitar-info-card__button {
@@ -66,4 +77,13 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+}
+
+.guitar-info-card__add-button {
+  padding-top: 14px;
+  padding-right: 12px;
+  padding-bottom: 17px;
+  padding-left: 11px;
+
+  letter-spacing: 0.075em;
 }

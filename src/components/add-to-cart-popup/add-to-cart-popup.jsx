@@ -1,5 +1,5 @@
 import React from "react";
-import electroGuitar1 from "../../assets/img/electro-1.png";
+import electroGuitar1 from "../../assets/img/electro-1-small.png";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 
 const AddToCartPopup = () => {
@@ -24,7 +24,7 @@ const AddToCartPopup = () => {
         </div>
 
         <div className="guitar-info-card__buttons-column">
-          <button className="basic-popup__button button button--orange" type="button">Добавить в корзину</button>
+          <button className="guitar-info-card__add-button basic-popup__button button button--orange" type="button">Добавить в корзину</button>
         </div>
       </article>
     </div>
