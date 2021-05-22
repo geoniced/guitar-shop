@@ -103,7 +103,7 @@ const PageFooter = () => {
             Режим работы: <br />
             <span className="page-footer__contacts-schedule-time">
               <IconClock className="page-footer__contacts-schedule-time-icon"/>с 11:00 до 20:00,
-            </span><br />
+            </span>
             без выходных.
           </p>
         </div>

@@ -4,7 +4,7 @@
   flex-shrink: 0;
   flex-basis: auto;
   padding-top: 61px;
-  padding-bottom: 63px;
+  padding-bottom: 52px;
 
   font-size: 10px;
   color: $white;
@@ -23,12 +23,12 @@
 
   &--about {
     width: 142px;
-    margin-right: 20px;
+    margin-right: 18px;
   }
 
   &--catalog {
     width: 150px;
-    margin-right: 20px;
+    margin-right: 12px;
   }
 
   &--info {
@@ -43,18 +43,33 @@
 
 .page-footer__section-title {
   margin: 0;
-  margin-bottom: 13px;
+  margin-bottom: 0;
+  padding-top: 6px;
 
   font-size: 14px;
   line-height: 44px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
 
   font-weight: normal;
   opacity: 0.7;
 }
 
 .page-footer__column--about .page-footer__section-title {
-  margin-bottom: 17px;
+  margin-bottom: 2px;
+}
+
+.page-footer__column--catalog .page-footer__section-title {
+  line-height: 42px;
+}
+
+.page-footer__column--info .page-footer__section-title {
+  line-height: 40px;
+  padding-top: 9px;
+}
+
+.page-footer__column--contacts .page-footer__section-title {
+  line-height: 40px;
+  padding-top: 9px;
 }
 
 .page-footer__logo {
@@ -62,7 +77,11 @@
 }
 
 .page-footer__about-text {
+  margin: 0;
+  margin-bottom: 12px;
+
   line-height: 12px;
+  letter-spacing: 0.035em
 }
 
 .page-footer__catalog-guitars {
@@ -71,7 +90,7 @@
 
 .page-footer__catalog-guitars-link {
   line-height: 20px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   color: $white;
   text-decoration: none;
 
@@ -93,15 +112,18 @@
 
 
 .page-footer__contacts-address {
+  margin-bottom: 1px;
+
   line-height: 12px;
   font-style: normal;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.125em;
 }
 
 .page-footer__contacts-phone {
   display: grid;
   grid-template-columns: 10px 1fr;
   gap: 5px;
+  margin-bottom: 12px;
 
   line-height: 13px;
   color: $white;
@@ -122,6 +144,8 @@
 }
 
 .page-footer__contacts-schedule {
+  margin: 0;
+
   line-height: 12px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
 }
