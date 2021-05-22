@@ -1,5 +1,5 @@
 .cart-checkout {
-  margin-top: 20px;
+  margin-top: 27px;
 }
 
 .cart-checkout__orders {
@@ -15,20 +15,20 @@
 
 .cart-checkout__promocode-title {
   margin: 0;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
 
   font-size: 16px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
 }
 
 .cart-checkout__promocode-description {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 19px;
 
   font-size: 12px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
 }
 
 .cart-checkout__promocode-input-wrapper {
@@ -62,7 +62,7 @@
   font-size: 16px;
   line-height: 15px;
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
 
   @include gray-button-interactions;
 }
@@ -77,11 +77,13 @@
   align-self: flex-end;
   margin: 0;
   margin-bottom: 44px;
+  padding-right: 4px;
 
   font-size: 20px;
   line-height: 15px;
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  text-align: end;
 }
 
 .cart-checkout__order-submit {
@@ -93,7 +95,7 @@
   font-size: 16px;
   line-height: 15px;
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
 
   @include orange-button-interactions;
 }

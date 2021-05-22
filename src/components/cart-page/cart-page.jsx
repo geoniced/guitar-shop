@@ -5,8 +5,8 @@ import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 import {AppRoute} from "../../const";
-import electroGuitar1 from "../../assets/img/electro-1.png";
-import electroGuitar2 from "../../assets/img/electro-2.png";
+import electroGuitar1 from "../../assets/img/electro-1-small.png";
+import electroGuitar2 from "../../assets/img/electro-2-small.png";
 
 const CartPage = () => {
   return (

@@ -2,7 +2,7 @@
   display: flex;
 
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 16px;
   border-top: 0.7px solid $light-gray;
 
   &:last-of-type {
@@ -11,8 +11,8 @@
 }
 
 .order-card__guitar-info-wrapper {
-  width: 255px;
-  margin-right: 97px;
+  width: 265px;
+  margin-right: 92px;
 }
 
 .order-card__title {
@@ -21,25 +21,27 @@
 
   font-size: 16px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.073em;
   text-transform: uppercase;
 }
 
 .order-card__vendor-code {
   margin: 0;
   margin-bottom: 6px;
+  padding-left: 1px;
 
   font-size: 14px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.065em;
 }
 
 .order-card__guitar-info {
   margin: 0;
+  padding-left: 1px;
 
   font-size: 14px;
   line-height: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.076em;
 }
 
 .order-card__image {
@@ -47,7 +49,10 @@
   order: -1;
 
   width: 48px;
+  height: 127px;
+  margin-left: 1px;
   margin-right: 68px;
+  object-fit: none;
 }
 
 .order-card__original-price {
@@ -55,6 +60,7 @@
 
   width: 87px;
   margin: 0;
+  margin-top: 3px;
   margin-right: 85px;
 
   font-size: 20px;
@@ -64,8 +70,9 @@
 
 .order-card__amount-wrapper {
   display: grid;
+  grid-template-columns: 28px 26px 28px;
   width: 84px;
-  grid-template-columns: repeat(3, 28px);
+  margin-top: 20px;
 }
 
 .order-card__amount-button {
@@ -106,12 +113,14 @@
 
   width: 87px;
   margin: 0;
+  margin-top: 3px;
   margin-left: auto;
 
   font-size: 20px;
   line-height: 15px;
   font-weight: bold;
   letter-spacing: 0.05em;
+  text-align: end;
 }
 
 .order-card__delete-order {
