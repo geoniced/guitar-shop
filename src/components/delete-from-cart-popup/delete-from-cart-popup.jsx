@@ -24,8 +24,8 @@ const DeleteFromCartPopup = () => {
         </div>
 
         <div className="guitar-info-card__buttons-column">
-          <button className="basic-popup__button button button--orange" type="button">Удалить товар</button>
-          <button className="basic-popup__button button button--white" type="button">Продолжить покупки</button>
+          <button className="guitar-info-card__button basic-popup__button button button--orange" type="button">Удалить товар</button>
+          <button className="guitar-info-card__button basic-popup__button button button--white" type="button">Продолжить покупки</button>
         </div>
       </article>
     </div>

@@ -59,3 +59,11 @@
   flex-direction: column;
   width: 220px;
 }
+
+.guitar-info-card__button {
+  margin-bottom: 16px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
