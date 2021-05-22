@@ -1,6 +1,11 @@
+.item-added-to-cart-popup {
+  padding-bottom: 34px;
+}
+
 .item-added-to-cart-popup__buttons-wrapper {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin-top: 40px;
 }
@@ -8,6 +13,7 @@
 .item-added-to-cart-popup__button {
   margin-right: 37px;
   margin-bottom: 20px;
+  padding-top: 13px;
 
   &:last-of-type {
     margin-right: 0;
