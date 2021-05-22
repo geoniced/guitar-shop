@@ -1,4 +1,6 @@
 .page-content {
+  position: relative;
+
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
@@ -10,6 +12,28 @@
     margin-top: 237px;
   }
 
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    width: 868px;
+    height: 279px;
+
+    background-image: url("../assets/img/footer-guitar.png");
+    background-size: 868px 279px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+
+    background-image: url("../assets/img/footer-guitar-string.svg");
+  }
 }
 
 .page-content__title {
