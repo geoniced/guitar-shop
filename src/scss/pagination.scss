@@ -6,9 +6,10 @@
 }
 
 .pagination__item {
-  margin-right: 14px;
+  margin-right: 11px;
 
   &:last-of-type {
+    margin-left: 3px;
     margin-right: 0;
   }
 }
@@ -16,9 +17,9 @@
 .pagination__link {
   display: flex;
   padding-top: 2px;
-  padding-right: 8px;
-  padding-bottom: 2px;
-  padding-left: 9px;
+  padding-right: 7px;
+  padding-bottom: 0;
+  padding-left: 7px;
 
   font-size: 12px;
   line-height: 20px;
@@ -26,6 +27,17 @@
   color: $black;
   border: 0.7px solid $darker-gray;
   border-radius: 2px;
+
+  &--dots {
+    padding-left: 5px;
+
+    font-family: "Poppins", "Arial", sans-serif;
+  }
+
+  &--next {
+    padding-right: 21px;
+    padding-left: 20px;
+  }
 
   &--active,
   &:hover,

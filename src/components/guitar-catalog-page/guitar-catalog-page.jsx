@@ -402,13 +402,13 @@ const GuitarCatalogPage = () => {
                 <a href="#" className="pagination__link">2</a>
               </li>
               <li className="pagination__item">
-                <a className="pagination__link">...</a>
+                <a className="pagination__link pagination__link--dots">...</a>
               </li>
               <li className="pagination__item">
                 <a href="#" className="pagination__link">7</a>
               </li>
               <li className="pagination__item">
-                <a href="#" className="pagination__link">Далее</a>
+                <a href="#" className="pagination__link pagination__link--next">Далее</a>
               </li>
             </ul>
           </section>
