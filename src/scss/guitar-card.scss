@@ -4,10 +4,10 @@
 
   width: 220px;
   min-height: 304px;
-  padding-top: 16px;
-  padding-right: 14px;
-  padding-bottom: 20px;
-  padding-left: 14px;
+  padding-top: 15px;
+  padding-right: 13px;
+  padding-bottom: 19px;
+  padding-left: 13px;
 
   border: 1px solid $light-gray;
 }
@@ -15,7 +15,7 @@
 .guitar-card__title-with-price-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 13px;
 }
 
 .guitar-card__title {
@@ -40,8 +40,8 @@
   align-self: center;
   width: 68px;
   height: 190px;
-  margin-bottom: 8px;
-  object-fit: cover;
+  margin-bottom: 6px;
+  object-fit: none;
 }
 
 .guitar-card__review-stars-wrapper {
@@ -49,7 +49,7 @@
 
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 1px;
 }
 
 .guitar-card__stars {
@@ -59,7 +59,7 @@
   grid-template-columns: repeat(auto-fit, 12px);
   gap: 2px;
   max-width: 68px;
-  margin-right: 3px;
+  margin-right: 4px;
 }
 
 .guitar-card__reviews-count {
@@ -78,7 +78,10 @@
 }
 
 .guitar-card__more {
-  padding: 4px 9px;
+  padding-top: 4px;
+  padding-right: 11px;
+  padding-bottom: 4px;
+  padding-left: 9px;
 
   font-size: 12px;
   line-height: 15px;
@@ -89,7 +92,10 @@
 }
 
 .guitar-card__buy {
-  padding: 4px 10px;
+  padding-top: 4px;
+  padding-right: 15px;
+  padding-bottom: 4px;
+  padding-left: 10px;
 
   font-size: 12px;
   line-height: 15px;
@@ -100,7 +106,7 @@
     content: "";
     width: 12px;
     height: 12px;
-    margin-right: 4px;
+    margin-right: 5px;
 
     background-image: url("../assets/img/icon-cart.svg");
   }
