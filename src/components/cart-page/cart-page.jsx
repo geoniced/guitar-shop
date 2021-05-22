@@ -10,7 +10,7 @@ import electroGuitar2 from "../../assets/img/electro-2.png";
 
 const CartPage = () => {
   return (
-    <main className="page-content container">
+    <main className="page-content page-content--basket container">
       <h1 className="page-content__title">Корзина</h1>
 
       <ul className="page-content__breadcrumbs breadcrumbs">
