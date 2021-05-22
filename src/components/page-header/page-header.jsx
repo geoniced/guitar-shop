@@ -46,9 +46,10 @@ const PageHeader = () => {
             </a>
           </li>
           <li className="user-navigation__item">
-            <Link to={AppRoute.CART} className="user-navigation__link">
+            <Link to={AppRoute.CART} className="user-navigation__link user-navigation__link--cart">
               <IconCart className="user-navigation__icon user-navigation__icon--cart" />
               <span className="visually-hidden">Корзина</span>
+              <span className="user-navigation__cart-items-number">2</span>
             </Link>
           </li>
         </ul>

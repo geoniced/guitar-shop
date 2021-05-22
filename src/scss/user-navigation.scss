@@ -28,5 +28,20 @@
   height: 40px;
 
   @include basic-interactions;
+
+  &--cart {
+    position: relative;
+  }
 }
 
+.user-navigation__cart-items-number {
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  width: 30px;
+
+  font-size: 10px;
+  line-height: 12px;
+  color: $red;
+  word-break: break-word;
+}
