@@ -6,7 +6,7 @@
   flex-basis: auto;
 
   margin-top: 214px;
-  padding-bottom: 140px;
+  padding-bottom: 139px;
 
   &--basket {
     margin-top: 237px;
@@ -15,13 +15,13 @@
   &::before {
     content: "";
     position: absolute;
-    bottom: -200px;
+    bottom: -194px;
     left: 0;
-    width: 868px;
+    width: 800px;
     height: 279px;
 
     background-image: url("../assets/img/footer-guitar.png");
-    background-size: 868px 279px;
+    background-repeat: no-repeat;
   }
 
   &::after {
