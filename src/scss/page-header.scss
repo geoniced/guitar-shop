@@ -20,11 +20,12 @@
     content: "";
     position: absolute;
     top: calc(100% - 38px);
-    right: -53px;
-    width: 878px;
+    right: 0;
+    width: 825px;
     height: 298px;
 
     background-image: url("../assets/img/header-guitar.png");
     background-repeat: no-repeat;
+    overflow-x: hidden;
   }
 }
