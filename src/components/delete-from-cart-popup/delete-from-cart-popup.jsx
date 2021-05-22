@@ -1,5 +1,5 @@
 import React from "react";
-import electroGuitar1 from "../../assets/img/electro-1.png";
+import electroGuitar1 from "../../assets/img/electro-1-small.png";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 
 const DeleteFromCartPopup = () => {
