@@ -13,6 +13,7 @@ import {ReactComponent as IconArrowRight} from "../../assets/img/icon-arrow-righ
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
 import {ReactComponent as IconArrowUp} from "../../assets/img/icon-arrow-up.svg";
 import {ReactComponent as IconArrowDown} from "../../assets/img/icon-arrow-down.svg";
+import {ReactComponent as IconCheckbox} from "../../assets/img/icon-checkbox-box.svg";
 import {AppRoute} from "../../const";
 
 
@@ -56,29 +57,50 @@ const GuitarCatalogPage = () => {
               <legend className="guitar-filters__legend">Тип гитар</legend>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-type-acoustic" id="filters-type-acoustic" />
-              <label htmlFor="filters-type-acoustic" className="guitar-filters__checkbox-label">Акустические гитары</label>
+              <label htmlFor="filters-type-acoustic" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                Акустические гитары
+              </label>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-type-electro" id="filters-type-electro" defaultChecked />
-              <label htmlFor="filters-type-electro" className="guitar-filters__checkbox-label">Электрогитары</label>
+              <label htmlFor="filters-type-electro" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                Электрогитары
+              </label>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-type-ukulele" id="filters-type-ukulele" defaultChecked />
-              <label htmlFor="filters-type-ukulele" className="guitar-filters__checkbox-label">Укулеле</label>
+              <label htmlFor="filters-type-ukulele" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                Укулеле
+              </label>
             </fieldset>
 
             <fieldset className="guitar-filters__fieldset">
               <legend className="guitar-filters__legend">Количество струн</legend>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-4" id="filters-strings-4" defaultChecked />
-              <label htmlFor="filters-strings-4" className="guitar-filters__checkbox-label">4</label>
+              <label htmlFor="filters-strings-4" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                4
+              </label>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-6" id="filters-strings-6" defaultChecked />
-              <label htmlFor="filters-strings-6" className="guitar-filters__checkbox-label">6</label>
+              <label htmlFor="filters-strings-6" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                6
+              </label>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-7" id="filters-strings-7" />
-              <label htmlFor="filters-strings-7" className="guitar-filters__checkbox-label">7</label>
+              <label htmlFor="filters-strings-7" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                7
+              </label>
 
               <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-12" id="filters-strings-12" disabled />
-              <label htmlFor="filters-strings-12" className="guitar-filters__checkbox-label">12</label>
+              <label htmlFor="filters-strings-12" className="guitar-filters__checkbox-label">
+                <IconCheckbox className="guitar-filters__checkbox-icon" />
+                12
+              </label>
             </fieldset>
 
             <button className="guitar-filters__show button" type="submit">Показать</button>

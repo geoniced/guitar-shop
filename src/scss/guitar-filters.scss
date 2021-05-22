@@ -65,6 +65,11 @@
 }
 
 .guitar-filters__checkbox-label {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  min-height: 24px;
   margin-bottom: 12px;
   padding-left: 40px;
 
@@ -74,9 +79,51 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+}
 
-  // TODO: change to values from figma
-  @include basic-interactions;
+.guitar-filters__checkbox-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 24px;
+  height: 24px;
+  stroke: $darker-gray;
+}
+
+.guitar-filters__checkbox-label:hover .guitar-filters__checkbox-icon,
+.guitar-filters__checkbox-label:focus .guitar-filters__checkbox-icon {
+  stroke: $black-lightest;
+}
+
+.guitar-filters__checkbox-label:active .guitar-filters__checkbox-icon {
+  stroke: $gray;
+}
+
+.guitar-filters__checkbox:checked + .guitar-filters__checkbox-label::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+
+  background-image: url("../assets/img/icon-checkbox-tick.svg");
+}
+
+.guitar-filters__checkbox:disabled + .guitar-filters__checkbox-label {
+  color: $light-gray-alt;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+  }
+}
+
+.guitar-filters__checkbox:disabled + .guitar-filters__checkbox-label .guitar-filters__checkbox-icon {
+  fill: $white-gray;
+  stroke: $light-gray-alt;
 }
 
 .guitar-filters__show {
