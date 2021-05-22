@@ -26,8 +26,9 @@
 
   width: 40px;
   height: 40px;
+  color: $black;
 
-  @include basic-interactions;
+  @include link-interactions;
 
   &--cart {
     position: relative;
