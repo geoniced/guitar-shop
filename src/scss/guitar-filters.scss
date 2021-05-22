@@ -42,13 +42,22 @@
 }
 
 .guitar-filters__numeric-input {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+
   font-size: 14px;
   line-height: 10px;
   letter-spacing: 0.05em;
+  text-align: center;
 
   color: rgba(0, 0, 0, 0.6);
+  border: 0.7px solid $darker-gray;
+  border-radius: 2px;
 
   @include basic-hover;
+  @include input-number-spin-reset;
 }
 
 .guitar-filters__price-separator {

@@ -96,12 +96,7 @@
   border-bottom: 1px solid $darker-gray;
 
   @include basic-hover;
-}
-
-.order-card__amount-input::-webkit-outer-spin-button,
-.order-card__amount-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  @include input-number-spin-reset;
 }
 
 .order-card__total-price {

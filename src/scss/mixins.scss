@@ -10,6 +10,14 @@
   background-color: transparent;
 }
 
+@mixin input-number-spin-reset {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 @mixin link-interactions {
   &:hover,
   &:focus {
