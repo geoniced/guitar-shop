@@ -20,11 +20,19 @@ const Sorting = (props) => {
   const onSortTypeClick = (evt) => {
     const sortType = evt.currentTarget.dataset.sortType;
 
+    if (!currentSortingType) {
+      changeSortingOrderAction(SortingOrder.ASC);
+    }
+
     changeSortingTypeAction(sortType);
   };
 
   const onSortOrderClick = (evt) => {
     const sortOrder = evt.currentTarget.dataset.sortOrder;
+
+    if (!currentSortingType) {
+      changeSortingTypeAction(SortingType.PRICE);
+    }
 
     changeSortingOrderAction(sortOrder);
   };
