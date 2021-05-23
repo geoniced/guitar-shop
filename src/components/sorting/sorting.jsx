@@ -1,14 +1,32 @@
 import React from "react";
 import {connect} from "react-redux";
-import {ReactComponent as IconArrowUp} from "../../assets/img/icon-arrow-up.svg";
-import {ReactComponent as IconArrowDown} from "../../assets/img/icon-arrow-down.svg";
-import {SortingType} from "../../const";
+import {SortingOrder, SortingType} from "../../const";
 import SortTypeItem from "../sort-type-item/sort-type-item";
+import {changeSortingOrder, changeSortingType} from "../../store/actions";
+import SortOrderItem from "../sort-order-item/sort-order-item";
 
 const Sorting = (props) => {
-  const {currentSortingType} = props;
+  const {
+    currentSortingType,
+    currentSortingOrder,
+    changeSortingTypeAction,
+    changeSortingOrderAction,
+  } = props;
 
   const sortTypes = Object.values(SortingType);
+  const sortOrders = Object.values(SortingOrder);
+
+  const onSortTypeClick = (evt) => {
+    const sortType = evt.currentTarget.dataset.sortType;
+
+    changeSortingTypeAction(sortType);
+  };
+
+  const onSortOrderClick = (evt) => {
+    const sortOrder = evt.currentTarget.dataset.sortOrder;
+
+    changeSortingOrderAction(sortOrder);
+  };
 
   return (
     <div className="guitar-catalog__sorting sorting">
@@ -22,23 +40,20 @@ const Sorting = (props) => {
             key={`sort-type-item-${i}`}
             isActive={currentSortingType === sortType}
             type={sortType}
+            onClick={onSortTypeClick}
           />
         ))}
       </ul>
 
       <ul className="sorting__sort-orders">
-        <li className="sorting__sort-order-item">
-          <a href="#" className="sorting__sort-order-button">
-            <IconArrowUp className="sorting__sort-order-icon" />
-            <span className="visually-hidden">От меньшего к большему</span>
-          </a>
-        </li>
-        <li className="sorting__sort-order-item">
-          <a href="#" className="sorting__sort-order-button">
-            <IconArrowDown className="sorting__sort-order-icon" />
-            <span className="visually-hidden">От большего к меньшему</span>
-          </a>
-        </li>
+        {sortOrders.map((sortOrder, i) => (
+          <SortOrderItem
+            key={`sort-type-item-${i}`}
+            isActive={currentSortingOrder === sortOrder}
+            type={sortOrder}
+            onClick={onSortOrderClick}
+          />
+        ))}
       </ul>
     </div>
   );
@@ -46,6 +61,16 @@ const Sorting = (props) => {
 
 const mapStateToProps = (state) => ({
   currentSortingType: state.currentSortingType,
+  currentSortingOrder: state.currentSortingOrder,
 });
 
-export default connect(mapStateToProps)(Sorting);
+const mapDispatchToProps = (dispatch) => ({
+  changeSortingTypeAction(newType) {
+    dispatch(changeSortingType(newType));
+  },
+  changeSortingOrderAction(newOrder) {
+    dispatch(changeSortingOrder(newOrder));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sorting);

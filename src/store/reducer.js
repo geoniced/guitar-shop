@@ -5,6 +5,7 @@ import {ActionType} from "./actions";
 const initialState = {
   guitars: GUITARS,
   currentSortingType: null,
+  currentSortingOrder: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_SORTING_TYPE:
       return extend(state, {
         currentSortingType: action.payload,
+      });
+    case ActionType.CHANGE_SORTING_ORDER:
+      return extend(state, {
+        currentSortingOrder: action.payload,
       });
   }
 

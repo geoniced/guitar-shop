@@ -59,5 +59,11 @@
 .sorting__sort-order-button {
   display: flex;
 
+  color: $sort-order-inactive;
+
+  &--active {
+    color: $black;
+  }
+
   @include basic-interactions;
 }
