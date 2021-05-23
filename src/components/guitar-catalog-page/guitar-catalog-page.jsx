@@ -415,7 +415,7 @@ const GuitarCatalogPage = () => {
         </div>
       </div>
     </main>
-  )
+  );
 };
 
 export default GuitarCatalogPage;

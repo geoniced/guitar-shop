@@ -55,7 +55,7 @@ const PageHeader = () => {
         </ul>
       </nav>
     </header>
-  )
+  );
 };
 
 export default PageHeader;

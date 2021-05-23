@@ -123,7 +123,7 @@ const CartPage = () => {
         </section>
       </div>
     </main>
-  )
+  );
 };
 
 export default CartPage;

@@ -1,3 +1,4 @@
+import React from "react";
 import logo from "../../assets/img/logo-footer.svg";
 import {ReactComponent as IconFacebook} from "../../assets/img/icon-facebook.svg";
 import {ReactComponent as IconInstagram} from "../../assets/img/icon-instagram.svg";
@@ -109,7 +110,7 @@ const PageFooter = () => {
         </div>
       </div>
     </footer>
-  )
+  );
 };
 
 export default PageFooter;

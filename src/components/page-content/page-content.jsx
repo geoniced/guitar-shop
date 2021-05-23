@@ -20,7 +20,7 @@ const PageContent = () => {
         <CartPage />
       </Route>
     </Switch>
-  )
+  );
 };
 
 export default PageContent;
