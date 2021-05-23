@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
@@ -11,7 +10,6 @@ const GuitarCatalogBlock = (props) => {
   const {guitars} = props;
 
   const shownGuitars = guitars.slice(0, SHOWN_GUITARS_COUNT);
-  console.log(guitars[9]);
 
   return (
     <section className="page-content__guitar-catalog guitar-catalog">

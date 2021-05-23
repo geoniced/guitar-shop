@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {createSelector} from "reselect";
 import {GuitarSorting} from "../const";
 
