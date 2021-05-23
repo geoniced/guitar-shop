@@ -1,48 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
-import {ReactComponent as IconArrowUp} from "../../assets/img/icon-arrow-up.svg";
-import {ReactComponent as IconArrowDown} from "../../assets/img/icon-arrow-down.svg";
 import GuitarCard from "../guitar-card/guitar-card";
+import {SHOWN_GUITARS_COUNT} from "../../const";
+import Sorting from "../sorting/sorting";
 
 
 const GuitarCatalogBlock = (props) => {
   const {guitars} = props;
 
+  const shownGuitars = guitars.slice(0, SHOWN_GUITARS_COUNT);
+
   return (
     <section className="page-content__guitar-catalog guitar-catalog">
       <h2 className="visually-hidden">Список гитар</h2>
-      <div className="guitar-catalog__sorting sorting">
-        <p className="sorting__text">
-          Сортировать:
-        </p>
-
-        <ul className="sorting__sort-types">
-          <li className="sorting__sort-type-item">
-            <a href="#" className="sorting__sort-type-text sorting__sort-type-text--price sorting__sort-type-text--active">по цене</a>
-          </li>
-          <li className="sorting__sort-type-item">
-            <a href="#" className="sorting__sort-type-text sorting__sort-type-text--popularity">по популярности</a>
-          </li>
-        </ul>
-
-        <ul className="sorting__sort-orders">
-          <li className="sorting__sort-order-item">
-            <a href="#" className="sorting__sort-order-button">
-              <IconArrowUp className="sorting__sort-order-icon" />
-              <span className="visually-hidden">От меньшего к большему</span>
-            </a>
-          </li>
-          <li className="sorting__sort-order-item">
-            <a href="#" className="sorting__sort-order-button">
-              <IconArrowDown className="sorting__sort-order-icon" />
-              <span className="visually-hidden">От большего к меньшему</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Sorting />
 
       <ul className="guitar-catalog__guitars">
-        {guitars.map((guitar, i) => (
+        {shownGuitars.map((guitar, i) => (
           <GuitarCard
             key={`guitar-${i}`}
             name={guitar.name}
