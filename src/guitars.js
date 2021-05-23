@@ -1,4 +1,10 @@
 import {GuitarType, GuitarTypeName} from "./const";
+import electroGuitar1 from "./assets/img/electro-1.png";
+import electroGuitar2 from "./assets/img/electro-2.png";
+import electroGuitar3 from "./assets/img/electro-3.png";
+import electroGuitar4 from "./assets/img/electro-4.png";
+import ukulele1 from "./assets/img/ukulele-1.png";
+import ukulele2 from "./assets/img/ukulele-2.png";
 
 export const GUITARS = [
   {
@@ -8,6 +14,7 @@ export const GUITARS = [
     reviewsCount: 15,
     strings: 7,
     price: 17500,
+    image: electroGuitar1,
   },
   {
     vendorCode: `TK129049`,
@@ -16,6 +23,7 @@ export const GUITARS = [
     reviewsCount: 9,
     strings: 7,
     price: 29500,
+    image: electroGuitar2,
   },
   {
     vendorCode: `RO111111`,
@@ -24,6 +32,7 @@ export const GUITARS = [
     reviewsCount: 21,
     strings: 4,
     price: 6800,
+    image: ukulele1,
   },
   {
     vendorCode: `TK436457`,
@@ -32,6 +41,7 @@ export const GUITARS = [
     reviewsCount: 15,
     strings: 6,
     price: 30000,
+    image: electroGuitar3,
   },
   {
     vendorCode: `DI192138`,
@@ -40,6 +50,7 @@ export const GUITARS = [
     reviewsCount: 5,
     strings: 7,
     price: 3500,
+    image: ukulele2,
   },
   {
     vendorCode: `SO934345`,
@@ -48,6 +59,7 @@ export const GUITARS = [
     reviewsCount: 17,
     strings: 6,
     price: 15300,
+    image: electroGuitar1,
   },
   {
     vendorCode: `DI082347`,
@@ -56,6 +68,7 @@ export const GUITARS = [
     reviewsCount: 5,
     strings: 4,
     price: 2200,
+    image: ukulele1,
   },
   {
     vendorCode: `SO135646`,
@@ -64,6 +77,7 @@ export const GUITARS = [
     reviewsCount: 27,
     strings: 7,
     price: 30000,
+    image: electroGuitar4,
   },
   {
     vendorCode: `VO154751`,
@@ -72,6 +86,7 @@ export const GUITARS = [
     reviewsCount: 3,
     strings: 7,
     price: 1700,
+    image: ukulele2,
   },
   {
     vendorCode: `TK244556`,
@@ -80,6 +95,7 @@ export const GUITARS = [
     reviewsCount: 20,
     strings: 4,
     price: 23000,
+    image: electroGuitar1,
   },
   {
     vendorCode: `TK134663`,
@@ -88,6 +104,7 @@ export const GUITARS = [
     reviewsCount: 19,
     strings: 4,
     price: 18700,
+    image: electroGuitar1,
   },
   {
     vendorCode: `SO123212`,
@@ -96,6 +113,7 @@ export const GUITARS = [
     reviewsCount: 30,
     strings: 7,
     price: 35000,
+    image: electroGuitar1,
   },
   {
     vendorCode: `SO123234`,
@@ -104,6 +122,7 @@ export const GUITARS = [
     reviewsCount: 28,
     strings: 6,
     price: 14900,
+    image: electroGuitar1,
   },
   {
     vendorCode: `VO519510`,
@@ -112,6 +131,7 @@ export const GUITARS = [
     reviewsCount: 7,
     strings: 6,
     price: 7600,
+    image: ukulele2,
   },
   {
     vendorCode: `VO457369`,
@@ -120,6 +140,7 @@ export const GUITARS = [
     reviewsCount: 19,
     strings: 6,
     price: 6500,
+    image: ukulele2,
   },
   {
     vendorCode: `FB625903`,
@@ -128,6 +149,7 @@ export const GUITARS = [
     reviewsCount: 26,
     strings: 7,
     price: 12000,
+    image: ukulele2,
   },
   {
     vendorCode: `FB576948`,
@@ -136,6 +158,7 @@ export const GUITARS = [
     reviewsCount: 31,
     strings: 7,
     price: 9900,
+    image: ukulele2,
   },
   {
     vendorCode: `LU012032`,
@@ -144,6 +167,7 @@ export const GUITARS = [
     reviewsCount: 28,
     strings: 12,
     price: 8900,
+    image: ukulele2,
   },
   {
     vendorCode: `LU546853`,
@@ -152,6 +176,7 @@ export const GUITARS = [
     reviewsCount: 34,
     strings: 12,
     price: 10500,
+    image: ukulele2,
   },
   {
     vendorCode: `LU458283`,
@@ -160,6 +185,7 @@ export const GUITARS = [
     reviewsCount: 9,
     strings: 6,
     price: 13300,
+    image: ukulele2,
   },
   {
     vendorCode: `RO324341`,
@@ -168,6 +194,7 @@ export const GUITARS = [
     reviewsCount: 37,
     strings: 4,
     price: 4800,
+    image: ukulele1,
   },
   {
     vendorCode: `RO214235`,
@@ -176,6 +203,7 @@ export const GUITARS = [
     reviewsCount: 5,
     strings: 4,
     price: 1900,
+    image: ukulele1,
   },
   {
     vendorCode: `DI132414`,
@@ -184,6 +212,7 @@ export const GUITARS = [
     reviewsCount: 23,
     strings: 4,
     price: 2500,
+    image: ukulele1,
   },
   {
     vendorCode: `DI934754`,
@@ -192,6 +221,7 @@ export const GUITARS = [
     reviewsCount: 3,
     strings: 4,
     price: 3800,
+    image: ukulele1,
   },
   {
     vendorCode: `DI034292`,
@@ -200,6 +230,7 @@ export const GUITARS = [
     reviewsCount: 10,
     strings: 4,
     price: 4100,
+    image: ukulele1,
   },
   {
     vendorCode: `MI193214`,
@@ -208,6 +239,7 @@ export const GUITARS = [
     reviewsCount: 14,
     strings: 4,
     price: 2700,
+    image: ukulele1,
   },
   {
     vendorCode: `VO043244`,
@@ -216,5 +248,6 @@ export const GUITARS = [
     reviewsCount: 29,
     strings: 4,
     price: 6700,
+    image: ukulele1,
   },
 ];
