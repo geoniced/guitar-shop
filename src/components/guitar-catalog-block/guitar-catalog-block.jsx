@@ -1,14 +1,17 @@
+/* eslint-disable no-console */
 import React from "react";
 import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
 import {SHOWN_GUITARS_COUNT} from "../../const";
 import Sorting from "../sorting/sorting";
+import {getGuitarsSorted} from "../../store/selectors";
 
 
 const GuitarCatalogBlock = (props) => {
   const {guitars} = props;
 
   const shownGuitars = guitars.slice(0, SHOWN_GUITARS_COUNT);
+  console.log(guitars[9]);
 
   return (
     <section className="page-content__guitar-catalog guitar-catalog">
@@ -50,7 +53,7 @@ const GuitarCatalogBlock = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  guitars: state.guitars,
+  guitars: getGuitarsSorted(state),
 });
 
 export default connect(mapStateToProps)(GuitarCatalogBlock);

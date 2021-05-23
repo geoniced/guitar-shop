@@ -1,3 +1,5 @@
+import {SortingOrder} from "./const";
+
 export const extend = (a, b) => Object.assign({}, a, b);
 
 export const formatDecimal = (value) => {
@@ -11,3 +13,24 @@ export const formatDecimal = (value) => {
 export const formatDecimalWithRublesChar = (value) => {
   return `${formatDecimal(value)} ₽`;
 };
+
+export const createSortByProperty = (property) => (guitarA, guitarB) => guitarA[property] - guitarB[property];
+
+export const createSortingByProperty = (property, order) => {
+  return (guitarA, guitarB) => {
+    let result = guitarA[property] - guitarB[property];
+
+    if (order === SortingOrder.DESC) {
+      result *= -1;
+    }
+
+    return result;
+  };
+};
+
+export const createSortingByPrice = (order) => createSortingByProperty(`price`, order);
+export const createSortingByPopularity = (order) => createSortingByProperty(`reviewsCount`, order);
+
+
+export const sortByPrice = createSortByProperty(`price`);
+export const sortByPopularity = createSortByProperty(`reviewsCount`);

@@ -1,5 +1,6 @@
 import {ReactComponent as IconArrowUp} from "./assets/img/icon-arrow-up.svg";
 import {ReactComponent as IconArrowDown} from "./assets/img/icon-arrow-down.svg";
+import {createSortingByPopularity, createSortingByPrice} from "./utils";
 
 export const AppRoute = {
   ROOT: `/`,
@@ -39,3 +40,9 @@ export const SortingOrderData = {
 };
 
 export const SHOWN_GUITARS_COUNT = 9;
+
+
+export const GuitarSorting = {
+  [SortingType.PRICE]: (guitars, order) => guitars.sort(createSortingByPrice(order)),
+  [SortingType.POPULARITY]: (guitars, order) => guitars.sort(createSortingByPopularity(order)),
+};

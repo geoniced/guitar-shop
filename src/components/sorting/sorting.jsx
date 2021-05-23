@@ -4,6 +4,7 @@ import {SortingOrder, SortingType} from "../../const";
 import SortTypeItem from "../sort-type-item/sort-type-item";
 import {changeSortingOrder, changeSortingType} from "../../store/actions";
 import SortOrderItem from "../sort-order-item/sort-order-item";
+import {getCurrentSortingOrder, getCurrentSortingType} from "../../store/selectors";
 
 const Sorting = (props) => {
   const {
@@ -60,8 +61,8 @@ const Sorting = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  currentSortingType: state.currentSortingType,
-  currentSortingOrder: state.currentSortingOrder,
+  currentSortingType: getCurrentSortingType(state),
+  currentSortingOrder: getCurrentSortingOrder(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

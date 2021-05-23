@@ -3,6 +3,7 @@ import {extend} from "../utils";
 import {ActionType} from "./actions";
 
 const initialState = {
+  originalGuitars: GUITARS,
   guitars: GUITARS,
   currentSortingType: null,
   currentSortingOrder: null,
