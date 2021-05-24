@@ -7,10 +7,10 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import App from "./components/app/app";
 import "./scss/style.scss";
 import droidSans from "./assets/fonts/droid-sans.woff2";
-import {reducer} from "./store/reducer";
+import rootReducer from "./store/root-reducer";
 
 const store = createStore(
-    reducer,
+    rootReducer,
     composeWithDevTools()
 );
 
