@@ -1,4 +1,4 @@
-import {FilterOperation, SortingOrder} from "./const";
+import {FilterOperation, SortingOrder, StringsCount, StringsPerGuitar} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -67,4 +67,18 @@ export const createFilterChangeHandler = (action, filterValue) => {
 
     action(filterValue, operation, value);
   };
+};
+
+export const selectAdjacentStringsByType = ((accumulator, value) => {
+  StringsPerGuitar[value].forEach((item) => {
+    accumulator[item] = item;
+  });
+
+  return accumulator;
+});
+
+export const getAvailableStringsForCurrentGuitarTypes = (currentFilterTypes) => {
+  return currentFilterTypes.length
+    ? currentFilterTypes.reduce(selectAdjacentStringsByType, {})
+    : StringsCount;
 };

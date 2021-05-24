@@ -1,12 +1,14 @@
+/* eslint-disable no-console */
 import React from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
-import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, packNumberInMinMax} from "../../utils";
+import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, packNumberInMinMax} from "../../utils";
 import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
 import {connect} from "react-redux";
 import {getCurrentFilterGuitarTypes, getCurrentFilterGuitarStrings, getPriceFrom, getPriceTo} from "../../store/selectors";
 import {changeFilterGuitarStrings, changeFilterGuitarType, changeFilterPriceFrom, changeFilterPriceTo} from "../../store/actions";
+
 
 const GuitarFilters = (props) => {
   const {
@@ -22,6 +24,9 @@ const GuitarFilters = (props) => {
 
   const guitarTypes = Object.values(GuitarType);
   const stringsAmounts = Object.values(StringsCount);
+  const currentFilterTypes = Object.values(filterGuitarTypes);
+
+  const availableStringsForCurrentGuitarTypes = getAvailableStringsForCurrentGuitarTypes(currentFilterTypes);
 
   const onPriceFromChange = (evt) => {
     let newValue = Number(evt.target.value);
@@ -93,6 +98,7 @@ const GuitarFilters = (props) => {
               title={StringTextNumberMap[stringsAmount]}
               dataValue={stringsAmount}
               onChange={onFilterStringsChange}
+              disabled={!(stringsAmount in availableStringsForCurrentGuitarTypes)}
             />
           ))}
         </fieldset>

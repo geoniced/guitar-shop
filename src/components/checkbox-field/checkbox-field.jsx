@@ -8,6 +8,7 @@ const CheckboxField = (props) => {
     onChange,
     value,
     dataValue,
+    disabled,
   } = props;
 
   return (
@@ -20,6 +21,7 @@ const CheckboxField = (props) => {
         id={name}
         onChange={onChange}
         checked={value}
+        disabled={disabled}
       />
       <label htmlFor={name} className="guitar-filters__checkbox-label">
         <IconCheckbox className="guitar-filters__checkbox-icon" />
