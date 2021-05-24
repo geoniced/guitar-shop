@@ -13,13 +13,18 @@ export const getCurrentFilterGuitarStrings = (state) => state.FILTERS.currentFil
 
 export const getGuitarsSorted = createSelector(
     getOriginalGuitars,
+    getPriceFrom,
+    getPriceTo,
     getCurrentFilterGuitarTypes,
     getCurrentFilterGuitarStrings,
     getCurrentSortingType,
     getCurrentSortingOrder,
-    (guitars, guitarTypes, guitarStrings, sortingType, sortingOrder) => {
-      // Behavior when no filter option is checked
+    (guitars, priceFrom, priceTo, guitarTypes, guitarStrings, sortingType, sortingOrder) => {
       let filteredGuitars = guitars.slice();
+
+      filteredGuitars = filteredGuitars.filter((guitar) => guitar.price >= priceFrom && guitar.price <= priceTo);
+
+      // Behavior when no filter option is checked
       if (Object.keys(guitarTypes).length > 0) {
         filteredGuitars = filteredGuitars.filter((guitar) => guitar.type in guitarTypes);
       }
