@@ -46,3 +46,9 @@ export const GuitarSorting = {
   [SortingType.PRICE]: (guitars, order) => guitars.sort(createSortingByPrice(order)),
   [SortingType.POPULARITY]: (guitars, order) => guitars.sort(createSortingByPopularity(order)),
 };
+
+
+export const DefaultPrice = {
+  FROM: 1000,
+  TO: 30000,
+};

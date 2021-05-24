@@ -31,6 +31,13 @@ export const createSortingByProperty = (property, order) => {
 export const createSortingByPrice = (order) => createSortingByProperty(`price`, order);
 export const createSortingByPopularity = (order) => createSortingByProperty(`reviewsCount`, order);
 
-
 export const sortByPrice = createSortByProperty(`price`);
 export const sortByPopularity = createSortByProperty(`reviewsCount`);
+
+
+export const packNumberInMinMax = (value, min, max) => {
+  let newValue = value < min ? min : value;
+  newValue = newValue > max ? max : newValue;
+
+  return newValue;
+};
