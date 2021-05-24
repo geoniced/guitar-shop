@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {createSelector} from "reselect";
 import {GuitarSorting} from "../const";
 
@@ -12,10 +13,17 @@ export const getCurrentFilterGuitarStrings = (state) => state.FILTERS.currentFil
 
 export const getGuitarsSorted = createSelector(
     getOriginalGuitars,
+    getCurrentFilterGuitarTypes,
     getCurrentSortingType,
     getCurrentSortingOrder,
-    (guitars, sortingType, sortingOrder) => {
-      let sortedGuitars = guitars.slice();
+    (guitars, guitarTypes, sortingType, sortingOrder) => {
+      // Behavior when no filter option is checked
+      let filteredGuitars = guitars.slice();
+      if (Object.keys(guitarTypes).length > 0) {
+        filteredGuitars = filteredGuitars.filter((guitar) => guitar.type in guitarTypes);
+      }
+
+      let sortedGuitars = filteredGuitars.slice();
 
       if (sortingType) {
         sortedGuitars = GuitarSorting[sortingType](sortedGuitars, sortingOrder);

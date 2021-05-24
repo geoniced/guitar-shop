@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
-import {SHOWN_GUITARS_COUNT} from "../../const";
+import {SHOWN_GUITARS_COUNT, GuitarTypeName} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getGuitarsSorted} from "../../store/selectors";
 
@@ -23,7 +23,7 @@ const GuitarCatalogBlock = (props) => {
             name={guitar.name}
             price={guitar.price}
             image={guitar.image}
-            type={guitar.type}
+            type={GuitarTypeName[guitar.type]}
             reviewsCount={guitar.reviewsCount}
           />
         ))}

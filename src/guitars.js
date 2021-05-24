@@ -1,4 +1,4 @@
-import {GuitarType, GuitarTypeName} from "./const";
+import {GuitarType} from "./const";
 import electroGuitar1 from "./assets/img/electro-1.png";
 import electroGuitar2 from "./assets/img/electro-2.png";
 import electroGuitar3 from "./assets/img/electro-3.png";
@@ -10,7 +10,7 @@ export const GUITARS = [
   {
     vendorCode: `SO757575`,
     name: `Честер Bass`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 15,
     strings: 7,
     price: 17500,
@@ -19,7 +19,7 @@ export const GUITARS = [
   {
     vendorCode: `TK129049`,
     name: `СURT Z300`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 9,
     strings: 7,
     price: 29500,
@@ -28,7 +28,7 @@ export const GUITARS = [
   {
     vendorCode: `RO111111`,
     name: `Roman LX`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 21,
     strings: 4,
     price: 6800,
@@ -37,7 +37,7 @@ export const GUITARS = [
   {
     vendorCode: `TK436457`,
     name: `СURT T300`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 15,
     strings: 6,
     price: 30000,
@@ -46,7 +46,7 @@ export const GUITARS = [
   {
     vendorCode: `DI192138`,
     name: `Dania Super`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 5,
     strings: 7,
     price: 3500,
@@ -55,7 +55,7 @@ export const GUITARS = [
   {
     vendorCode: `SO934345`,
     name: `Честер WX `,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 17,
     strings: 6,
     price: 15300,
@@ -64,7 +64,7 @@ export const GUITARS = [
   {
     vendorCode: `DI082347`,
     name: `Dania VX`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 5,
     strings: 4,
     price: 2200,
@@ -73,7 +73,7 @@ export const GUITARS = [
   {
     vendorCode: `SO135646`,
     name: `Честер Plus `,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 27,
     strings: 7,
     price: 30000,
@@ -82,7 +82,7 @@ export const GUITARS = [
   {
     vendorCode: `VO154751`,
     name: `Виолана 300`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 3,
     strings: 7,
     price: 1700,
@@ -91,7 +91,7 @@ export const GUITARS = [
   {
     vendorCode: `TK244556`,
     name: `СURT Clasic`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 20,
     strings: 4,
     price: 23000,
@@ -100,7 +100,7 @@ export const GUITARS = [
   {
     vendorCode: `TK134663`,
     name: `СURT Z250`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 19,
     strings: 4,
     price: 18700,
@@ -109,7 +109,7 @@ export const GUITARS = [
   {
     vendorCode: `SO123212`,
     name: `Честер 7X`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 30,
     strings: 7,
     price: 35000,
@@ -118,7 +118,7 @@ export const GUITARS = [
   {
     vendorCode: `SO123234`,
     name: `Честер 6V`,
-    type: GuitarTypeName[GuitarType.ELECTRO],
+    type: GuitarType.ELECTRO,
     reviewsCount: 28,
     strings: 6,
     price: 14900,
@@ -127,7 +127,7 @@ export const GUITARS = [
   {
     vendorCode: `VO519510`,
     name: `Виолана Mix`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 7,
     strings: 6,
     price: 7600,
@@ -136,7 +136,7 @@ export const GUITARS = [
   {
     vendorCode: `VO457369`,
     name: `Виолана 250x`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 19,
     strings: 6,
     price: 6500,
@@ -145,7 +145,7 @@ export const GUITARS = [
   {
     vendorCode: `FB625903`,
     name: `Фабио Лайт`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 26,
     strings: 7,
     price: 12000,
@@ -154,7 +154,7 @@ export const GUITARS = [
   {
     vendorCode: `FB576948`,
     name: `Фабио L100`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 31,
     strings: 7,
     price: 9900,
@@ -163,7 +163,7 @@ export const GUITARS = [
   {
     vendorCode: `LU012032`,
     name: `Liana Z200`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 28,
     strings: 12,
     price: 8900,
@@ -172,7 +172,7 @@ export const GUITARS = [
   {
     vendorCode: `LU546853`,
     name: `Liana Z100`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 34,
     strings: 12,
     price: 10500,
@@ -181,7 +181,7 @@ export const GUITARS = [
   {
     vendorCode: `LU458283`,
     name: `Liana Z300`,
-    type: GuitarTypeName[GuitarType.ACOUSTIC],
+    type: GuitarType.ACOUSTIC,
     reviewsCount: 9,
     strings: 6,
     price: 13300,
@@ -190,7 +190,7 @@ export const GUITARS = [
   {
     vendorCode: `RO324341`,
     name: `Roman RX`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 37,
     strings: 4,
     price: 4800,
@@ -199,7 +199,7 @@ export const GUITARS = [
   {
     vendorCode: `RO214235`,
     name: `Roman TX`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 5,
     strings: 4,
     price: 1900,
@@ -208,7 +208,7 @@ export const GUITARS = [
   {
     vendorCode: `DI132414`,
     name: `Dania U100`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 23,
     strings: 4,
     price: 2500,
@@ -217,7 +217,7 @@ export const GUITARS = [
   {
     vendorCode: `DI934754`,
     name: `Dania WR`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 3,
     strings: 4,
     price: 3800,
@@ -226,7 +226,7 @@ export const GUITARS = [
   {
     vendorCode: `DI034292`,
     name: `Dania LE`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 10,
     strings: 4,
     price: 4100,
@@ -235,7 +235,7 @@ export const GUITARS = [
   {
     vendorCode: `MI193214`,
     name: `Mirana V10`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 14,
     strings: 4,
     price: 2700,
@@ -244,7 +244,7 @@ export const GUITARS = [
   {
     vendorCode: `VO043244`,
     name: `Виолана Mini`,
-    type: GuitarTypeName[GuitarType.UKULELE],
+    type: GuitarType.UKULELE,
     reviewsCount: 29,
     strings: 4,
     price: 6700,
