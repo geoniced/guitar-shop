@@ -22,17 +22,18 @@ export const getGuitarsSorted = createSelector(
     (guitars, priceFrom, priceTo, guitarTypes, guitarStrings, sortingType, sortingOrder) => {
       let filteredGuitars = guitars.slice();
 
-      filteredGuitars = filteredGuitars.filter((guitar) => guitar.price >= priceFrom && guitar.price <= priceTo);
+      const isEmptyGuitarTypes = Object.keys(guitarTypes).length > 0;
+      const isEmptyGuitarStrings = Object.keys(guitarStrings).length > 0;
 
-      // Behavior when no filter option is checked
-      if (Object.keys(guitarTypes).length > 0) {
-        filteredGuitars = filteredGuitars.filter((guitar) => guitar.type in guitarTypes);
-      }
+      filteredGuitars = filteredGuitars.filter((guitar) => {
+        const criterias = [
+          guitar.price >= priceFrom && guitar.price <= priceTo,
+          isEmptyGuitarTypes ? guitar.type in guitarTypes : true, // Behavior when no filter option is checked
+          isEmptyGuitarStrings ? guitar.strings in guitarStrings : true, // Behavior when no filter option is checked
+        ];
 
-      // Behavior when no filter option is checked
-      if (Object.keys(guitarStrings).length > 0) {
-        filteredGuitars = filteredGuitars.filter((guitar) => guitar.strings in guitarStrings);
-      }
+        return criterias.every((criteria) => criteria);
+      });
 
       let sortedGuitars = filteredGuitars.slice();
 
