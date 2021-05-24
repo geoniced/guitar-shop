@@ -59,3 +59,12 @@ export const dispatchFilterChange = (dispatch, actonCreator) => {
     dispatch(actonCreator(newFilters));
   };
 };
+
+export const createFilterChangeHandler = (action, filterValue) => {
+  return (evt) => {
+    const value = evt.target.dataset.value;
+    const operation = evt.target.checked ? FilterOperation.ADD : FilterOperation.DELETE;
+
+    action(filterValue, operation, value);
+  };
+};

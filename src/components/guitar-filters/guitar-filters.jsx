@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
-import {dispatchFilterChange, formatDecimal, packNumberInMinMax} from "../../utils";
-import {DefaultPrice, GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap, FilterOperation} from "../../const";
+import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, packNumberInMinMax} from "../../utils";
+import {DefaultPrice, GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
 import {connect} from "react-redux";
@@ -36,19 +36,8 @@ const GuitarFilters = (props) => {
     setPriceTo(newValue);
   };
 
-  const onFilterTypeChange = (evt) => {
-    const value = evt.target.dataset.value;
-    const operation = evt.target.checked ? FilterOperation.ADD : FilterOperation.DELETE;
-
-    changeFilterGuitarTypeAction(filterGuitarTypes, operation, value);
-  };
-
-  const onFilterStringsChange = (evt) => {
-    const value = evt.target.dataset.value;
-    const operation = evt.target.checked ? FilterOperation.ADD : FilterOperation.DELETE;
-
-    changeFilterGuitarStringsAction(filterGuitarStrings, operation, value);
-  };
+  const onFilterTypeChange = createFilterChangeHandler(changeFilterGuitarTypeAction, filterGuitarTypes);
+  const onFilterStringsChange = createFilterChangeHandler(changeFilterGuitarStringsAction, filterGuitarStrings);
 
   return (
     <section className="page-content__guitar-filters guitar-filters">
