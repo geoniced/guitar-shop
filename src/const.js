@@ -72,16 +72,16 @@ export const StringsPerGuitar = {
   [GuitarType.ELECTRO]: [StringsCount.FOUR, StringsCount.SIX, StringsCount.SEVEN],
 };
 
-export const FilterOperation = {
-  DELETE: `DELETE`,
-  ADD: `ADD`,
-};
-
-// TODO: Think about. Maybe we can store numbers in StringsCount
+// TODO: Think about it. Maybe we can store numbers in StringsCount
 // and use number as a key later
 export const StringTextNumberMap = {
   [StringsCount.FOUR]: 4,
   [StringsCount.SIX]: 6,
   [StringsCount.SEVEN]: 7,
   [StringsCount.TWELVE]: 12,
+};
+
+export const FilterOperation = {
+  DELETE: `DELETE`,
+  ADD: `ADD`,
 };
