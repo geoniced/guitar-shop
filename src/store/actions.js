@@ -3,6 +3,8 @@ export const ActionType = {
   CHANGE_SORTING_ORDER: `CHANGE_SORTING_ORDER`,
   CHANGE_FILTER_GUITAR_TYPE: `CHANGE_FILTER_GUITAR_TYPE`,
   CHANGE_FILTER_GUITAR_STRINGS: `CHANGE_FILTER_GUITAR_STRINGS`,
+  CHANGE_FILTER_PRICE_FROM: `CHANGE_FILTER_PRICE_FROM`,
+  CHANGE_FILTER_PRICE_TO: `CHANGE_FILTER_PRICE_TO`,
 };
 
 export const changeSortingType = (newType) => ({
@@ -22,5 +24,15 @@ export const changeFilterGuitarType = (value) => ({
 
 export const changeFilterGuitarStrings = (value) => ({
   type: ActionType.CHANGE_FILTER_GUITAR_STRINGS,
+  payload: value,
+});
+
+export const changeFilterPriceFrom = (value) => ({
+  type: ActionType.CHANGE_FILTER_PRICE_FROM,
+  payload: value,
+});
+
+export const changeFilterPriceTo = (value) => ({
+  type: ActionType.CHANGE_FILTER_PRICE_TO,
   payload: value,
 });

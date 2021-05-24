@@ -1,23 +1,24 @@
-import React, {useState} from "react";
+import React from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
 import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, packNumberInMinMax} from "../../utils";
-import {DefaultPrice, GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
+import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
 import {connect} from "react-redux";
-import {getCurrentFilterGuitarTypes, getCurrentFilterGuitarStrings} from "../../store/selectors";
-import {changeFilterGuitarStrings, changeFilterGuitarType} from "../../store/actions";
+import {getCurrentFilterGuitarTypes, getCurrentFilterGuitarStrings, getPriceFrom, getPriceTo} from "../../store/selectors";
+import {changeFilterGuitarStrings, changeFilterGuitarType, changeFilterPriceFrom, changeFilterPriceTo} from "../../store/actions";
 
 const GuitarFilters = (props) => {
   const {
+    priceFrom,
+    priceTo,
     filterGuitarTypes,
     filterGuitarStrings,
+    changeFilterPriceFromAction,
+    changeFilterPriceToAction,
     changeFilterGuitarTypeAction,
     changeFilterGuitarStringsAction,
   } = props;
-
-  const [priceFrom, setPriceFrom] = useState(DefaultPrice.FROM);
-  const [priceTo, setPriceTo] = useState(DefaultPrice.TO);
 
   const guitarTypes = Object.values(GuitarType);
   const stringsAmounts = Object.values(StringsCount);
@@ -26,14 +27,14 @@ const GuitarFilters = (props) => {
     let newValue = Number(evt.target.value);
     newValue = packNumberInMinMax(newValue, 0, priceTo);
 
-    setPriceFrom(newValue);
+    changeFilterPriceFromAction(newValue);
   };
 
   const onPriceToChange = (evt) => {
     let newValue = Number(evt.target.value);
     newValue = packNumberInMinMax(newValue, priceFrom);
 
-    setPriceTo(newValue);
+    changeFilterPriceToAction(newValue);
   };
 
   const onFilterTypeChange = createFilterChangeHandler(changeFilterGuitarTypeAction, filterGuitarTypes);
@@ -103,12 +104,20 @@ const GuitarFilters = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  priceFrom: getPriceFrom(state),
+  priceTo: getPriceTo(state),
   filterGuitarTypes: getCurrentFilterGuitarTypes(state),
   filterGuitarStrings: getCurrentFilterGuitarStrings(state),
 });
 
 
 const mapDispatchToProps = (dispatch) => ({
+  changeFilterPriceFromAction(value) {
+    dispatch(changeFilterPriceFrom(value));
+  },
+  changeFilterPriceToAction(value) {
+    dispatch(changeFilterPriceTo(value));
+  },
   changeFilterGuitarTypeAction: dispatchFilterChange(dispatch, changeFilterGuitarType),
   changeFilterGuitarStringsAction: dispatchFilterChange(dispatch, changeFilterGuitarStrings),
 });
