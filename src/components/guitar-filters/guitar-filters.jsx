@@ -1,13 +1,26 @@
 import React, {useState} from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
-import {ReactComponent as IconCheckbox} from "../../assets/img/icon-checkbox-box.svg";
-import {formatDecimal, packNumberInMinMax} from "../../utils";
-import {DefaultPrice} from "../../const";
+import {dispatchFilterChange, formatDecimal, packNumberInMinMax} from "../../utils";
+import {DefaultPrice, GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap, FilterOperation} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
+import CheckboxField from "../checkbox-field/checkbox-field";
+import {connect} from "react-redux";
+import {getCurrentFilterGuitarTypes, getCurrentFilterGuitarStrings} from "../../store/selectors";
+import {changeFilterGuitarStrings, changeFilterGuitarType} from "../../store/actions";
 
 const GuitarFilters = (props) => {
+  const {
+    filterGuitarTypes,
+    filterGuitarStrings,
+    changeFilterGuitarTypeAction,
+    changeFilterGuitarStringsAction,
+  } = props;
+
   const [priceFrom, setPriceFrom] = useState(DefaultPrice.FROM);
   const [priceTo, setPriceTo] = useState(DefaultPrice.TO);
+
+  const guitarTypes = Object.values(GuitarType);
+  const stringsAmounts = Object.values(StringsCount);
 
   const onPriceFromChange = (evt) => {
     let newValue = Number(evt.target.value);
@@ -21,6 +34,20 @@ const GuitarFilters = (props) => {
     newValue = packNumberInMinMax(newValue, priceFrom);
 
     setPriceTo(newValue);
+  };
+
+  const onFilterTypeChange = (evt) => {
+    const value = evt.target.dataset.value;
+    const operation = evt.target.checked ? FilterOperation.ADD : FilterOperation.DELETE;
+
+    changeFilterGuitarTypeAction(filterGuitarTypes, operation, value);
+  };
+
+  const onFilterStringsChange = (evt) => {
+    const value = evt.target.dataset.value;
+    const operation = evt.target.checked ? FilterOperation.ADD : FilterOperation.DELETE;
+
+    changeFilterGuitarStringsAction(filterGuitarStrings, operation, value);
   };
 
   return (
@@ -55,51 +82,29 @@ const GuitarFilters = (props) => {
         <fieldset className="guitar-filters__fieldset">
           <legend className="guitar-filters__legend">Тип гитар</legend>
 
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-type-acoustic" id="filters-type-acoustic" />
-          <label htmlFor="filters-type-acoustic" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            Акустические гитары
-          </label>
-
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-type-electro" id="filters-type-electro" defaultChecked />
-          <label htmlFor="filters-type-electro" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            Электрогитары
-          </label>
-
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-type-ukulele" id="filters-type-ukulele" defaultChecked />
-          <label htmlFor="filters-type-ukulele" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            Укулеле
-          </label>
+          {guitarTypes.map((guitarType, i) => (
+            <CheckboxField
+              key={`filters-guitar-type-${i}`}
+              name={`filters-type-${guitarType}`}
+              dataValue={guitarType}
+              title={GuitarTypeFilterTitle[guitarType]}
+              onChange={onFilterTypeChange}
+            />
+          ))}
         </fieldset>
 
         <fieldset className="guitar-filters__fieldset">
           <legend className="guitar-filters__legend">Количество струн</legend>
 
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-4" id="filters-strings-4" defaultChecked />
-          <label htmlFor="filters-strings-4" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            4
-          </label>
-
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-6" id="filters-strings-6" defaultChecked />
-          <label htmlFor="filters-strings-6" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            6
-          </label>
-
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-7" id="filters-strings-7" />
-          <label htmlFor="filters-strings-7" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            7
-          </label>
-
-          <input className="guitar-filters__checkbox visually-hidden" type="checkbox" name="filters-strings-12" id="filters-strings-12" disabled />
-          <label htmlFor="filters-strings-12" className="guitar-filters__checkbox-label">
-            <IconCheckbox className="guitar-filters__checkbox-icon" />
-            12
-          </label>
+          {stringsAmounts.map((stringsAmount, i) => (
+            <CheckboxField
+              key={`filters-strings-${i}`}
+              name={`filters-strings-${stringsAmount}`}
+              title={StringTextNumberMap[stringsAmount]}
+              dataValue={stringsAmount}
+              onChange={onFilterStringsChange}
+            />
+          ))}
         </fieldset>
 
         <button className="guitar-filters__show button" type="submit">Показать</button>
@@ -108,4 +113,15 @@ const GuitarFilters = (props) => {
   );
 };
 
-export default GuitarFilters;
+const mapStateToProps = (state) => ({
+  filterGuitarTypes: getCurrentFilterGuitarTypes(state),
+  filterGuitarStrings: getCurrentFilterGuitarStrings(state),
+});
+
+
+const mapDispatchToProps = (dispatch) => ({
+  changeFilterGuitarTypeAction: dispatchFilterChange(dispatch, changeFilterGuitarType),
+  changeFilterGuitarStringsAction: dispatchFilterChange(dispatch, changeFilterGuitarStrings),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuitarFilters);

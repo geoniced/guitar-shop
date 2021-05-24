@@ -8,15 +8,21 @@ export const AppRoute = {
 };
 
 export const GuitarType = {
-  ELECTRO: `ELECTRO`,
-  UKULELE: `UKULELE`,
   ACOUSTIC: `ACOUSTIC`,
+  UKULELE: `UKULELE`,
+  ELECTRO: `ELECTRO`,
 };
 
 export const GuitarTypeName = {
   [GuitarType.ELECTRO]: `электрогитара`,
   [GuitarType.UKULELE]: `укулеле`,
   [GuitarType.ACOUSTIC]: `акустическая гитара`,
+};
+
+export const GuitarTypeFilterTitle = {
+  [GuitarType.ELECTRO]: `Электрогитары`,
+  [GuitarType.UKULELE]: `Укулеле`,
+  [GuitarType.ACOUSTIC]: `Акустические гитары`,
 };
 
 export const SortingType = {
@@ -51,4 +57,31 @@ export const GuitarSorting = {
 export const DefaultPrice = {
   FROM: 1000,
   TO: 30000,
+};
+
+export const StringsCount = {
+  FOUR: `FOUR`,
+  SIX: `SIX`,
+  SEVEN: `SEVEN`,
+  TWELVE: `TWELVE`,
+};
+
+export const StringsPerGuitar = {
+  [GuitarType.UKULELE]: [StringsCount.FOUR],
+  [GuitarType.ACOUSTIC]: [StringsCount.SIX, StringsCount.SEVEN, StringsCount.TWELVE],
+  [GuitarType.ELECTRO]: [StringsCount.FOUR, StringsCount.SIX, StringsCount.SEVEN],
+};
+
+export const FilterOperation = {
+  DELETE: `DELETE`,
+  ADD: `ADD`,
+};
+
+// TODO: Think about. Maybe we can store numbers in StringsCount
+// and use number as a key later
+export const StringTextNumberMap = {
+  [StringsCount.FOUR]: 4,
+  [StringsCount.SIX]: 6,
+  [StringsCount.SEVEN]: 7,
+  [StringsCount.TWELVE]: 12,
 };

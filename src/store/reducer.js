@@ -7,6 +7,8 @@ const initialState = {
   guitars: GUITARS,
   currentSortingType: null,
   currentSortingOrder: null,
+  currentFilterGuitarTypes: {},
+  currentFilterGuitarStrings: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +20,14 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_SORTING_ORDER:
       return extend(state, {
         currentSortingOrder: action.payload,
+      });
+    case ActionType.CHANGE_FILTER_GUITAR_TYPE:
+      return extend(state, {
+        currentFilterGuitarTypes: action.payload,
+      });
+    case ActionType.CHANGE_FILTER_GUITAR_STRINGS:
+      return extend(state, {
+        currentFilterGuitarStrings: action.payload,
       });
   }
 

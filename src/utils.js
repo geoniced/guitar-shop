@@ -1,4 +1,4 @@
-import {SortingOrder} from "./const";
+import {FilterOperation, SortingOrder} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -40,4 +40,22 @@ export const packNumberInMinMax = (value, min, max) => {
   newValue = newValue > max ? max : newValue;
 
   return newValue;
+};
+
+
+export const dispatchFilterChange = (dispatch, actonCreator) => {
+  return (activeFilters, operation, value) => {
+    const newFilters = Object.assign({}, activeFilters);
+
+    switch (operation) {
+      case FilterOperation.ADD:
+        newFilters[value] = value;
+        break;
+      case FilterOperation.DELETE:
+        delete newFilters[value];
+        break;
+    }
+
+    dispatch(actonCreator(newFilters));
+  };
 };
