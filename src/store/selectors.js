@@ -13,6 +13,8 @@ export const getPriceTo = (state) => state.FILTERS.priceTo;
 export const getCurrentFilterGuitarTypes = (state) => state.FILTERS.currentFilterGuitarTypes;
 export const getCurrentFilterGuitarStrings = (state) => state.FILTERS.currentFilterGuitarStrings;
 
+export const getIsAddToCartPopupOpened = (state) => state.POPUPS.isAddToCartPopupOpened;
+
 export const getGuitarsSorted = createSelector(
     getOriginalGuitars,
     getPriceFrom,

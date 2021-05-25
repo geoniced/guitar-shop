@@ -2,6 +2,8 @@ import {ReactComponent as IconArrowUp} from "./assets/img/icon-arrow-up.svg";
 import {ReactComponent as IconArrowDown} from "./assets/img/icon-arrow-down.svg";
 import {createSortingByPopularity, createSortingByPrice} from "./utils";
 
+export const PREVENT_SCROLL_CLASS = `prevent-scroll`;
+
 export const AppRoute = {
   ROOT: `/`,
   CART: `/cart`,

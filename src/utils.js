@@ -2,6 +2,8 @@ import {FilterOperation, SortingOrder, StringsCount, StringsPerGuitar} from "./c
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
+export const isEscKeyPressed = (evt) => (evt.key === `Escape` || evt.key === `Esc`);
+
 export const formatDecimal = (value) => {
   const formatter = new Intl.NumberFormat(`ru-RU`, {
     style: `decimal`,
@@ -82,3 +84,13 @@ export const getAvailableStringsForCurrentGuitarTypes = (currentFilterTypes) => 
     ? currentFilterTypes.reduce(selectAdjacentStringsByType, {})
     : StringsCount;
 };
+
+
+export const createBlocklayerClickHandler = (closeAction) => {
+  return (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closeAction();
+    }
+  };
+};
+

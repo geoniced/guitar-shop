@@ -5,14 +5,19 @@ import {GUITARS_PER_PAGE, GuitarTypeName} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import Pagination from "../pagination/pagination";
+import {openAddToCartPopup} from "../../store/actions";
 
 
 const GuitarCatalogBlock = (props) => {
-  const {guitars, currentPage} = props;
+  const {guitars, currentPage, openAddToCartPopupAction} = props;
 
   const showGuitarsTo = currentPage * GUITARS_PER_PAGE;
   const showGuitarsFrom = showGuitarsTo - GUITARS_PER_PAGE;
   const shownGuitars = guitars.slice(showGuitarsFrom, showGuitarsTo);
+
+  const onAddToCartClick = () => {
+    openAddToCartPopupAction();
+  };
 
   return (
     <section className="page-content__guitar-catalog guitar-catalog">
@@ -28,6 +33,7 @@ const GuitarCatalogBlock = (props) => {
             image={guitar.image}
             type={GuitarTypeName[guitar.type]}
             reviewsCount={guitar.reviewsCount}
+            onAddToCartClick={onAddToCartClick}
           />
         ))}
       </ul>
@@ -42,4 +48,10 @@ const mapStateToProps = (state) => ({
   currentPage: getCurrentPage(state),
 });
 
-export default connect(mapStateToProps)(GuitarCatalogBlock);
+const mapDispatchToProps = (dispatch) => ({
+  openAddToCartPopupAction() {
+    dispatch(openAddToCartPopup());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuitarCatalogBlock);

@@ -12,6 +12,7 @@ const GuitarCard = (props) => {
     image,
     type,
     reviewsCount,
+    onAddToCartClick,
   } = props;
 
   return (
@@ -37,7 +38,18 @@ const GuitarCard = (props) => {
 
         <div className="guitar-card__buttons-wrapper">
           <a href="#" className="guitar-card__more button">Подробнее</a>
-          <a href="#" className="guitar-card__buy button button--orange">Купить</a>
+
+          <a
+            onClick={(evt) => {
+              evt.preventDefault();
+
+              onAddToCartClick();
+            }}
+            href="#"
+            className="guitar-card__buy button button--orange"
+          >
+            Купить
+          </a>
         </div>
 
       </article>

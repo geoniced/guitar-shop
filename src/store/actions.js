@@ -6,6 +6,8 @@ export const ActionType = {
   CHANGE_FILTER_GUITAR_STRINGS: `CHANGE_FILTER_GUITAR_STRINGS`,
   CHANGE_FILTER_PRICE_FROM: `CHANGE_FILTER_PRICE_FROM`,
   CHANGE_FILTER_PRICE_TO: `CHANGE_FILTER_PRICE_TO`,
+  OPEN_ADD_TO_CART_POPUP: `OPEN_ADD_TO_CART_POPUP`,
+  CLOSE_ADD_TO_CART_POPUP: `CLOSE_ADD_TO_CART_POPUP`,
 };
 
 export const changePage = (value) => ({
@@ -43,4 +45,13 @@ export const changeFilterPriceFrom = (value) => ({
 export const changeFilterPriceTo = (value) => ({
   type: ActionType.CHANGE_FILTER_PRICE_TO,
   payload: value,
+});
+
+
+export const openAddToCartPopup = () => ({
+  type: ActionType.OPEN_ADD_TO_CART_POPUP,
+});
+
+export const closeAddToCartPopup = () => ({
+  type: ActionType.CLOSE_ADD_TO_CART_POPUP,
 });
