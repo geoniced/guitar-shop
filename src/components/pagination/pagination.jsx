@@ -3,13 +3,12 @@ import {connect} from "react-redux";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import {GUITARS_PER_PAGE} from "../../const";
 import {changePage} from "../../store/actions";
-import {packNumberInMinMax} from "../../utils";
 
-const Dots = () => (
-  <li className="pagination__item">
-    <a className="pagination__link pagination__link--dots">...</a>
-  </li>
-);
+// const Dots = () => (
+//   <li className="pagination__item">
+//     <a className="pagination__link pagination__link--dots">...</a>
+//   </li>
+// );
 
 const Pagination = (props) => {
   const {
