@@ -5,17 +5,18 @@ import {GUITARS_PER_PAGE, GuitarTypeName} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import Pagination from "../pagination/pagination";
-import {openAddToCartPopup} from "../../store/actions";
+import {openAddToCartPopup, changeAddToCartGuitar} from "../../store/actions";
 
 
 const GuitarCatalogBlock = (props) => {
-  const {guitars, currentPage, openAddToCartPopupAction} = props;
+  const {guitars, currentPage, openAddToCartPopupAction, changeAddToCartGuitarAction} = props;
 
   const showGuitarsTo = currentPage * GUITARS_PER_PAGE;
   const showGuitarsFrom = showGuitarsTo - GUITARS_PER_PAGE;
   const shownGuitars = guitars.slice(showGuitarsFrom, showGuitarsTo);
 
-  const onAddToCartClick = () => {
+  const onAddToCartClick = (guitar) => {
+    changeAddToCartGuitarAction(guitar);
     openAddToCartPopupAction();
   };
 
@@ -31,9 +32,11 @@ const GuitarCatalogBlock = (props) => {
             name={guitar.name}
             price={guitar.price}
             image={guitar.image}
-            type={GuitarTypeName[guitar.type]}
+            type={guitar.type}
+            vendorCode={guitar.vendorCode}
+            strings={guitar.strings}
             reviewsCount={guitar.reviewsCount}
-            onAddToCartClick={onAddToCartClick}
+            addToCartClickHandler={onAddToCartClick}
           />
         ))}
       </ul>
@@ -51,6 +54,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   openAddToCartPopupAction() {
     dispatch(openAddToCartPopup());
+  },
+  changeAddToCartGuitarAction(guitar) {
+    dispatch(changeAddToCartGuitar(guitar));
   },
 });
 

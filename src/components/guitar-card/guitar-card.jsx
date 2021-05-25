@@ -3,6 +3,7 @@ import {ReactComponent as IconStar} from "../../assets/img/icon-star-whole.svg";
 import {ReactComponent as IconStarHalf} from "../../assets/img/icon-star-half.svg";
 // import {ReactComponent as IconStarEmpty} from "../../assets/img/icon-star-empty.svg";
 import {formatDecimalWithRublesChar} from "../../utils";
+import {GuitarTypeName} from "../../const";
 
 
 const GuitarCard = (props) => {
@@ -11,9 +12,24 @@ const GuitarCard = (props) => {
     price,
     image,
     type,
+    vendorCode,
+    strings,
     reviewsCount,
-    onAddToCartClick,
+    addToCartClickHandler,
   } = props;
+
+  const onAddToCartClick = (evt) => {
+    evt.preventDefault();
+
+    addToCartClickHandler({
+      name,
+      price,
+      vendorCode,
+      strings,
+      image,
+      type,
+    });
+  };
 
   return (
     <li className="guitar-catalog__guitar-item">
@@ -23,7 +39,7 @@ const GuitarCard = (props) => {
           <p className="guitar-card__price">{formatDecimalWithRublesChar(price)}</p>
         </div>
 
-        <img src={image} alt={`${type} ${name}`} className="guitar-card__image" width="68" height="190" />
+        <img src={image} alt={`${GuitarTypeName[type]} ${name}`} className="guitar-card__image" width="68" height="190" />
 
         <div className="guitar-card__review-stars-wrapper">
           <ul className="guitar-card__stars">
@@ -40,11 +56,7 @@ const GuitarCard = (props) => {
           <a href="#" className="guitar-card__more button">Подробнее</a>
 
           <a
-            onClick={(evt) => {
-              evt.preventDefault();
-
-              onAddToCartClick();
-            }}
+            onClick={onAddToCartClick}
             href="#"
             className="guitar-card__buy button button--orange"
           >

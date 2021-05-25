@@ -5,10 +5,24 @@ import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {closeAddToCartPopup} from "../../store/actions";
-import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
+import {capitalizeFirstLetter, createBlocklayerClickHandler, formatDecimalWithRublesChar, isEscKeyPressed} from "../../utils";
+import {getAddToCartGuitar} from "../../store/selectors";
+import {GuitarTypeName, StringTextNumberMap} from "../../const";
 
 const AddToCartPopup = (props) => {
-  const {closePopup} = props;
+  const {addToCartGuitar, closePopup} = props;
+
+  const {
+    name,
+    price,
+    vendorCode,
+    strings,
+    image,
+    type,
+  } = addToCartGuitar;
+
+  const typeText = capitalizeFirstLetter(GuitarTypeName[type]);
+  const stringsText = `${StringTextNumberMap[strings]} струнная`;
 
   const onBlockLayerClick = createBlocklayerClickHandler(closePopup);
 
@@ -46,13 +60,13 @@ const AddToCartPopup = (props) => {
         <article className="add-to-cart-popup__guitar-info-card guitar-info-card">
           <div className="guitar-info-card__description-column">
             <div className="guitar-info-card__characteristics">
-              <h3 className="guitar-info-card__title">Гитара Честер bass</h3>
-              <p className="guitar-info-card__vendor-code">Артикул: SO757575</p>
-              <p className="guitar-info-card__guitar-info">Электрогитара, 6 струнная</p>
-              <p className="guitar-info-card__guitar-price">Цена: 17 500 ₽</p>
+              <h3 className="guitar-info-card__title">Гитара {name}</h3>
+              <p className="guitar-info-card__vendor-code">Артикул: {vendorCode}</p>
+              <p className="guitar-info-card__guitar-info">{typeText}, {stringsText}</p>
+              <p className="guitar-info-card__guitar-price">Цена: {formatDecimalWithRublesChar(price)}</p>
             </div>
 
-            <img className="guitar-info-card__image" src={electroGuitar1} alt="Гитара Честер bass" width="56" height="128" />
+            <img className="guitar-info-card__image" src={image} alt={`${typeText} ${name}`} width="56" height="128" />
           </div>
 
           <div className="guitar-info-card__buttons-column">
@@ -64,10 +78,14 @@ const AddToCartPopup = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  addToCartGuitar: getAddToCartGuitar(state),
+});
+
 const mapDispatchToProps = (dispatch) => ({
   closePopup() {
     dispatch(closeAddToCartPopup());
   },
 });
 
-export default connect(null, mapDispatchToProps)(AddToCartPopup);
+export default connect(mapStateToProps, mapDispatchToProps)(AddToCartPopup);

@@ -16,6 +16,11 @@ export const formatDecimalWithRublesChar = (value) => {
   return `${formatDecimal(value)} ₽`;
 };
 
+export const capitalizeFirstLetter = (value) => {
+  return value[0].toUpperCase() + value.slice(1);
+};
+
+
 export const createSortByProperty = (property) => (guitarA, guitarB) => guitarA[property] - guitarB[property];
 
 export const createSortingByProperty = (property, order) => {
