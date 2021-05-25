@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
-import {GUITARS_PER_PAGE, GuitarTypeName} from "../../const";
+import {GUITARS_PER_PAGE} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import Pagination from "../pagination/pagination";

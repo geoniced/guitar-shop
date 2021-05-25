@@ -1,6 +1,5 @@
 import React, {useCallback} from "react";
 import {connect} from "react-redux";
-import electroGuitar1 from "../../assets/img/electro-1-small.png";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
@@ -62,7 +61,10 @@ const AddToCartPopup = (props) => {
             <div className="guitar-info-card__characteristics">
               <h3 className="guitar-info-card__title">Гитара {name}</h3>
               <p className="guitar-info-card__vendor-code">Артикул: {vendorCode}</p>
-              <p className="guitar-info-card__guitar-info">{typeText}, {stringsText}</p>
+              <p className="guitar-info-card__guitar-info">
+                <span className="guitar-info-card__guitar-info-text--type">{typeText}, </span>
+                <span className="guitar-info-card__guitar-info-text--strings">{stringsText}</span>
+              </p>
               <p className="guitar-info-card__guitar-price">Цена: {formatDecimalWithRublesChar(price)}</p>
             </div>
 
