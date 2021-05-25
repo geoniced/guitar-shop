@@ -3,14 +3,16 @@ import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
 import {GUITARS_PER_PAGE, GuitarTypeName} from "../../const";
 import Sorting from "../sorting/sorting";
-import {getGuitarsSorted} from "../../store/selectors";
+import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import Pagination from "../pagination/pagination";
 
 
 const GuitarCatalogBlock = (props) => {
-  const {guitars} = props;
+  const {guitars, currentPage} = props;
 
-  const shownGuitars = guitars.slice(0, GUITARS_PER_PAGE);
+  const showGuitarsTo = currentPage * GUITARS_PER_PAGE;
+  const showGuitarsFrom = showGuitarsTo - GUITARS_PER_PAGE;
+  const shownGuitars = guitars.slice(showGuitarsFrom, showGuitarsTo);
 
   return (
     <section className="page-content__guitar-catalog guitar-catalog">
@@ -37,6 +39,7 @@ const GuitarCatalogBlock = (props) => {
 
 const mapStateToProps = (state) => ({
   guitars: getGuitarsSorted(state),
+  currentPage: getCurrentPage(state),
 });
 
 export default connect(mapStateToProps)(GuitarCatalogBlock);

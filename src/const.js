@@ -46,7 +46,7 @@ export const SortingOrderData = {
 };
 
 export const GUITARS_PER_PAGE = 9;
-
+export const DEFAULT_PAGE = 1;
 
 export const GuitarSorting = {
   [SortingType.PRICE]: (guitars, order) => guitars.sort(createSortingByPrice(order)),

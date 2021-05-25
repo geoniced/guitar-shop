@@ -1,11 +1,13 @@
-/* eslint-disable no-console */
 import {createSelector} from "reselect";
 import {GuitarSorting} from "../const";
 
 export const getGuitars = (state) => state.GUITARS_DATA.guitars;
 export const getOriginalGuitars = (state) => state.GUITARS_DATA.originalGuitars;
+export const getCurrentPage = (state) => state.GUITARS_DATA.currentPage;
+
 export const getCurrentSortingType = (state) => state.SORTING.currentSortingType;
 export const getCurrentSortingOrder = (state) => state.SORTING.currentSortingOrder;
+
 export const getPriceFrom = (state) => state.FILTERS.priceFrom;
 export const getPriceTo = (state) => state.FILTERS.priceTo;
 export const getCurrentFilterGuitarTypes = (state) => state.FILTERS.currentFilterGuitarTypes;
