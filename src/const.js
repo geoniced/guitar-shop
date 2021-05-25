@@ -45,7 +45,7 @@ export const SortingOrderData = {
   [SortingOrder.DESC]: {icon: IconArrowDown, text: `От большего к меньшему`},
 };
 
-export const SHOWN_GUITARS_COUNT = 9;
+export const GUITARS_PER_PAGE = 9;
 
 
 export const GuitarSorting = {

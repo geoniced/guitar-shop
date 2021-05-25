@@ -1,15 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
-import {SHOWN_GUITARS_COUNT, GuitarTypeName} from "../../const";
+import {GUITARS_PER_PAGE, GuitarTypeName} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getGuitarsSorted} from "../../store/selectors";
+import Pagination from "../pagination/pagination";
 
 
 const GuitarCatalogBlock = (props) => {
   const {guitars} = props;
 
-  const shownGuitars = guitars.slice(0, SHOWN_GUITARS_COUNT);
+  const shownGuitars = guitars.slice(0, GUITARS_PER_PAGE);
 
   return (
     <section className="page-content__guitar-catalog guitar-catalog">
@@ -29,23 +30,7 @@ const GuitarCatalogBlock = (props) => {
         ))}
       </ul>
 
-      <ul className="guitar-catalog__pagination pagination">
-        <li className="pagination__item">
-          <a className="pagination__link pagination__link--active">1</a>
-        </li>
-        <li className="pagination__item">
-          <a href="#" className="pagination__link">2</a>
-        </li>
-        <li className="pagination__item">
-          <a className="pagination__link pagination__link--dots">...</a>
-        </li>
-        <li className="pagination__item">
-          <a href="#" className="pagination__link">7</a>
-        </li>
-        <li className="pagination__item">
-          <a href="#" className="pagination__link pagination__link--next">Далее</a>
-        </li>
-      </ul>
+      <Pagination />
     </section>
   );
 };

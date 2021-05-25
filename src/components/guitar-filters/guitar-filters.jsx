@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
 import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, packNumberInMinMax} from "../../utils";
