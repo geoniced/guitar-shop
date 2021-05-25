@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 import React from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
-import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, packNumberInMinMax} from "../../utils";
-import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
+import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, getAvailableTypesForCurrentGuitarStrings, packNumberInMinMax} from "../../utils";
+import {FilterOperation, GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
 import {connect} from "react-redux";
@@ -19,6 +20,8 @@ const GuitarFilters = (props) => {
     changeFilterPriceToAction,
     changeFilterGuitarTypeAction,
     changeFilterGuitarStringsAction,
+    setFilterGuitarType,
+    setFilterGuitarStrings,
   } = props;
 
   const guitarTypes = Object.values(GuitarType);
@@ -26,6 +29,9 @@ const GuitarFilters = (props) => {
   const currentFilterTypes = Object.values(filterGuitarTypes);
 
   const availableStringsForCurrentGuitarTypes = getAvailableStringsForCurrentGuitarTypes(currentFilterTypes);
+  const availableTypesForCurrentGuitarStrings = getAvailableTypesForCurrentGuitarStrings(filterGuitarStrings);
+  // console.log(availableStringsForCurrentGuitarTypes, availableTypesForCurrentGuitarStrings);
+
 
   const onPriceFromChange = (evt) => {
     let newValue = Number(evt.target.value);
@@ -41,8 +47,44 @@ const GuitarFilters = (props) => {
     changeFilterPriceToAction(newValue);
   };
 
-  const onFilterTypeChange = createFilterChangeHandler(changeFilterGuitarTypeAction, filterGuitarTypes);
-  const onFilterStringsChange = createFilterChangeHandler(changeFilterGuitarStringsAction, filterGuitarStrings);
+  const deleteDisabledTypeFilters = (currentItem, operation) => {
+    if (operation === FilterOperation.ADD) {
+      const newStringTypes = Object.assign({}, filterGuitarStrings);
+      const newGuitarTypes = Object.assign({}, filterGuitarTypes);
+      newStringTypes[currentItem] = currentItem;
+
+      const newAvailableTypes = getAvailableTypesForCurrentGuitarStrings(newStringTypes);
+      for (const type in newGuitarTypes) {
+        if (!(type in newAvailableTypes)) {
+          delete newGuitarTypes[type];
+        }
+      }
+
+      setFilterGuitarType(newGuitarTypes);
+    }
+  };
+
+  const deleteDisabledStringFilters = (currentItem, operation) => {
+    if (operation === FilterOperation.ADD) {
+      const newGuitarTypes = Object.assign({}, filterGuitarTypes);
+      const newStringFilters = Object.assign({}, filterGuitarStrings);
+      newGuitarTypes[currentItem] = currentItem;
+
+      const newGuitarTypesList = Object.values(newGuitarTypes);
+
+      const newAvailableTypes = getAvailableStringsForCurrentGuitarTypes(newGuitarTypesList);
+      for (const type in newStringFilters) {
+        if (!(type in newAvailableTypes)) {
+          delete newStringFilters[type];
+        }
+      }
+
+      setFilterGuitarStrings(newStringFilters);
+    }
+  };
+
+  const onFilterTypeChange = createFilterChangeHandler(changeFilterGuitarTypeAction, filterGuitarTypes, deleteDisabledStringFilters);
+  const onFilterStringsChange = createFilterChangeHandler(changeFilterGuitarStringsAction, filterGuitarStrings, deleteDisabledTypeFilters);
 
   return (
     <section className="page-content__guitar-filters guitar-filters">
@@ -83,6 +125,8 @@ const GuitarFilters = (props) => {
               dataValue={guitarType}
               title={GuitarTypeFilterTitle[guitarType]}
               onChange={onFilterTypeChange}
+              checked={guitarType in filterGuitarTypes}
+              disabled={!(guitarType in availableTypesForCurrentGuitarStrings)}
             />
           ))}
         </fieldset>
@@ -97,6 +141,7 @@ const GuitarFilters = (props) => {
               title={StringTextNumberMap[stringsAmount]}
               dataValue={stringsAmount}
               onChange={onFilterStringsChange}
+              checked={stringsAmount in filterGuitarStrings}
               disabled={!(stringsAmount in availableStringsForCurrentGuitarTypes)}
             />
           ))}
@@ -125,6 +170,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeFilterGuitarTypeAction: dispatchFilterChange(dispatch, changeFilterGuitarType),
   changeFilterGuitarStringsAction: dispatchFilterChange(dispatch, changeFilterGuitarStrings),
+  setFilterGuitarType(newValues) {
+    dispatch(changeFilterGuitarType(newValues));
+  },
+  setFilterGuitarStrings(newValues) {
+    dispatch(changeFilterGuitarStrings(newValues));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GuitarFilters);

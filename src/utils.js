@@ -1,4 +1,4 @@
-import {FilterOperation, SortingOrder, StringsCount, StringsPerGuitar} from "./const";
+import {FilterOperation, GuitarType, SortingOrder, StringsCount, StringsPerGuitar} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -67,11 +67,12 @@ export const dispatchFilterChange = (dispatch, actonCreator) => {
   };
 };
 
-export const createFilterChangeHandler = (action, filterValue) => {
+export const createFilterChangeHandler = (action, filterValue, dependentFilterChangeHandler) => {
   return (evt) => {
     const value = evt.target.dataset.value;
     const operation = evt.target.checked ? FilterOperation.ADD : FilterOperation.DELETE;
 
+    dependentFilterChangeHandler(value, operation, action);
     action(filterValue, operation, value);
   };
 };
@@ -84,10 +85,38 @@ export const selectAdjacentStringsByType = ((accumulator, value) => {
   return accumulator;
 });
 
+export const selectAdjacentTypesByStrings = ((accumulator, value) => {
+  StringsPerGuitar[value].forEach((item) => {
+    accumulator[item] = item;
+  });
+
+  return accumulator;
+});
+
 export const getAvailableStringsForCurrentGuitarTypes = (currentFilterTypes) => {
   return currentFilterTypes.length
     ? currentFilterTypes.reduce(selectAdjacentStringsByType, {})
     : StringsCount;
+};
+
+export const getAvailableTypesForCurrentGuitarStrings = (filterStrings) => {
+  const filterStringsLength = Object.values(filterStrings).length;
+  let result = GuitarType;
+
+  if (filterStringsLength) {
+    const guitarTypes = Object.values(GuitarType);
+    result = guitarTypes.reduce((accumulator, value) => {
+      StringsPerGuitar[value].forEach((item) => {
+        if (item in filterStrings) {
+          accumulator[value] = value;
+        }
+      });
+
+      return accumulator;
+    }, {});
+  }
+
+  return result;
 };
 
 

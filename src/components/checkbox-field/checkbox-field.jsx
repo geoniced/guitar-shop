@@ -6,7 +6,7 @@ const CheckboxField = (props) => {
     title,
     name,
     onChange,
-    value,
+    checked,
     dataValue,
     disabled,
   } = props;
@@ -20,7 +20,7 @@ const CheckboxField = (props) => {
         name={name}
         id={name}
         onChange={onChange}
-        checked={value}
+        checked={checked}
         disabled={disabled}
       />
       <label htmlFor={name} className="guitar-filters__checkbox-label">
