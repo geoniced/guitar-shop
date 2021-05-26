@@ -121,8 +121,8 @@ export const getAvailableTypesForCurrentGuitarStrings = (filterStrings) => {
 
 export const createDisabledFiltersDeletionCallback = (filterTypeData) => {
   const {
-    changedFilter,
-    filtersToBeDisabled,
+    changedFilters,
+    filtersToBeDeleted,
     getAvailableValuesForChangedFilter,
     changedFitlerSetter,
     needsConvertingToList,
@@ -130,23 +130,22 @@ export const createDisabledFiltersDeletionCallback = (filterTypeData) => {
 
   return (currentItem, operation) => {
     if (operation === FilterOperation.ADD) {
-      const newChangedFilters = Object.assign({}, changedFilter);
-      const newFiltersToBeDisabled = Object.assign({}, filtersToBeDisabled);
+      const newChangedFilters = Object.assign({}, changedFilters);
+      const newFiltersToBeDeleted = Object.assign({}, filtersToBeDeleted);
       newChangedFilters[currentItem] = currentItem;
 
-      let changedFiltersStruct = newChangedFilters;
-      if (needsConvertingToList) {
-        changedFiltersStruct = Object.values(newChangedFilters);
-      }
+      const changedFiltersStruct = needsConvertingToList
+        ? Object.values(newChangedFilters)
+        : newChangedFilters;
 
       const newAvailableTypes = getAvailableValuesForChangedFilter(changedFiltersStruct);
-      for (const type in newFiltersToBeDisabled) {
+      for (const type in newFiltersToBeDeleted) {
         if (!(type in newAvailableTypes)) {
-          delete newFiltersToBeDisabled[type];
+          delete newFiltersToBeDeleted[type];
         }
       }
 
-      changedFitlerSetter(newFiltersToBeDisabled);
+      changedFitlerSetter(newFiltersToBeDeleted);
     }
   };
 };

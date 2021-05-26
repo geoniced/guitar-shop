@@ -47,23 +47,23 @@ const GuitarFilters = (props) => {
     changeFilterPriceToAction(newValue);
   };
 
-  const disableTypeFiltersData = {
+  const deleteDisabledTypeFiltersData = {
     changedFilter: filterGuitarStrings,
-    filtersToBeDisabled: filterGuitarTypes,
+    filtersToBeDeleted: filterGuitarTypes,
     getAvailableValuesForChangedFilter: getAvailableTypesForCurrentGuitarStrings,
     changedFitlerSetter: setFilterGuitarType,
   };
 
-  const disableStringFiltersData = {
+  const deleteDisabledStringFiltersData = {
     changedFilter: filterGuitarTypes,
-    filtersToBeDisabled: filterGuitarStrings,
+    filtersToBeDeleted: filterGuitarStrings,
     getAvailableValuesForChangedFilter: getAvailableStringsForCurrentGuitarTypes,
     changedFitlerSetter: setFilterGuitarStrings,
     needsConvertingToList: true,
   };
 
-  const deleteDisabledTypeFilters = createDisabledFiltersDeletionCallback(disableTypeFiltersData);
-  const deleteDisabledStringFilters = createDisabledFiltersDeletionCallback(disableStringFiltersData);
+  const deleteDisabledTypeFilters = createDisabledFiltersDeletionCallback(deleteDisabledTypeFiltersData);
+  const deleteDisabledStringFilters = createDisabledFiltersDeletionCallback(deleteDisabledStringFiltersData);
 
   const onFilterTypeChange = createFilterChangeHandler(changeFilterGuitarTypeAction, filterGuitarTypes, deleteDisabledStringFilters);
   const onFilterStringsChange = createFilterChangeHandler(changeFilterGuitarStringsAction, filterGuitarStrings, deleteDisabledTypeFilters);
