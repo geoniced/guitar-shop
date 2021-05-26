@@ -16,6 +16,10 @@ const DeleteFromCartPopup = (props) => {
     deleteGuitarFromCartAction(guitar.id);
   };
 
+  const onContinueClick = () => {
+    closePopup();
+  };
+
   const onBlockLayerClick = createBlocklayerClickHandler(closePopup);
 
   const onCloseButtonClick = (evt) => {
@@ -57,7 +61,13 @@ const DeleteFromCartPopup = (props) => {
             >
               Удалить товар
             </button>
-            <button className="guitar-info-card__button basic-popup__button button button--white" type="button">Продолжить покупки</button>
+            <button
+              onClick={onContinueClick}
+              className="guitar-info-card__button basic-popup__button button button--white"
+              type="button"
+            >
+              Продолжить покупки
+            </button>
           </div>
         </article>
       </div>
