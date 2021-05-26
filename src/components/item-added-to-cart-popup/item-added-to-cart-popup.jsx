@@ -1,5 +1,7 @@
 import React, {useCallback} from "react";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import {AppRoute} from "../../const";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {closeItemAddedToCartPopup} from "../../store/actions";
@@ -14,6 +16,12 @@ const ItemAddedToCartPopup = (props) => {
   const onCloseButtonClick = (evt) => {
     evt.preventDefault();
 
+    closePopup();
+  };
+
+  const onContinueShoppingClick = onCloseButtonClick;
+
+  const onGoToCartClick = () => {
     closePopup();
   };
 
@@ -38,8 +46,21 @@ const ItemAddedToCartPopup = (props) => {
         />
 
         <div className="item-added-to-cart-popup__buttons-wrapper">
-          <button className="item-added-to-cart-popup__button basic-popup__button button button--orange" type="button">Перейти в корзину</button>
-          <button className="item-added-to-cart-popup__button basic-popup__button button button--white" type="button">Продолжить покупки</button>
+          <Link
+            to={AppRoute.CART}
+            onClick={onGoToCartClick}
+            className="item-added-to-cart-popup__button basic-popup__button button button--orange"
+            type="button"
+          >
+            Перейти в корзину
+          </Link>
+          <button
+            onClick={onContinueShoppingClick}
+            className="item-added-to-cart-popup__button basic-popup__button button button--white"
+            type="button"
+          >
+            Продолжить покупки
+          </button>
         </div>
       </div>
     </section>
