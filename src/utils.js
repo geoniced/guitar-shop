@@ -119,6 +119,38 @@ export const getAvailableTypesForCurrentGuitarStrings = (filterStrings) => {
   return result;
 };
 
+export const createDisabledFiltersDeletionCallback = (filterTypeData) => {
+  const {
+    changedFilter,
+    filtersToBeDisabled,
+    getAvailableValuesForChangedFilter,
+    changedFitlerSetter,
+    needsConvertingToList,
+  } = filterTypeData;
+
+  return (currentItem, operation) => {
+    if (operation === FilterOperation.ADD) {
+      const newChangedFilters = Object.assign({}, changedFilter);
+      const newFiltersToBeDisabled = Object.assign({}, filtersToBeDisabled);
+      newChangedFilters[currentItem] = currentItem;
+
+      let changedFiltersStruct = newChangedFilters;
+      if (needsConvertingToList) {
+        changedFiltersStruct = Object.values(newChangedFilters);
+      }
+
+      const newAvailableTypes = getAvailableValuesForChangedFilter(changedFiltersStruct);
+      for (const type in newFiltersToBeDisabled) {
+        if (!(type in newAvailableTypes)) {
+          delete newFiltersToBeDisabled[type];
+        }
+      }
+
+      changedFitlerSetter(newFiltersToBeDisabled);
+    }
+  };
+};
+
 
 export const createBlocklayerClickHandler = (closeAction) => {
   return (evt) => {

@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from "react";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
-import {createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, getAvailableTypesForCurrentGuitarStrings, packNumberInMinMax} from "../../utils";
-import {FilterOperation, GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
+import {createDisabledFiltersDeletionCallback, createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, getAvailableTypesForCurrentGuitarStrings, packNumberInMinMax} from "../../utils";
+import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
 import {connect} from "react-redux";
@@ -47,41 +47,23 @@ const GuitarFilters = (props) => {
     changeFilterPriceToAction(newValue);
   };
 
-  const deleteDisabledTypeFilters = (currentItem, operation) => {
-    if (operation === FilterOperation.ADD) {
-      const newStringTypes = Object.assign({}, filterGuitarStrings);
-      const newGuitarTypes = Object.assign({}, filterGuitarTypes);
-      newStringTypes[currentItem] = currentItem;
-
-      const newAvailableTypes = getAvailableTypesForCurrentGuitarStrings(newStringTypes);
-      for (const type in newGuitarTypes) {
-        if (!(type in newAvailableTypes)) {
-          delete newGuitarTypes[type];
-        }
-      }
-
-      setFilterGuitarType(newGuitarTypes);
-    }
+  const disableTypeFiltersData = {
+    changedFilter: filterGuitarStrings,
+    filtersToBeDisabled: filterGuitarTypes,
+    getAvailableValuesForChangedFilter: getAvailableTypesForCurrentGuitarStrings,
+    changedFitlerSetter: setFilterGuitarType,
   };
 
-  const deleteDisabledStringFilters = (currentItem, operation) => {
-    if (operation === FilterOperation.ADD) {
-      const newGuitarTypes = Object.assign({}, filterGuitarTypes);
-      const newStringFilters = Object.assign({}, filterGuitarStrings);
-      newGuitarTypes[currentItem] = currentItem;
-
-      const newGuitarTypesList = Object.values(newGuitarTypes);
-
-      const newAvailableTypes = getAvailableStringsForCurrentGuitarTypes(newGuitarTypesList);
-      for (const type in newStringFilters) {
-        if (!(type in newAvailableTypes)) {
-          delete newStringFilters[type];
-        }
-      }
-
-      setFilterGuitarStrings(newStringFilters);
-    }
+  const disableStringFiltersData = {
+    changedFilter: filterGuitarTypes,
+    filtersToBeDisabled: filterGuitarStrings,
+    getAvailableValuesForChangedFilter: getAvailableStringsForCurrentGuitarTypes,
+    changedFitlerSetter: setFilterGuitarStrings,
+    needsConvertingToList: true,
   };
+
+  const deleteDisabledTypeFilters = createDisabledFiltersDeletionCallback(disableTypeFiltersData);
+  const deleteDisabledStringFilters = createDisabledFiltersDeletionCallback(disableStringFiltersData);
 
   const onFilterTypeChange = createFilterChangeHandler(changeFilterGuitarTypeAction, filterGuitarTypes, deleteDisabledStringFilters);
   const onFilterStringsChange = createFilterChangeHandler(changeFilterGuitarStringsAction, filterGuitarStrings, deleteDisabledTypeFilters);
