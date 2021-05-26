@@ -8,6 +8,8 @@ export const ActionType = {
   CHANGE_FILTER_PRICE_TO: `CHANGE_FILTER_PRICE_TO`,
   OPEN_ADD_TO_CART_POPUP: `OPEN_ADD_TO_CART_POPUP`,
   CLOSE_ADD_TO_CART_POPUP: `CLOSE_ADD_TO_CART_POPUP`,
+  OPEN_ITEM_ADDED_TO_CART_POPUP: `OPEN_ITEM_ADDED_TO_CART_POPUP`,
+  CLOSE_ITEM_ADDED_TO_CART_POPUP: `CLOSE_ITEM_ADDED_TO_CART_POPUP`,
   CHANGE_ADD_TO_CART_POPUP_SHOWN_GUITAR: `CHANGE_ADD_TO_CART_GUITAR`,
   ADD_GUITAR_TO_CART: `ADD_GUITAR_TO_CART`,
 };
@@ -56,6 +58,14 @@ export const openAddToCartPopup = () => ({
 
 export const closeAddToCartPopup = () => ({
   type: ActionType.CLOSE_ADD_TO_CART_POPUP,
+});
+
+export const openItemAddedToCartPopup = () => ({
+  type: ActionType.OPEN_ITEM_ADDED_TO_CART_POPUP,
+});
+
+export const closeItemAddedToCartPopup = () => ({
+  type: ActionType.CLOSE_ITEM_ADDED_TO_CART_POPUP,
 });
 
 export const changeAddToCartPopupShownGuitar = (guitar) => ({

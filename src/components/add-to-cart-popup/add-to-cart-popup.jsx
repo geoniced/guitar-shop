@@ -1,18 +1,19 @@
 import React, {useCallback} from "react";
 import {connect} from "react-redux";
-import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
-import {addGuitarToCart, closeAddToCartPopup} from "../../store/actions";
+import {addGuitarToCart, closeAddToCartPopup, openItemAddedToCartPopup} from "../../store/actions";
 import {capitalizeFirstLetter, createBlocklayerClickHandler, formatDecimalWithRublesChar, isEscKeyPressed} from "../../utils";
 import {getAddToCartShownGuitar} from "../../store/selectors";
 import {GuitarTypeName, StringTextNumberMap} from "../../const";
+import ClosePopupButton from "../close-popup-button/close-popup-button";
 
 const AddToCartPopup = (props) => {
   const {
     addToCartShownGuitar,
     closePopup,
     addGuitarToCartAction,
+    openItemAddedToCartPopupAction,
   } = props;
 
   const {
@@ -40,6 +41,7 @@ const AddToCartPopup = (props) => {
 
     addGuitarToCartAction(addToCartShownGuitar);
     closePopup();
+    openItemAddedToCartPopupAction();
   };
 
   const onEscKeyDown = useCallback((evt) => {
@@ -58,14 +60,9 @@ const AddToCartPopup = (props) => {
     >
       <div className="basic-popup__wrapper">
         <h2 className="basic-popup__title">Добавить товар в корзину</h2>
-        <a
+        <ClosePopupButton
           onClick={onCloseButtonClick}
-          className="basic-popup__close-button"
-          href="#"
-        >
-          <IconCross className="basic-popup__close-icon" />
-          <span className="visually-hidden">Закрыть окно</span>
-        </a>
+        />
 
         <article className="add-to-cart-popup__guitar-info-card guitar-info-card">
           <div className="guitar-info-card__description-column">
@@ -107,7 +104,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   addGuitarToCartAction(guitar) {
     dispatch(addGuitarToCart(guitar));
-  }
+  },
+  openItemAddedToCartPopupAction() {
+    dispatch(openItemAddedToCartPopup());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddToCartPopup);

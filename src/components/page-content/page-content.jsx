@@ -2,13 +2,14 @@ import React from "react";
 import {connect} from "react-redux";
 import {Route, Switch} from "react-router-dom";
 import {AppRoute} from "../../const";
-import {getIsAddToCartPopupOpened} from "../../store/selectors";
+import {getIsAddToCartPopupOpened, getIsItemAddedToCartPopupOpened} from "../../store/selectors";
 import AddToCartPopup from "../add-to-cart-popup/add-to-cart-popup";
 import CartPage from "../cart-page/cart-page";
 import GuitarCatalogPage from "../guitar-catalog-page/guitar-catalog-page";
+import ItemAddedToCartPopup from "../item-added-to-cart-popup/item-added-to-cart-popup";
 
 const PageContent = (props) => {
-  const {isAddToCartPopupOpened} = props;
+  const {isAddToCartPopupOpened, isItemAddedToCartPopupOpened} = props;
 
   return (
     <>
@@ -27,12 +28,14 @@ const PageContent = (props) => {
         </Route>
       </Switch>
       {isAddToCartPopupOpened && <AddToCartPopup />}
+      {isItemAddedToCartPopupOpened && <ItemAddedToCartPopup />}
     </>
   );
 };
 
 const mapStateToProps = (state) => ({
   isAddToCartPopupOpened: getIsAddToCartPopupOpened(state),
+  isItemAddedToCartPopupOpened: getIsItemAddedToCartPopupOpened(state),
 });
 
 export default connect(mapStateToProps)(PageContent);
