@@ -23,6 +23,10 @@ const OrderCard = (props) => {
   const stringsText = getGuitarStringsText(strings);
   const totalPrice = price * amount;
 
+  const onDeleteButtonClick = () => {
+    deleteGuitarHandler(guitar);
+  };
+
   const onAmountChange = (evt) => {
     const value = Number(evt.target.value);
 
@@ -84,7 +88,11 @@ const OrderCard = (props) => {
 
       <p className="order-card__total-price">{formatDecimalWithRublesChar(totalPrice)}</p>
 
-      <button className="order-card__delete-order" type="button">
+      <button
+        onClick={onDeleteButtonClick}
+        className="order-card__delete-order"
+        type="button"
+      >
         <IconCross className="order-card__delete-icon" />
         <span className="visually-hidden">Удалить товар</span>
       </button>
