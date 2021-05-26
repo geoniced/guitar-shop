@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeAmount, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
+import {changeCartGuitars, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
-import {calculateTotalPrice, formatDecimalWithRublesChar} from "../../utils";
+import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById} from "../../utils";
 import OrderCard from "../order-card/order-card";
 
 const CartCheckout = (props) => {
@@ -21,7 +21,7 @@ const CartCheckout = (props) => {
   };
 
   const amountChangeHandler = (guitarId, newAmount) => {
-    changeAmountAction(guitarId, newAmount);
+    changeAmountAction(cartGuitars, guitarId, newAmount);
   };
 
   return (
@@ -74,8 +74,10 @@ const mapDispatchToProps = (dispatch) => ({
   changeDeleteFromCartPopupShownGuitarAction(guitar) {
     dispatch(changeDeleteFromCartPopupShownGuitar(guitar));
   },
-  changeAmountAction(guitarId, newAmount) {
-    dispatch(changeAmount(guitarId, newAmount));
+  changeAmountAction(guitars, guitarId, newAmount) {
+    const cartGuitarsWithChangedAmount = getGuitarsWithChangedGuitarsAmountById(guitars, guitarId, newAmount);
+
+    dispatch(changeCartGuitars(cartGuitarsWithChangedAmount));
   },
 });
 

@@ -2,15 +2,16 @@ import React, {useCallback} from "react";
 import {connect} from "react-redux";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
-import {addGuitarToCart, closeAddToCartPopup, openItemAddedToCartPopup} from "../../store/actions";
+import {changeCartGuitars, closeAddToCartPopup, openItemAddedToCartPopup} from "../../store/actions";
 import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
-import {getAddToCartShownGuitar} from "../../store/selectors";
+import {getAddToCartShownGuitar, getCartGuitars} from "../../store/selectors";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
 import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
 import {Amount} from "../../const";
 
 const AddToCartPopup = (props) => {
   const {
+    cartGuitars,
     guitar,
     closePopup,
     addGuitarToCartAction,
@@ -30,7 +31,7 @@ const AddToCartPopup = (props) => {
     const guitarWithAmount = Object.assign({}, guitar);
     guitarWithAmount.amount = Amount.DEFAULT;
 
-    addGuitarToCartAction(guitarWithAmount);
+    addGuitarToCartAction(cartGuitars, guitarWithAmount);
     closePopup();
     openItemAddedToCartPopupAction();
   };
@@ -77,14 +78,18 @@ const AddToCartPopup = (props) => {
 
 const mapStateToProps = (state) => ({
   guitar: getAddToCartShownGuitar(state),
+  cartGuitars: getCartGuitars(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   closePopup() {
     dispatch(closeAddToCartPopup());
   },
-  addGuitarToCartAction(guitar) {
-    dispatch(addGuitarToCart(guitar));
+  addGuitarToCartAction(guitars, newGuitar) {
+    const newCardGuitars = guitars.slice();
+    newCardGuitars.push(newGuitar);
+
+    dispatch(changeCartGuitars(newCardGuitars));
   },
   openItemAddedToCartPopupAction() {
     dispatch(openItemAddedToCartPopup());

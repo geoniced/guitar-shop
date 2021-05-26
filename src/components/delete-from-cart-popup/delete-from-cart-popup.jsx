@@ -2,18 +2,23 @@ import React, {useCallback} from "react";
 import {connect} from "react-redux";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
-import {closeDeleteFromCartPopup, deleteGuitarFromCart} from "../../store/actions";
-import {getDeleteFromCartShownGuitar} from "../../store/selectors";
-import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
+import {changeCartGuitars, closeDeleteFromCartPopup} from "../../store/actions";
+import {getCartGuitars, getDeleteFromCartShownGuitar} from "../../store/selectors";
+import {createBlocklayerClickHandler, isEscKeyPressed, removeGuitar} from "../../utils";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
 import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
 
 const DeleteFromCartPopup = (props) => {
-  const {guitar, closePopup, deleteGuitarFromCartAction} = props;
+  const {
+    cartGuitars,
+    guitar,
+    closePopup,
+    deleteGuitarFromCartAction
+  } = props;
 
   const onDeleteItemClick = () => {
     closePopup();
-    deleteGuitarFromCartAction(guitar.id);
+    deleteGuitarFromCartAction(cartGuitars, guitar.id);
   };
 
   const onContinueClick = () => {
@@ -76,6 +81,7 @@ const DeleteFromCartPopup = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  cartGuitars: getCartGuitars(state),
   guitar: getDeleteFromCartShownGuitar(state),
 });
 
@@ -83,8 +89,10 @@ const mapDispatchToProps = (dispatch) => ({
   closePopup() {
     dispatch(closeDeleteFromCartPopup());
   },
-  deleteGuitarFromCartAction(guitarId) {
-    dispatch(deleteGuitarFromCart(guitarId));
+  deleteGuitarFromCartAction(guitars, guitarId) {
+    const cartGuitarsWithoutGuitar = removeGuitar(guitars, guitarId);
+
+    dispatch(changeCartGuitars(cartGuitarsWithoutGuitar));
   }
 });
 
