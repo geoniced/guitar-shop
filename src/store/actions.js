@@ -16,6 +16,7 @@ export const ActionType = {
   CHANGE_DELETE_FROM_CART_POPUP_SHOWN_GUITAR: `CHANGE_DELETE_FROM_CART_POPUP_SHOWN_GUITAR`,
   ADD_GUITAR_TO_CART: `ADD_GUITAR_TO_CART`,
   DELETE_GUITAR_FROM_CART: `DELETE_GUITAR_FROM_CART`,
+  CHANGE_AMOUNT: `CHANGE_AMOUNT`,
 };
 
 export const changePage = (value) => ({
@@ -99,4 +100,12 @@ export const addGuitarToCart = (guitar) => ({
 export const deleteGuitarFromCart = (guitarId) => ({
   type: ActionType.DELETE_GUITAR_FROM_CART,
   payload: guitarId,
+});
+
+export const changeAmount = (guitarId, newAmount) => ({
+  type: ActionType.CHANGE_AMOUNT,
+  payload: {
+    guitarId,
+    newAmount,
+  },
 });

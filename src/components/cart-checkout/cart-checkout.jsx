@@ -1,15 +1,27 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
+import {changeAmount, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
+import {calculateTotalPrice, formatDecimalWithRublesChar} from "../../utils";
 import OrderCard from "../order-card/order-card";
 
 const CartCheckout = (props) => {
-  const {cartGuitars, openDeleteFromCartPopupAction, changeDeleteFromCartPopupShownGuitarAction} = props;
+  const {
+    cartGuitars,
+    openDeleteFromCartPopupAction,
+    changeDeleteFromCartPopupShownGuitarAction,
+    changeAmountAction,
+  } = props;
+
+  const totalCartGuitarPrice = calculateTotalPrice(cartGuitars);
 
   const deleteGuitarFromCartCallback = (guitar) => {
     changeDeleteFromCartPopupShownGuitarAction(guitar);
     openDeleteFromCartPopupAction();
+  };
+
+  const amountChangeHandler = (guitarId, newAmount) => {
+    changeAmountAction(guitarId, newAmount);
   };
 
   return (
@@ -24,6 +36,7 @@ const CartCheckout = (props) => {
               index={i}
               guitar={guitar}
               deleteGuitarHandler={deleteGuitarFromCartCallback}
+              amountChangeHandler={amountChangeHandler}
             />
           ))}
         </ul>
@@ -41,7 +54,7 @@ const CartCheckout = (props) => {
           </section>
 
           <div className="cart-checkout__order-total">
-            <p className="cart-checkout__order-total-sum">Всего: 47 000 ₽ </p>
+            <p className="cart-checkout__order-total-sum">Всего: {formatDecimalWithRublesChar(totalCartGuitarPrice)} </p>
             <button className="cart-checkout__order-submit button button--orange" type="submit">Оформить заказ</button>
           </div>
         </div>
@@ -60,6 +73,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeDeleteFromCartPopupShownGuitarAction(guitar) {
     dispatch(changeDeleteFromCartPopupShownGuitar(guitar));
+  },
+  changeAmountAction(guitarId, newAmount) {
+    dispatch(changeAmount(guitarId, newAmount));
   },
 });
 

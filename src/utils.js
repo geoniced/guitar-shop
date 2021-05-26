@@ -162,6 +162,27 @@ export const removeGuitar = (guitars, guitarId) => {
   return newGuitars;
 };
 
+export const getGuitarById = (guitars, guitarId) => {
+  const newGuitars = guitars.slice();
+  const foundGuitar = newGuitars.find((guitar) => Number(guitar.id) === guitarId);
+
+  return Object.assign({}, foundGuitar);
+};
+
+export const getGuitarsWithChangedGuitarsAmountById = (guitars, guitarId, amount) => {
+  const newGuitars = guitars.slice();
+  const exactGuitar = newGuitars.find((guitar) => Number(guitar.id) === guitarId);
+  exactGuitar.amount = amount;
+
+  return newGuitars;
+};
+
+export const calculateTotalPrice = (guitars) => {
+  return guitars.reduce((accumulator, guitar) => {
+    return accumulator + (guitar.price * guitar.amount);
+  }, 0);
+};
+
 
 export const createBlocklayerClickHandler = (closeAction) => {
   return (evt) => {

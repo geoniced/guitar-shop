@@ -1,4 +1,4 @@
-import {extend, removeGuitar} from "../../utils";
+import {extend, getGuitarsWithChangedGuitarsAmountById, removeGuitar} from "../../utils";
 import {ActionType} from "../actions";
 
 const initialState = {
@@ -19,6 +19,13 @@ const cart = (state = initialState, action) => {
 
       return extend(state, {
         cartGuitars: cartGuitarsWithoutGuitar,
+      });
+    case ActionType.CHANGE_AMOUNT:
+      const {guitarId, newAmount} = action.payload;
+      const cartGuitarsWithChangedAmount = getGuitarsWithChangedGuitarsAmountById(state.cartGuitars, guitarId, newAmount);
+
+      return extend(state, {
+        cartGuitars: cartGuitarsWithChangedAmount,
       });
   }
 

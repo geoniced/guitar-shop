@@ -7,6 +7,7 @@ import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
 import {getAddToCartShownGuitar} from "../../store/selectors";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
 import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
+import {Amount} from "../../const";
 
 const AddToCartPopup = (props) => {
   const {
@@ -26,8 +27,10 @@ const AddToCartPopup = (props) => {
 
   const onAddToCartClick = (evt) => {
     evt.preventDefault();
+    const guitarWithAmount = Object.assign({}, guitar);
+    guitarWithAmount.amount = Amount.DEFAULT;
 
-    addGuitarToCartAction(guitar);
+    addGuitarToCartAction(guitarWithAmount);
     closePopup();
     openItemAddedToCartPopupAction();
   };

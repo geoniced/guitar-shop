@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
@@ -6,9 +6,7 @@ import {Amount, GuitarTypeName} from "../../const";
 import {formatDecimalWithRublesChar, getGuitarStringsText, packNumberInMinMax} from "../../utils";
 
 const OrderCard = (props) => {
-  const {index, guitar, deleteGuitarHandler} = props;
-
-  const [amount, setAmount] = useState(Amount.DEFAULT);
+  const {index, guitar, deleteGuitarHandler, amountChangeHandler} = props;
 
   const {
     name,
@@ -17,6 +15,8 @@ const OrderCard = (props) => {
     strings,
     image,
     price,
+    id,
+    amount,
   } = guitar;
 
   const typeText = GuitarTypeName[type];
@@ -28,21 +28,21 @@ const OrderCard = (props) => {
   };
 
   const onAmountChange = (evt) => {
-    const value = Number(evt.target.value);
+    const value = packNumberInMinMax(Number(evt.target.value), Amount.MIN);
 
-    setAmount(packNumberInMinMax(value, Amount.MIN));
+    amountChangeHandler(id, value);
   };
 
   const onAmountPlusClick = () => {
-    setAmount((prevValue) => prevValue + 1);
+    amountChangeHandler(id, amount + 1);
   };
 
   const onAmountMinusClick = (evt) => {
     if (amount === 1) {
       deleteGuitarHandler(guitar);
+    } else {
+      amountChangeHandler(id, packNumberInMinMax(amount - 1, Amount.MIN));
     }
-
-    setAmount((prevValue) => packNumberInMinMax(prevValue - 1, Amount.MIN));
   };
 
   return (
