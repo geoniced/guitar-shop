@@ -61,6 +61,11 @@ export const DefaultPrice = {
   TO: 30000,
 };
 
+export const Amount = {
+  DEFAULT: 1,
+  MIN: 1,
+};
+
 export const StringsCount = {
   FOUR: `FOUR`,
   SIX: `SIX`,

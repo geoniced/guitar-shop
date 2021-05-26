@@ -17,6 +17,7 @@ export const getIsAddToCartPopupOpened = (state) => state.POPUPS.isAddToCartPopu
 export const getIsItemAddedToCartPopupOpened = (state) => state.POPUPS.isItemAddedToCartPopupOpened;
 export const getAddToCartShownGuitar = (state) => state.POPUPS.addToCartShownGuitar;
 
+export const getCartGuitars = (state) => state.CART.cartGuitars;
 export const getCartItemsCount = (state) => state.CART.cartGuitars.length;
 
 export const getGuitarsSorted = createSelector(

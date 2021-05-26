@@ -1,4 +1,4 @@
-import {FilterOperation, GuitarType, SortingOrder, StringsCount, StringsPerGuitar} from "./const";
+import {FilterOperation, GuitarType, SortingOrder, StringsCount, StringsPerGuitar, StringTextNumberMap} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -19,6 +19,8 @@ export const formatDecimalWithRublesChar = (value) => {
 export const capitalizeFirstLetter = (value) => {
   return value[0].toUpperCase() + value.slice(1);
 };
+
+export const getGuitarStringsText = (strings) => `${StringTextNumberMap[strings]} струнная`;
 
 
 export const createSortByProperty = (property) => (guitarA, guitarB) => guitarA[property] - guitarB[property];
