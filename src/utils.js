@@ -153,6 +153,16 @@ export const createDisabledFiltersDeletionCallback = (filterTypeData) => {
 };
 
 
+export const removeGuitar = (guitars, guitarId) => {
+  const newGuitars = guitars.slice();
+  const guitarIndex = guitars.findIndex((guitar) => Number(guitar.id) === guitarId);
+
+  newGuitars.splice(guitarIndex, 1);
+
+  return newGuitars;
+};
+
+
 export const createBlocklayerClickHandler = (closeAction) => {
   return (evt) => {
     if (evt.currentTarget === evt.target) {
@@ -160,4 +170,3 @@ export const createBlocklayerClickHandler = (closeAction) => {
     }
   };
 };
-

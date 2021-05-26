@@ -6,7 +6,7 @@ import electroGuitar4 from "./assets/img/electro-4.png";
 import ukulele1 from "./assets/img/ukulele-1.png";
 import ukulele2 from "./assets/img/ukulele-2.png";
 
-export const GUITARS = [
+const GUITARS = [
   {
     vendorCode: `SO757575`,
     name: `Честер Bass`,
@@ -251,3 +251,9 @@ export const GUITARS = [
     image: ukulele1,
   },
 ];
+
+GUITARS.forEach((guitar, i) => {
+  guitar.id = i;
+});
+
+export {GUITARS};
