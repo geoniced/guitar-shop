@@ -51,18 +51,19 @@ const Pagination = (props) => {
           </li>
         );
       })}
-      <li
-        onClick={onNextPageClick}
-        className="pagination__item"
-      >
-        <a
-          href="#"
-          className={`pagination__link pagination__link--next ${currentPage === pagesCount ? `pagination__link--disabled` : ``}`}
+      {pagesCount > 0 && (
+        <li
+          onClick={onNextPageClick}
+          className="pagination__item"
         >
-          Далее
-        </a>
-      </li>
-
+          <a
+            href="#"
+            className={`pagination__link pagination__link--next ${currentPage === pagesCount ? `pagination__link--disabled` : ``}`}
+          >
+            Далее
+          </a>
+        </li>
+      )}
     </ul>
   );
 };

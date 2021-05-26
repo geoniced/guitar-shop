@@ -8,27 +8,22 @@ import {GuitarTypeName} from "../../const";
 
 const GuitarCard = (props) => {
   const {
+    guitar,
+    addToCartClickHandler,
+  } = props;
+
+  const {
     name,
     price,
     image,
     type,
-    vendorCode,
-    strings,
     reviewsCount,
-    addToCartClickHandler,
-  } = props;
+  } = guitar;
 
   const onAddToCartClick = (evt) => {
     evt.preventDefault();
 
-    addToCartClickHandler({
-      name,
-      price,
-      vendorCode,
-      strings,
-      image,
-      type,
-    });
+    addToCartClickHandler(guitar);
   };
 
   return (

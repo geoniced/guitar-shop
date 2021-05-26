@@ -29,13 +29,7 @@ const GuitarCatalogBlock = (props) => {
         {shownGuitars.map((guitar, i) => (
           <GuitarCard
             key={`guitar-${i}`}
-            name={guitar.name}
-            price={guitar.price}
-            image={guitar.image}
-            type={guitar.type}
-            vendorCode={guitar.vendorCode}
-            strings={guitar.strings}
-            reviewsCount={guitar.reviewsCount}
+            guitar={guitar}
             addToCartClickHandler={onAddToCartClick}
           />
         ))}
