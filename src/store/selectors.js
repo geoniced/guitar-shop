@@ -16,6 +16,8 @@ export const getCurrentFilterGuitarStrings = (state) => state.FILTERS.currentFil
 export const getIsAddToCartPopupOpened = (state) => state.POPUPS.isAddToCartPopupOpened;
 export const getAddToCartShownGuitar = (state) => state.POPUPS.addToCartShownGuitar;
 
+export const getCartItemsCount = (state) => state.CART.cartGuitars.length;
+
 export const getGuitarsSorted = createSelector(
     getOriginalGuitars,
     getPriceFrom,

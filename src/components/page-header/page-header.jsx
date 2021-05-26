@@ -7,8 +7,12 @@ import {ReactComponent as IconCart} from "../../assets/img/icon-basket.svg";
 import {AppRoute} from "../../const";
 import Logo from "../logo/logo";
 import LinkToRoot from "../link-to-root/link-to-root";
+import {connect} from "react-redux";
+import {getCartItemsCount} from "../../store/selectors";
 
-const PageHeader = () => {
+const PageHeader = (props) => {
+  const {cartItemsCount} = props;
+
   return (
     <header className="page-header">
       <nav className="page-header__main-navigation main-navigation container">
@@ -49,7 +53,9 @@ const PageHeader = () => {
             <Link to={AppRoute.CART} className="user-navigation__link user-navigation__link--cart">
               <IconCart className="user-navigation__icon user-navigation__icon--cart" />
               <span className="visually-hidden">Корзина</span>
-              <span className="user-navigation__cart-items-number">2</span>
+              {cartItemsCount > 0 && (
+                <span className="user-navigation__cart-items-number">{cartItemsCount}</span>
+              )}
             </Link>
           </li>
         </ul>
@@ -58,4 +64,8 @@ const PageHeader = () => {
   );
 };
 
-export default PageHeader;
+const mapStateToProps = (state) => ({
+  cartItemsCount: getCartItemsCount(state),
+});
+
+export default connect(mapStateToProps)(PageHeader);
