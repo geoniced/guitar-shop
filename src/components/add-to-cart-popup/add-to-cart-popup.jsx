@@ -3,30 +3,18 @@ import {connect} from "react-redux";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {addGuitarToCart, closeAddToCartPopup, openItemAddedToCartPopup} from "../../store/actions";
-import {capitalizeFirstLetter, createBlocklayerClickHandler, formatDecimalWithRublesChar, isEscKeyPressed} from "../../utils";
+import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
 import {getAddToCartShownGuitar} from "../../store/selectors";
-import {GuitarTypeName, StringTextNumberMap} from "../../const";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
+import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
 
 const AddToCartPopup = (props) => {
   const {
-    addToCartShownGuitar,
+    guitar,
     closePopup,
     addGuitarToCartAction,
     openItemAddedToCartPopupAction,
   } = props;
-
-  const {
-    name,
-    price,
-    vendorCode,
-    strings,
-    image,
-    type,
-  } = addToCartShownGuitar;
-
-  const typeText = capitalizeFirstLetter(GuitarTypeName[type]);
-  const stringsText = `${StringTextNumberMap[strings]} струнная`;
 
   const onBlockLayerClick = createBlocklayerClickHandler(closePopup);
 
@@ -39,7 +27,7 @@ const AddToCartPopup = (props) => {
   const onAddToCartClick = (evt) => {
     evt.preventDefault();
 
-    addGuitarToCartAction(addToCartShownGuitar);
+    addGuitarToCartAction(guitar);
     closePopup();
     openItemAddedToCartPopupAction();
   };
@@ -65,19 +53,9 @@ const AddToCartPopup = (props) => {
         />
 
         <article className="add-to-cart-popup__guitar-info-card guitar-info-card">
-          <div className="guitar-info-card__description-column">
-            <div className="guitar-info-card__characteristics">
-              <h3 className="guitar-info-card__title">Гитара {name}</h3>
-              <p className="guitar-info-card__vendor-code">Артикул: {vendorCode}</p>
-              <p className="guitar-info-card__guitar-info">
-                <span className="guitar-info-card__guitar-info-text--type">{typeText}, </span>
-                <span className="guitar-info-card__guitar-info-text--strings">{stringsText}</span>
-              </p>
-              <p className="guitar-info-card__guitar-price">Цена: {formatDecimalWithRublesChar(price)}</p>
-            </div>
-
-            <img className="guitar-info-card__image" src={image} alt={`${typeText} ${name}`} width="56" height="128" />
-          </div>
+          <GuitarInfoCardDescription
+            guitar={guitar}
+          />
 
           <div className="guitar-info-card__buttons-column">
             <button
@@ -95,7 +73,7 @@ const AddToCartPopup = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  addToCartShownGuitar: getAddToCartShownGuitar(state),
+  guitar: getAddToCartShownGuitar(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

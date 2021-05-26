@@ -4,7 +4,9 @@ import {ActionType} from "../actions";
 const initialState = {
   isAddToCartPopupOpened: false,
   isItemAddedToCartPopupOpened: false,
+  isDeleteFromCartPopupOpened: false,
   addToCartShownGuitar: null,
+  deleteFromCartShownGuitar: null,
 };
 
 const popups = (state = initialState, action) => {
@@ -25,9 +27,21 @@ const popups = (state = initialState, action) => {
       return extend(state, {
         isItemAddedToCartPopupOpened: false,
       });
+    case ActionType.OPEN_DELETE_FROM_CART_POPUP:
+      return extend(state, {
+        isDeleteFromCartPopupOpened: true,
+      });
+    case ActionType.CLOSE_DELETE_FROM_CART_POPUP:
+      return extend(state, {
+        isDeleteFromCartPopupOpened: false,
+      });
     case ActionType.CHANGE_ADD_TO_CART_POPUP_SHOWN_GUITAR:
       return extend(state, {
         addToCartShownGuitar: action.payload,
+      });
+    case ActionType.CHANGE_DELETE_FROM_CART_POPUP_SHOWN_GUITAR:
+      return extend(state, {
+        deleteFromCartShownGuitar: action.payload,
       });
   }
 

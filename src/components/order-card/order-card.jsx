@@ -6,7 +6,7 @@ import {Amount, GuitarTypeName} from "../../const";
 import {formatDecimalWithRublesChar, getGuitarStringsText, packNumberInMinMax} from "../../utils";
 
 const OrderCard = (props) => {
-  const {index, guitar} = props;
+  const {index, guitar, deleteGuitarHandler} = props;
 
   const [amount, setAmount] = useState(Amount.DEFAULT);
 
@@ -34,6 +34,10 @@ const OrderCard = (props) => {
   };
 
   const onAmountMinusClick = (evt) => {
+    if (amount === 1) {
+      deleteGuitarHandler(guitar);
+    }
+
     setAmount((prevValue) => packNumberInMinMax(prevValue - 1, Amount.MIN));
   };
 

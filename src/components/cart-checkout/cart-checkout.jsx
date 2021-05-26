@@ -1,10 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
+import {changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
 import OrderCard from "../order-card/order-card";
 
 const CartCheckout = (props) => {
-  const {cartGuitars} = props;
+  const {cartGuitars, openDeleteFromCartPopupAction, changeDeleteFromCartPopupShownGuitarAction} = props;
+
+  const deleteGuitarFromCartCallback = (guitar) => {
+    changeDeleteFromCartPopupShownGuitarAction(guitar);
+    openDeleteFromCartPopupAction();
+  };
 
   return (
     <section className="page-content__cart-checkout cart-checkout">
@@ -17,6 +23,7 @@ const CartCheckout = (props) => {
               key={`cart-guitar-${i}`}
               index={i}
               guitar={guitar}
+              deleteGuitarHandler={deleteGuitarFromCartCallback}
             />
           ))}
         </ul>
@@ -47,4 +54,13 @@ const mapStateToProps = (state) => ({
   cartGuitars: getCartGuitars(state),
 });
 
-export default connect(mapStateToProps)(CartCheckout);
+const mapDispatchToProps = (dispatch) => ({
+  openDeleteFromCartPopupAction() {
+    dispatch(openDeleteFromCartPopup());
+  },
+  changeDeleteFromCartPopupShownGuitarAction(guitar) {
+    dispatch(changeDeleteFromCartPopupShownGuitar(guitar));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartCheckout);
