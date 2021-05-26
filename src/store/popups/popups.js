@@ -3,7 +3,7 @@ import {ActionType} from "../actions";
 
 const initialState = {
   isAddToCartPopupOpened: false,
-  addToCartGuitar: null,
+  addToCartShownGuitar: null,
 };
 
 const popups = (state = initialState, action) => {
@@ -16,9 +16,9 @@ const popups = (state = initialState, action) => {
       return extend(state, {
         isAddToCartPopupOpened: false,
       });
-    case ActionType.CHANGE_ADD_TO_CART_GUITAR:
+    case ActionType.CHANGE_ADD_TO_CART_POPUP_SHOWN_GUITAR:
       return extend(state, {
-        addToCartGuitar: action.payload,
+        addToCartShownGuitar: action.payload,
       });
   }
 

@@ -3,13 +3,17 @@ import {connect} from "react-redux";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
-import {closeAddToCartPopup} from "../../store/actions";
+import {addGuitarToCart, closeAddToCartPopup} from "../../store/actions";
 import {capitalizeFirstLetter, createBlocklayerClickHandler, formatDecimalWithRublesChar, isEscKeyPressed} from "../../utils";
-import {getAddToCartGuitar} from "../../store/selectors";
+import {getAddToCartShownGuitar} from "../../store/selectors";
 import {GuitarTypeName, StringTextNumberMap} from "../../const";
 
 const AddToCartPopup = (props) => {
-  const {addToCartGuitar, closePopup} = props;
+  const {
+    addToCartShownGuitar,
+    closePopup,
+    addGuitarToCartAction,
+  } = props;
 
   const {
     name,
@@ -18,7 +22,7 @@ const AddToCartPopup = (props) => {
     strings,
     image,
     type,
-  } = addToCartGuitar;
+  } = addToCartShownGuitar;
 
   const typeText = capitalizeFirstLetter(GuitarTypeName[type]);
   const stringsText = `${StringTextNumberMap[strings]} струнная`;
@@ -28,6 +32,13 @@ const AddToCartPopup = (props) => {
   const onCloseButtonClick = (evt) => {
     evt.preventDefault();
 
+    closePopup();
+  };
+
+  const onAddToCartClick = (evt) => {
+    evt.preventDefault();
+
+    addGuitarToCartAction(addToCartShownGuitar);
     closePopup();
   };
 
@@ -72,7 +83,13 @@ const AddToCartPopup = (props) => {
           </div>
 
           <div className="guitar-info-card__buttons-column">
-            <button className="guitar-info-card__add-button basic-popup__button button button--orange" type="button">Добавить в корзину</button>
+            <button
+              onClick={onAddToCartClick}
+              className="guitar-info-card__add-button basic-popup__button button button--orange"
+              type="button"
+            >
+              Добавить в корзину
+            </button>
           </div>
         </article>
       </div>
@@ -81,13 +98,16 @@ const AddToCartPopup = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  addToCartGuitar: getAddToCartGuitar(state),
+  addToCartShownGuitar: getAddToCartShownGuitar(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   closePopup() {
     dispatch(closeAddToCartPopup());
   },
+  addGuitarToCartAction(guitar) {
+    dispatch(addGuitarToCart(guitar));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddToCartPopup);

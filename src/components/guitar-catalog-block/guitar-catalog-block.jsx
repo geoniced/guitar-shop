@@ -5,18 +5,18 @@ import {GUITARS_PER_PAGE} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import Pagination from "../pagination/pagination";
-import {openAddToCartPopup, changeAddToCartGuitar} from "../../store/actions";
+import {openAddToCartPopup, changeAddToCartPopupShownGuitar} from "../../store/actions";
 
 
 const GuitarCatalogBlock = (props) => {
-  const {guitars, currentPage, openAddToCartPopupAction, changeAddToCartGuitarAction} = props;
+  const {guitars, currentPage, openAddToCartPopupAction, changeAddToCartPopupShownGuitarAction} = props;
 
   const showGuitarsTo = currentPage * GUITARS_PER_PAGE;
   const showGuitarsFrom = showGuitarsTo - GUITARS_PER_PAGE;
   const shownGuitars = guitars.slice(showGuitarsFrom, showGuitarsTo);
 
   const onAddToCartClick = (guitar) => {
-    changeAddToCartGuitarAction(guitar);
+    changeAddToCartPopupShownGuitarAction(guitar);
     openAddToCartPopupAction();
   };
 
@@ -49,8 +49,8 @@ const mapDispatchToProps = (dispatch) => ({
   openAddToCartPopupAction() {
     dispatch(openAddToCartPopup());
   },
-  changeAddToCartGuitarAction(guitar) {
-    dispatch(changeAddToCartGuitar(guitar));
+  changeAddToCartPopupShownGuitarAction(guitar) {
+    dispatch(changeAddToCartPopupShownGuitar(guitar));
   },
 });
 
