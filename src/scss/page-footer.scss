@@ -120,9 +120,7 @@
 }
 
 .page-footer__contacts-phone {
-  display: grid;
-  grid-template-columns: 10px 1fr;
-  gap: 5px;
+  display: flex;
   margin-bottom: 12px;
 
   line-height: 13px;
@@ -134,13 +132,11 @@
 }
 
 .page-footer__contacts-phone-icon {
-  margin-top: 1px;
-}
+  flex-shrink: 0;
 
-.page-footer__contacts-schedule-time {
-  display: grid;
-  grid-template-columns: 10px 1fr;
-  gap: 5px;
+  width: 10px;
+  margin-top: 1px;
+  margin-right: 5px;
 }
 
 .page-footer__contacts-schedule {
@@ -148,4 +144,19 @@
 
   line-height: 12px;
   letter-spacing: 0.13em;
+}
+
+.page-footer__contacts-schedule-time {
+  display: flex;
+}
+
+.page-footer__contacts-schedule-time-icon {
+  flex-shrink: 0;
+
+  width: 10px;
+  margin-right: 5px;
+}
+
+.page-footer__contacts-schedule-time-text {
+  letter-spacing: 0.1em;
 }

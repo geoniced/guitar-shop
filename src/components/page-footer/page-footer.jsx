@@ -97,13 +97,14 @@ const PageFooter = () => {
           </address>
           <a href="tel:88125005050" className="page-footer__contacts-phone">
             <IconPhone className="page-footer__contacts-phone-icon" />
-            8-812-500-50-50
+            <span className="page-footer__contacts-phone-text">8-812-500-50-50</span>
           </a>
 
           <p className="page-footer__contacts-schedule">
             Режим работы: <br />
             <span className="page-footer__contacts-schedule-time">
-              <IconClock className="page-footer__contacts-schedule-time-icon"/>с 11:00 до 20:00,
+              <IconClock className="page-footer__contacts-schedule-time-icon"/>
+              <span className="page-footer__contacts-schedule-time-text">с 11:00 до 20:00,</span>
             </span>
             без выходных.
           </p>
