@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {ReactComponent as IconCheckbox} from "../../assets/img/icon-checkbox-box.svg";
 
 const CheckboxField = (props) => {
@@ -29,6 +30,15 @@ const CheckboxField = (props) => {
       </label>
     </>
   );
+};
+
+CheckboxField.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
+  dataValue: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
 
 export default CheckboxField;

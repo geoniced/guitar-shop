@@ -136,5 +136,7 @@ export const PropTypesValidation = {
     strings: PropTypes.oneOf([...Object.values(StringsCount)]).isRequired,
     price: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    amount: PropTypes.number,
   }),
 };

@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
-import {Amount, GuitarTypeName} from "../../const";
+import {Amount, GuitarTypeName, PropTypesValidation} from "../../const";
 import {formatDecimalWithRublesChar, getGuitarStringsText, packNumberInMinMax} from "../../utils";
 
 const OrderCard = (props) => {
@@ -98,6 +99,13 @@ const OrderCard = (props) => {
       </button>
     </li>
   );
+};
+
+OrderCard.propTypes = {
+  index: PropTypes.number.isRequired,
+  guitar: PropTypesValidation.guitar,
+  deleteGuitarHandler: PropTypes.func.isRequired,
+  amountChangeHandler: PropTypes.func.isRequired,
 };
 
 export default OrderCard;

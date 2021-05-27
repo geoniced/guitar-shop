@@ -1,9 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {ReactComponent as IconStar} from "../../assets/img/icon-star-whole.svg";
 import {ReactComponent as IconStarHalf} from "../../assets/img/icon-star-half.svg";
-// import {ReactComponent as IconStarEmpty} from "../../assets/img/icon-star-empty.svg";
 import {formatDecimalWithRublesChar} from "../../utils";
-import {GuitarTypeName} from "../../const";
+import {GuitarTypeName, PropTypesValidation} from "../../const";
 
 
 const GuitarCard = (props) => {
@@ -62,6 +62,11 @@ const GuitarCard = (props) => {
       </article>
     </li>
   );
+};
+
+GuitarCard.propTypes = {
+  guitar: PropTypesValidation.guitar,
+  addToCartClickHandler: PropTypes.func.isRequired,
 };
 
 export default GuitarCard;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import {ReactComponent as IconMap} from "../../assets/img/icon-map.svg";
@@ -62,6 +63,10 @@ const PageHeader = (props) => {
       </nav>
     </header>
   );
+};
+
+PageHeader.propTypes = {
+  cartItemsCount: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

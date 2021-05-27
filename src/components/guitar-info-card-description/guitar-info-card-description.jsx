@@ -1,5 +1,5 @@
 import React from "react";
-import {GuitarTypeName} from "../../const";
+import {GuitarTypeName, PropTypesValidation} from "../../const";
 import {capitalizeFirstLetter, formatDecimalWithRublesChar, getGuitarStringsText} from "../../utils";
 
 const GuitarInfoCardDescription = (props) => {
@@ -33,4 +33,9 @@ const GuitarInfoCardDescription = (props) => {
     </div>
   );
 };
+
+GuitarInfoCardDescription.propTypes = {
+  guitar: PropTypesValidation.guitar,
+};
+
 export default GuitarInfoCardDescription;

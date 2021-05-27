@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link, useLocation} from "react-router-dom";
 import {AppRoute} from "../../const";
 
@@ -24,6 +25,11 @@ const LinkToRoot = (props) => {
       }
     </>
   );
+};
+
+LinkToRoot.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element), PropTypes.string]),
+  className: PropTypes.string,
 };
 
 export default LinkToRoot;

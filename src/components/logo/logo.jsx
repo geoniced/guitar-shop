@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import LinkToRoot from "../link-to-root/link-to-root";
 
 const Logo = (props) => {
@@ -15,6 +16,11 @@ const Logo = (props) => {
       </LinkToRoot>
     </>
   );
+};
+
+Logo.propTypes = {
+  logo: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default Logo;

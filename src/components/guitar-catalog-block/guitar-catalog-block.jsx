@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import GuitarCard from "../guitar-card/guitar-card";
-import {GUITARS_PER_PAGE} from "../../const";
+import {GUITARS_PER_PAGE, PropTypesValidation} from "../../const";
 import Sorting from "../sorting/sorting";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
 import Pagination from "../pagination/pagination";
@@ -9,7 +10,12 @@ import {openAddToCartPopup, changeAddToCartPopupShownGuitar} from "../../store/a
 
 
 const GuitarCatalogBlock = (props) => {
-  const {guitars, currentPage, openAddToCartPopupAction, changeAddToCartPopupShownGuitarAction} = props;
+  const {
+    guitars,
+    currentPage,
+    openAddToCartPopupAction,
+    changeAddToCartPopupShownGuitarAction,
+  } = props;
 
   const showGuitarsTo = currentPage * GUITARS_PER_PAGE;
   const showGuitarsFrom = showGuitarsTo - GUITARS_PER_PAGE;
@@ -38,6 +44,13 @@ const GuitarCatalogBlock = (props) => {
       <Pagination />
     </section>
   );
+};
+
+GuitarCatalogBlock.propTypes = {
+  guitars: PropTypes.arrayOf(PropTypesValidation.guitar),
+  currentPage: PropTypes.number.isRequired,
+  openAddToCartPopupAction: PropTypes.func.isRequired,
+  changeAddToCartPopupShownGuitarAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

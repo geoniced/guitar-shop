@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Route, Switch} from "react-router-dom";
 import {AppRoute} from "../../const";
@@ -37,6 +38,12 @@ const PageContent = (props) => {
       {isDeleteFromCartPopupOpened && <DeleteFromCartPopup />}
     </>
   );
+};
+
+PageContent.propTypes = {
+  isAddToCartPopupOpened: PropTypes.bool.isRequired,
+  isItemAddedToCartPopupOpened: PropTypes.bool.isRequired,
+  isDeleteFromCartPopupOpened: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

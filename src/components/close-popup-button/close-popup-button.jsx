@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 
 const ClosePopupButton = (props) => {
@@ -14,6 +15,10 @@ const ClosePopupButton = (props) => {
       <span className="visually-hidden">Закрыть окно</span>
     </a>
   );
+};
+
+ClosePopupButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ClosePopupButton;

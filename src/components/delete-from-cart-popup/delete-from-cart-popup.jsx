@@ -1,4 +1,5 @@
 import React, {useCallback} from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
@@ -7,6 +8,7 @@ import {getCartGuitars, getDeleteFromCartShownGuitar} from "../../store/selector
 import {createBlocklayerClickHandler, isEscKeyPressed, removeGuitar} from "../../utils";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
 import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
+import {PropTypesValidation} from "../../const";
 
 const DeleteFromCartPopup = (props) => {
   const {
@@ -78,6 +80,13 @@ const DeleteFromCartPopup = (props) => {
       </div>
     </section>
   );
+};
+
+DeleteFromCartPopup.propTypes = {
+  cartGuitars: PropTypes.arrayOf(PropTypesValidation.guitar).isRequired,
+  guitar: PropTypesValidation.guitar,
+  closePopup: PropTypes.func.isRequired,
+  deleteGuitarFromCartAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

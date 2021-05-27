@@ -1,4 +1,5 @@
 import React, {useCallback} from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {AppRoute} from "../../const";
@@ -65,6 +66,10 @@ const ItemAddedToCartPopup = (props) => {
       </div>
     </section>
   );
+};
+
+ItemAddedToCartPopup.propTypes = {
+  closePopup: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 import React from "react";
+import PropTypes from "prop-types";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
 import {createDisabledFiltersDeletionCallback, createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, getAvailableTypesForCurrentGuitarStrings, packNumberInMinMax} from "../../utils";
 import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
@@ -30,7 +30,6 @@ const GuitarFilters = (props) => {
 
   const availableStringsForCurrentGuitarTypes = getAvailableStringsForCurrentGuitarTypes(currentFilterTypes);
   const availableTypesForCurrentGuitarStrings = getAvailableTypesForCurrentGuitarStrings(filterGuitarStrings);
-  // console.log(availableStringsForCurrentGuitarTypes, availableTypesForCurrentGuitarStrings);
 
 
   const onPriceFromChange = (evt) => {
@@ -133,6 +132,19 @@ const GuitarFilters = (props) => {
       </form>
     </section>
   );
+};
+
+GuitarFilters.propTypes = {
+  priceFrom: PropTypes.number.isRequired,
+  priceTo: PropTypes.number.isRequired,
+  filterGuitarTypes: PropTypes.object.isRequired,
+  filterGuitarStrings: PropTypes.object.isRequired,
+  changeFilterPriceFromAction: PropTypes.func.isRequired,
+  changeFilterPriceToAction: PropTypes.func.isRequired,
+  changeFilterGuitarTypeAction: PropTypes.func.isRequired,
+  changeFilterGuitarStringsAction: PropTypes.func.isRequired,
+  setFilterGuitarType: PropTypes.func.isRequired,
+  setFilterGuitarStrings: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
