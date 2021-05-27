@@ -32,6 +32,7 @@
 }
 
 .cart-checkout__promocode-input-wrapper {
+  position: relative;
   display: flex;
 }
 
@@ -66,6 +67,18 @@
 
   @include gray-button-interactions;
 }
+
+.cart-checkout__error-message {
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+
+  margin: 0;
+  padding: 0;
+
+  color: $red;
+}
+
 
 .cart-checkout__order-total {
   display: flex;

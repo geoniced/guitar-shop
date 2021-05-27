@@ -122,3 +122,5 @@ export const PromoCodeDiscount = {
     return totalPrice;
   },
 };
+
+export const PROMOCODE_IS_NOT_AVAILABLE_MESSAGE = `Промокод не действителен`;

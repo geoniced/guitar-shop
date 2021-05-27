@@ -3,8 +3,9 @@ import {connect} from "react-redux";
 import {PromoCodeDiscount} from "../../const";
 import {changeCartGuitars, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
-import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById} from "../../utils";
+import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById, packNumberInMinMax} from "../../utils";
 import OrderCard from "../order-card/order-card";
+import PromoCodeErrorBlock from "../promo-code-error-block/promo-code-error-block";
 
 const CartCheckout = (props) => {
   const {
@@ -14,14 +15,16 @@ const CartCheckout = (props) => {
     changeAmountAction,
   } = props;
 
+  const promoCodeRef = createRef();
   const [currentPromoCode, setCurrentPromoCode] = useState(``);
 
-  const promoCodeRef = createRef();
+  const isValidPromoCode = PromoCodeDiscount[currentPromoCode];
+  const showInvalidPromoBlock = !isValidPromoCode && currentPromoCode !== ``;
 
   const totalPriceWithoutDiscount = calculateTotalPrice(cartGuitars);
 
-  const totalCartGuitarPrice = PromoCodeDiscount[currentPromoCode]
-    ? PromoCodeDiscount[currentPromoCode](totalPriceWithoutDiscount)
+  const totalCartGuitarPrice = isValidPromoCode
+    ? packNumberInMinMax(PromoCodeDiscount[currentPromoCode](totalPriceWithoutDiscount), 0)
     : totalPriceWithoutDiscount;
 
   const deleteGuitarFromCartCallback = (guitar) => {
@@ -78,6 +81,8 @@ const CartCheckout = (props) => {
               >
                 Применить купон
               </button>
+
+              {showInvalidPromoBlock && <PromoCodeErrorBlock />}
             </div>
           </section>
 
