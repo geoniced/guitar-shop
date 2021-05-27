@@ -139,4 +139,6 @@ export const PropTypesValidation = {
     id: PropTypes.number.isRequired,
     amount: PropTypes.number,
   }),
+  sortingType: PropTypes.oneOf([...Object.values(SortingType)]),
+  sortingOrder: PropTypes.oneOf([...Object.values(SortingOrder)]),
 };

@@ -1,5 +1,6 @@
 import React from "react";
-import {SortingOrderData} from "../../const";
+import PropTypes from "prop-types";
+import {PropTypesValidation, SortingOrderData} from "../../const";
 
 const SortOrderItem = (props) => {
   const {isActive, type, onClick} = props;
@@ -23,6 +24,12 @@ const SortOrderItem = (props) => {
       </a>
     </li>
   );
+};
+
+SortOrderItem.propTypes = {
+  isActive: PropTypes.bool.isRequired,
+  type: PropTypesValidation.sortingOrder,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default SortOrderItem;

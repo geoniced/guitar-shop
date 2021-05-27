@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
-import {GUITARS_PER_PAGE} from "../../const";
+import {GUITARS_PER_PAGE, PropTypesValidation} from "../../const";
 import {changePage} from "../../store/actions";
 
 // const Dots = () => (
@@ -66,6 +67,12 @@ const Pagination = (props) => {
       )}
     </ul>
   );
+};
+
+Pagination.propTypes = {
+  guitars: PropTypes.arrayOf(PropTypesValidation.guitar),
+  currentPage: PropTypes.number.isRequired,
+  changePageAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

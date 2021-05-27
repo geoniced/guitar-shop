@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {SortingOrder, SortingType} from "../../const";
+import {PropTypesValidation, SortingOrder, SortingType} from "../../const";
 import SortTypeItem from "../sort-type-item/sort-type-item";
 import {changeSortingOrder, changeSortingType} from "../../store/actions";
 import SortOrderItem from "../sort-order-item/sort-order-item";
@@ -66,6 +67,13 @@ const Sorting = (props) => {
       </ul>
     </div>
   );
+};
+
+Sorting.propTypes = {
+  currentSortingType: PropTypesValidation.sortingType,
+  currentSortingOrder: PropTypesValidation.sortingOrder,
+  changeSortingTypeAction: PropTypes.func.isRequired,
+  changeSortingOrderAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
