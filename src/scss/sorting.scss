@@ -1,6 +1,6 @@
 .sorting {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin: 0;
   margin-bottom: 29px;
 
@@ -44,16 +44,22 @@
 .sorting__sort-orders {
   @include list-reset;
 
-  display: grid;
-  max-width: 130px;
-  grid-template-columns: repeat(auto-fit, 22px);
-  gap: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 58px;
   margin-left: auto;
   margin-right: 8px;
 }
 
-.sorting__sort-orders-item {
+.sorting__sort-order-item {
   display: flex;
+  width: 22px;
+  margin-right: 14px;
+
+  &:nth-of-type(2n) {
+    margin-right: 0;
+  }
 }
 
 .sorting__sort-order-button {

@@ -19,6 +19,8 @@ const Sorting = (props) => {
   const sortOrders = Object.values(SortingOrder);
 
   const onSortTypeClick = (evt) => {
+    evt.preventDefault();
+
     const sortType = evt.currentTarget.dataset.sortType;
 
     if (!currentSortingType) {
@@ -29,6 +31,8 @@ const Sorting = (props) => {
   };
 
   const onSortOrderClick = (evt) => {
+    evt.preventDefault();
+
     const sortOrder = evt.currentTarget.dataset.sortOrder;
 
     if (!currentSortingType) {
