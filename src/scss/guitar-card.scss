@@ -55,11 +55,19 @@
 .guitar-card__stars {
   @include list-reset;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 12px);
-  gap: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   max-width: 68px;
   margin-right: 4px;
+}
+
+.guitar-card__stars-item {
+  margin-right: 2px;
+
+  &:nth-of-type(5n) {
+    margin-right: 0;
+  }
 }
 
 .guitar-card__reviews-count {
