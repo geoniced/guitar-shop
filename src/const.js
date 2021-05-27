@@ -12,8 +12,8 @@ export const AppRoute = {
 
 export const GuitarType = {
   ACOUSTIC: `ACOUSTIC`,
-  UKULELE: `UKULELE`,
   ELECTRO: `ELECTRO`,
+  UKULELE: `UKULELE`,
 };
 
 export const GuitarTypeName = {
