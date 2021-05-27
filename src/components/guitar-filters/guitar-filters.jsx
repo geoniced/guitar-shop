@@ -128,7 +128,7 @@ const GuitarFilters = (props) => {
           ))}
         </fieldset>
 
-        <button className="guitar-filters__show button" type="submit">Показать</button>
+        {/* <button className="guitar-filters__show button" type="submit">Показать</button> */}
       </form>
     </section>
   );
