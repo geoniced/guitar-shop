@@ -1,6 +1,7 @@
 import React, {createRef, useState} from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {PromoCodeDiscount} from "../../const";
+import {PromoCodeDiscount, PropTypesValidation} from "../../const";
 import {changeCartGuitars, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
 import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById, packNumberInMinMax} from "../../utils";
@@ -94,6 +95,13 @@ const CartCheckout = (props) => {
       </form>
     </section>
   );
+};
+
+CartCheckout.propTypes = {
+  cartGuitars: PropTypes.arrayOf(PropTypesValidation.guitar).isRequired,
+  openDeleteFromCartPopupAction: PropTypes.func.isRequired,
+  changeDeleteFromCartPopupShownGuitarAction: PropTypes.func.isRequired,
+  changeAmountAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {ReactComponent as IconArrowUp} from "./assets/img/icon-arrow-up.svg";
 import {ReactComponent as IconArrowDown} from "./assets/img/icon-arrow-down.svg";
 import {createSortingByPopularity, createSortingByPrice} from "./utils";
@@ -124,3 +125,16 @@ export const PromoCodeDiscount = {
 };
 
 export const PROMOCODE_IS_NOT_AVAILABLE_MESSAGE = `Промокод не действителен`;
+
+
+export const PropTypesValidation = {
+  guitar: PropTypes.shape({
+    vendorCode: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([...Object.values(GuitarType)]).isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    strings: PropTypes.oneOf([...Object.values(StringsCount)]).isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+  }),
+};
