@@ -8,6 +8,7 @@ export const getCurrentPage = (state) => state.GUITARS_DATA.currentPage;
 export const getCurrentSortingType = (state) => state.SORTING.currentSortingType;
 export const getCurrentSortingOrder = (state) => state.SORTING.currentSortingOrder;
 
+export const getPriceBoundaries = (state) => state.FILTERS.priceBoundaries;
 export const getPriceFrom = (state) => state.FILTERS.priceFrom;
 export const getPriceTo = (state) => state.FILTERS.priceTo;
 export const getCurrentFilterGuitarTypes = (state) => state.FILTERS.currentFilterGuitarTypes;

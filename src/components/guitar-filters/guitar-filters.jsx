@@ -6,12 +6,13 @@ import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} fr
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
 import {connect} from "react-redux";
-import {getCurrentFilterGuitarTypes, getCurrentFilterGuitarStrings, getPriceFrom, getPriceTo} from "../../store/selectors";
+import {getCurrentFilterGuitarTypes, getCurrentFilterGuitarStrings, getPriceFrom, getPriceTo, getPriceBoundaries} from "../../store/selectors";
 import {changeFilterGuitarStrings, changeFilterGuitarType, changeFilterPriceFrom, changeFilterPriceTo} from "../../store/actions";
 
 
 const GuitarFilters = (props) => {
   const {
+    priceBoundaries,
     priceFrom,
     priceTo,
     filterGuitarTypes,
@@ -34,14 +35,14 @@ const GuitarFilters = (props) => {
 
   const onPriceFromChange = (evt) => {
     let newValue = Number(evt.target.value);
-    newValue = packNumberInMinMax(newValue, 0, priceTo);
+    newValue = packNumberInMinMax(newValue, priceBoundaries.MIN, priceTo);
 
     changeFilterPriceFromAction(newValue);
   };
 
   const onPriceToChange = (evt) => {
     let newValue = Number(evt.target.value);
-    newValue = packNumberInMinMax(newValue, priceFrom);
+    newValue = packNumberInMinMax(newValue, priceFrom, priceBoundaries.MAX);
 
     changeFilterPriceToAction(newValue);
   };
@@ -135,6 +136,10 @@ const GuitarFilters = (props) => {
 };
 
 GuitarFilters.propTypes = {
+  priceBoundaries: PropTypes.shape({
+    MIN: PropTypes.number.isRequired,
+    MAX: PropTypes.number.isRequired,
+  }).isRequired,
   priceFrom: PropTypes.number.isRequired,
   priceTo: PropTypes.number.isRequired,
   filterGuitarTypes: PropTypes.object.isRequired,
@@ -148,6 +153,7 @@ GuitarFilters.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  priceBoundaries: getPriceBoundaries(state),
   priceFrom: getPriceFrom(state),
   priceTo: getPriceTo(state),
   filterGuitarTypes: getCurrentFilterGuitarTypes(state),

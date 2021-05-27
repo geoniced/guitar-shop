@@ -57,6 +57,18 @@ export const GuitarSorting = {
 };
 
 
+export const getMinimumPrice = (guitars) => {
+  return guitars.reduce((minValue, guitar) => {
+    return guitar.price < minValue ? guitar.price : minValue;
+  }, guitars[0].price);
+};
+
+export const getMaximumPrice = (guitars) => {
+  return guitars.reduce((maxValue, guitar) => {
+    return guitar.price > maxValue ? guitar.price : maxValue;
+  }, 0);
+};
+
 export const DefaultPrice = {
   FROM: 1000,
   TO: 30000,

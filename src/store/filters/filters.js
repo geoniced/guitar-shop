@@ -1,10 +1,18 @@
-import {DefaultPrice} from "../../const";
+import {getMaximumPrice, getMinimumPrice} from "../../const";
+import {GUITARS} from "../../guitars";
 import {extend} from "../../utils";
 import {ActionType} from "../actions";
 
+const minPrice = getMinimumPrice(GUITARS);
+const maxPrice = getMaximumPrice(GUITARS);
+
 const initialState = {
-  priceFrom: DefaultPrice.FROM,
-  priceTo: DefaultPrice.TO,
+  priceFrom: minPrice,
+  priceTo: maxPrice,
+  priceBoundaries: {
+    MAX: maxPrice,
+    MIN: minPrice,
+  },
   currentFilterGuitarTypes: {},
   currentFilterGuitarStrings: {},
 };
