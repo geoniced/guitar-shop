@@ -1,5 +1,6 @@
-import React from "react";
+import React, {createRef, useState} from "react";
 import {connect} from "react-redux";
+import {PromoCodeDiscount} from "../../const";
 import {changeCartGuitars, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
 import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById} from "../../utils";
@@ -13,7 +14,15 @@ const CartCheckout = (props) => {
     changeAmountAction,
   } = props;
 
-  const totalCartGuitarPrice = calculateTotalPrice(cartGuitars);
+  const [currentPromoCode, setCurrentPromoCode] = useState(``);
+
+  const promoCodeRef = createRef();
+
+  const totalPriceWithoutDiscount = calculateTotalPrice(cartGuitars);
+
+  const totalCartGuitarPrice = PromoCodeDiscount[currentPromoCode]
+    ? PromoCodeDiscount[currentPromoCode](totalPriceWithoutDiscount)
+    : totalPriceWithoutDiscount;
 
   const deleteGuitarFromCartCallback = (guitar) => {
     changeDeleteFromCartPopupShownGuitarAction(guitar);
@@ -22,6 +31,12 @@ const CartCheckout = (props) => {
 
   const amountChangeHandler = (guitarId, newAmount) => {
     changeAmountAction(cartGuitars, guitarId, newAmount);
+  };
+
+  const onApplyPromoCodeClick = () => {
+    const promoCode = promoCodeRef.current.value;
+
+    setCurrentPromoCode(promoCode);
   };
 
   return (
@@ -48,14 +63,27 @@ const CartCheckout = (props) => {
 
             <div className="cart-checkout__promocode-input-wrapper">
               <label htmlFor="checkout-order-promocode" className="visually-hidden">Промокод:</label>
-              <input className="cart-checkout__promocode-input" type="text" name="checkout-order-promocode" id="checkout-order-promocode" defaultValue="GITARAHIT"/>
-              <button className="cart-checkout__apply-promocode button" type="button">Применить купон</button>
+              <input
+                ref={promoCodeRef}
+                className="cart-checkout__promocode-input"
+                type="text"
+                name="checkout-order-promocode"
+                id="checkout-order-promocode"
+                defaultValue="GITARAHIT"
+              />
+              <button
+                onClick={onApplyPromoCodeClick}
+                className="cart-checkout__apply-promocode button"
+                type="button"
+              >
+                Применить купон
+              </button>
             </div>
           </section>
 
           <div className="cart-checkout__order-total">
             <p className="cart-checkout__order-total-sum">Всего: {formatDecimalWithRublesChar(totalCartGuitarPrice)} </p>
-            <button className="cart-checkout__order-submit button button--orange" type="submit">Оформить заказ</button>
+            <a href="#" className="cart-checkout__order-submit button button--orange">Оформить заказ</a>
           </div>
         </div>
       </form>

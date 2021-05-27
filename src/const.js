@@ -92,3 +92,33 @@ export const FilterOperation = {
   DELETE: `DELETE`,
   ADD: `ADD`,
 };
+
+
+export const PromoCode = {
+  GITARAHIT: `GITARAHIT`,
+  SUPERGITARA: `SUPERGITARA`,
+  GITARA2020: `GITARA2020`,
+};
+
+const TEN_PERCENT = 0.1;
+const SUPERGITARA_DISCOUNT_RUBLES = 700;
+const GITARA2020_DISCOUNT_RUBLES = 3500;
+const GITARA2020_MAX_PERCENT = 0.3;
+
+export const PromoCodeDiscount = {
+  [PromoCode.GITARAHIT]: (currentValue) => {
+    return currentValue - (currentValue * TEN_PERCENT);
+  },
+  [PromoCode.SUPERGITARA]: (currentValue) => {
+    return currentValue - SUPERGITARA_DISCOUNT_RUBLES;
+  },
+  [PromoCode.GITARA2020]: (currentValue) => {
+    const priceWithRublesDiscount = currentValue - GITARA2020_DISCOUNT_RUBLES;
+
+    const totalPrice = GITARA2020_DISCOUNT_RUBLES / currentValue > GITARA2020_MAX_PERCENT
+      ? currentValue - (currentValue * GITARA2020_MAX_PERCENT)
+      : priceWithRublesDiscount;
+
+    return totalPrice;
+  },
+};
