@@ -120,7 +120,7 @@ const GITARA2020_MAX_PERCENT = 0.3;
 
 export const PromoCodeDiscount = {
   [PromoCode.GITARAHIT]: (currentValue) => {
-    return currentValue - (currentValue * TEN_PERCENT);
+    return Math.floor(currentValue - (currentValue * TEN_PERCENT));
   },
   [PromoCode.SUPERGITARA]: (currentValue) => {
     return currentValue - SUPERGITARA_DISCOUNT_RUBLES;
@@ -132,7 +132,7 @@ export const PromoCodeDiscount = {
       ? currentValue - (currentValue * GITARA2020_MAX_PERCENT)
       : priceWithRublesDiscount;
 
-    return totalPrice;
+    return Math.floor(totalPrice);
   },
 };
 
