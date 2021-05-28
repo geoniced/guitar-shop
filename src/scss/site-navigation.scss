@@ -26,4 +26,13 @@
   text-decoration: none;
 
   @include link-interactions;
+
+  &:not([href]) {
+    &:hover,
+    &:focus,
+    &:active {
+      color: $black;
+      opacity: 1;
+    }
+  }
 }
