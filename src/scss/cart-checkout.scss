@@ -13,6 +13,10 @@
   justify-content: space-between;
 }
 
+.cart-checkout__promocode {
+  width: 403px;
+}
+
 .cart-checkout__promocode-title {
   margin: 0;
   margin-bottom: 10px;
@@ -81,6 +85,8 @@
 
 
 .cart-checkout__order-total {
+  flex-shrink: 0;
+
   display: flex;
   flex-direction: column;
   width: 220px;

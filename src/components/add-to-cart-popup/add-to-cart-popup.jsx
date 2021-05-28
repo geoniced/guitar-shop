@@ -64,7 +64,7 @@ const AddToCartPopup = (props) => {
           <div className="guitar-info-card__buttons-column">
             <button
               onClick={onAddToCartClick}
-              className="guitar-info-card__add-button basic-popup__button button button--orange"
+              className="guitar-info-card__add-button guitar-info-card__button basic-popup__button button button--orange"
               type="button"
             >
               Добавить в корзину
