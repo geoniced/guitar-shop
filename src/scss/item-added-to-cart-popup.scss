@@ -4,10 +4,13 @@
 
 .item-added-to-cart-popup__buttons-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+  width: 477px;
   margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .item-added-to-cart-popup__button {
@@ -15,7 +18,7 @@
   margin-bottom: 20px;
   padding-top: 13px;
 
-  &:last-child {
+  &:nth-child(2n) {
     margin-right: 0;
   }
 }
