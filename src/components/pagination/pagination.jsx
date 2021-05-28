@@ -2,14 +2,34 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getCurrentPage, getGuitarsSorted} from "../../store/selectors";
-import {GUITARS_PER_PAGE, PropTypesValidation} from "../../const";
+import {GUITARS_PER_PAGE, PaginationInfo, PropTypesValidation} from "../../const";
 import {changePage} from "../../store/actions";
+import PaginationItem from "../pagination-item/pagination-item";
+import {getPageNumbers} from "../../utils";
+import PaginationDots from "../pagination-dots/pagination-dots";
 
-// const Dots = () => (
-//   <li className="pagination__item">
-//     <a className="pagination__link pagination__link--dots">...</a>
-//   </li>
-// );
+
+const createPages = (pagesCount, currentPage, onPageClick) => {
+  const pageNumbers = getPageNumbers(pagesCount, currentPage);
+
+  const pages = pageNumbers.map((pageNumber, i) => {
+    if (pageNumber === PaginationInfo.DOTS) {
+      return (<PaginationDots key={`page-${i}`}/>);
+    }
+
+    return (
+      <PaginationItem
+        key={`page-${i}`}
+        onPageClick={onPageClick}
+        page={pageNumber}
+        isCurrentPage={currentPage === pageNumber}
+      />
+    );
+  });
+
+  return pages;
+};
+
 
 const Pagination = (props) => {
   const {
@@ -36,22 +56,12 @@ const Pagination = (props) => {
     }
   };
 
+  const pageElements = createPages(pagesCount, currentPage, onPageClick);
+
+
   return (
     <ul className="guitar-catalog__pagination pagination">
-      {new Array(pagesCount).fill(``).map((_, i) => {
-        const page = i + 1;
-
-        return (
-          <li
-            onClick={onPageClick}
-            data-page={page}
-            key={`page-${page}`}
-            className="pagination__item"
-          >
-            <a href="#" className={`pagination__link ${page === currentPage ? `pagination__link--active` : ``}`}>{page}</a>
-          </li>
-        );
-      })}
+      {pageElements}
       {pagesCount > 0 && (
         <li
           onClick={onNextPageClick}

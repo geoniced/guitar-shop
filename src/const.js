@@ -138,6 +138,11 @@ export const PromoCodeDiscount = {
 
 export const PROMOCODE_IS_NOT_AVAILABLE_MESSAGE = `Промокод не действителен`;
 
+export const PaginationInfo = {
+  PAGE_NEIGHBORS: 1,
+  DOTS: `DOTS`,
+};
+
 
 export const PropTypesValidation = {
   guitar: PropTypes.shape({

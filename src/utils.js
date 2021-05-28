@@ -1,6 +1,25 @@
-import {FilterOperation, GuitarType, SortingOrder, StringsCount, StringsPerGuitar, StringTextNumberMap} from "./const";
+import {
+  FilterOperation,
+  GuitarType,
+  PaginationInfo,
+  SortingOrder,
+  StringsCount,
+  StringsPerGuitar,
+  StringTextNumberMap
+} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
+
+export const range = (from, to, step = 1) => {
+  let i = from;
+  const rangeList = [];
+
+  for (i = from; i <= to; i += step) {
+    rangeList.push(i);
+  }
+
+  return rangeList;
+};
 
 export const isEscKeyPressed = (evt) => (evt.key === `Escape` || evt.key === `Esc`);
 
@@ -150,6 +169,45 @@ export const createDisabledFiltersDeletionCallback = (filterTypeData) => {
       changedFitlerSetter(newFiltersToBeDeleted);
     }
   };
+};
+
+/* Good article about pagination algorithm that I used and reworked a little:
+ * https://www.digitalocean.com/community/tutorials/how-to-build-custom-pagination-with-react-ru
+ */
+export const getPageNumbers = (pagesCount, currentPage) => {
+  const totalNumbersInSlice = (PaginationInfo.PAGE_NEIGHBORS * 2) + 1; // Neighbors + The page itself
+  const totalPageBlocks = totalNumbersInSlice + 2; // Numbers including dots;
+
+  const needsWrappingInDots = pagesCount > totalPageBlocks;
+
+  if (needsWrappingInDots) {
+    const farLeftNeighborPage = Math.max(2, currentPage - PaginationInfo.PAGE_NEIGHBORS);
+    const farRightNeighborPage = Math.min(pagesCount - 1, currentPage + PaginationInfo.PAGE_NEIGHBORS);
+
+    let pages = range(farLeftNeighborPage, farRightNeighborPage);
+
+    const hasLeftSpill = farLeftNeighborPage > 2;
+    const hasRightSpill = farRightNeighborPage < pagesCount - 1;
+
+    switch (true) {
+      case (hasLeftSpill && !hasRightSpill): {
+        pages = [PaginationInfo.DOTS, ...pages];
+        break;
+      }
+      case (!hasLeftSpill && hasRightSpill): {
+        pages = [...pages, PaginationInfo.DOTS];
+        break;
+      }
+      case (hasLeftSpill && hasRightSpill): {
+        pages = [PaginationInfo.DOTS, ...pages, PaginationInfo.DOTS];
+        break;
+      }
+    }
+
+    return [1, ...pages, pagesCount];
+  }
+
+  return range(1, pagesCount);
 };
 
 
