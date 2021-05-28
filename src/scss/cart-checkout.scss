@@ -54,6 +54,8 @@
   letter-spacing: 0.05em;
   border: 2px solid $light-gray;
   border-radius: 2px;
+
+  @include basic-hover;
 }
 
 .cart-checkout__apply-promocode {
