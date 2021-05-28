@@ -87,6 +87,7 @@
 }
 
 .guitar-card__more {
+  max-width: 89px;
   padding-top: 4px;
   padding-right: 11px;
   padding-bottom: 4px;
@@ -96,11 +97,13 @@
   line-height: 15px;
   font-weight: bold;
   letter-spacing: 0.02em;
+  word-break: break-all;
 
   @include gray-button-interactions;
 }
 
 .guitar-card__buy {
+  max-width: 89px;
   padding-top: 4px;
   padding-right: 15px;
   padding-bottom: 4px;
@@ -110,9 +113,11 @@
   line-height: 15px;
   font-weight: bold;
   letter-spacing: 0.02em;
+  word-break: break-all;
 
   &::before {
     content: "";
+    flex-shrink: 0;
     width: 12px;
     height: 12px;
     margin-right: 5px;
@@ -124,6 +129,7 @@
 }
 
 .guitar-card__to-cart {
+  max-width: 89px;
   padding-top: 4px;
   padding-right: 15px;
   padding-bottom: 4px;
@@ -133,6 +139,7 @@
   line-height: 15px;
   font-weight: bold;
   letter-spacing: 0.02em;
+  word-break: break-all;
 
   @include gray-button-interactions;
 }
