@@ -1,29 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link, useLocation} from "react-router-dom";
 import {AppRoute} from "../../const";
+import LinkToPath from "../link-to-path/link-to-path";
 
 const LinkToRoot = (props) => {
   const {children, className} = props;
-  const {pathname} = useLocation();
-
-  const hasHref = pathname !== AppRoute.ROOT;
-
   return (
-    <>
-      {hasHref
-        ? (
-          <Link to={AppRoute.ROOT} className={className}>
-            {children}
-          </Link>
-        )
-        : (
-          <a className={className}>
-            {children}
-          </a>
-        )
-      }
-    </>
+    <LinkToPath
+      path={AppRoute.ROOT}
+      className={className}
+    >
+      {children}
+    </LinkToPath>
   );
 };
 

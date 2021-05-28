@@ -40,6 +40,15 @@
     padding-left: 10px;
     padding-top: 10px;
   }
+
+  &:not([href]) {
+    &:hover,
+    &:focus,
+    &:active {
+      color: $black;
+      opacity: 1;
+    }
+  }
 }
 
 .user-navigation__cart-items-number {

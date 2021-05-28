@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import {ReactComponent as IconMap} from "../../assets/img/icon-map.svg";
 import {ReactComponent as IconSearch} from "../../assets/img/icon-search.svg";
@@ -10,6 +9,7 @@ import Logo from "../logo/logo";
 import LinkToRoot from "../link-to-root/link-to-root";
 import {connect} from "react-redux";
 import {getCartItemsCount} from "../../store/selectors";
+import LinkToPath from "../link-to-path/link-to-path";
 
 const PageHeader = (props) => {
   const {cartItemsCount} = props;
@@ -51,13 +51,18 @@ const PageHeader = (props) => {
             </a>
           </li>
           <li className="user-navigation__item">
-            <Link to={AppRoute.CART} className="user-navigation__link user-navigation__link--cart">
-              <IconCart className="user-navigation__icon user-navigation__icon--cart" />
-              <span className="visually-hidden">Корзина</span>
-              {cartItemsCount > 0 && (
-                <span className="user-navigation__cart-items-number">{cartItemsCount}</span>
-              )}
-            </Link>
+            <LinkToPath
+              path={AppRoute.CART}
+              className="user-navigation__link user-navigation__link--cart"
+            >
+              <>
+                <IconCart className="user-navigation__icon user-navigation__icon--cart" />
+                <span className="visually-hidden">Корзина</span>
+                {cartItemsCount > 0 && (
+                  <span className="user-navigation__cart-items-number">{cartItemsCount}</span>
+                )}
+              </>
+            </LinkToPath>
           </li>
         </ul>
       </nav>
