@@ -241,6 +241,12 @@ export const calculateTotalPrice = (guitars) => {
   }, 0);
 };
 
+export const collectGuitarIds = (accumulator, guitar) => {
+  accumulator[guitar.id] = guitar;
+
+  return accumulator;
+};
+
 
 export const createBlocklayerClickHandler = (closeAction) => {
   return (evt) => {

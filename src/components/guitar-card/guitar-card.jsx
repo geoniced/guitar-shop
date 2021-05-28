@@ -1,15 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import {ReactComponent as IconStar} from "../../assets/img/icon-star-whole.svg";
 import {ReactComponent as IconStarHalf} from "../../assets/img/icon-star-half.svg";
 import {formatDecimalWithRublesChar} from "../../utils";
-import {GuitarTypeName, PropTypesValidation} from "../../const";
+import {AppRoute, GuitarTypeName, PropTypesValidation} from "../../const";
 
 
 const GuitarCard = (props) => {
   const {
     guitar,
     addToCartClickHandler,
+    isInCart,
   } = props;
 
   const {
@@ -50,13 +52,25 @@ const GuitarCard = (props) => {
         <div className="guitar-card__buttons-wrapper">
           <a href="#" className="guitar-card__more button">Подробнее</a>
 
-          <a
-            onClick={onAddToCartClick}
-            href="#"
-            className="guitar-card__buy button button--orange"
-          >
-            Купить
-          </a>
+          {isInCart
+            ? (
+              <Link
+                to={AppRoute.CART}
+                className="guitar-card__to-cart button"
+              >
+                В корзину
+              </Link>
+            )
+            : (
+              <a
+                onClick={onAddToCartClick}
+                href="#"
+                className="guitar-card__buy button button--orange"
+              >
+                Купить
+              </a>
+            )
+          }
         </div>
 
       </article>
@@ -67,6 +81,7 @@ const GuitarCard = (props) => {
 GuitarCard.propTypes = {
   guitar: PropTypesValidation.guitar,
   addToCartClickHandler: PropTypes.func.isRequired,
+  isInCart: PropTypes.bool,
 };
 
 export default GuitarCard;
