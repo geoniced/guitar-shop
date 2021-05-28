@@ -1,7 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import {ReactComponent as IconArrowRight} from "../../assets/img/icon-arrow-right.svg";
-import {AppRoute} from "../../const";
 import GuitarCatalogBlock from "../guitar-catalog-block/guitar-catalog-block";
 import GuitarFilters from "../guitar-filters/guitar-filters";
 
@@ -14,7 +12,7 @@ const GuitarCatalogPage = () => {
 
         <ul className="page-content__breadcrumbs breadcrumbs">
           <li className="breadcrumbs__item">
-            <Link to={AppRoute.ROOT} className="breadcrumbs__link">Главная</Link>
+            <a className="breadcrumbs__link">Главная</a>
           </li>
           <li className="breadcrumbs__item breadcrumbs__item--arrow">
             <IconArrowRight className="breadcrumbs__arrow" />
