@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {PromoCodeDiscount, PropTypesValidation} from "../../const";
 import {changeCartGuitars, changeDeleteFromCartPopupShownGuitar, openDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars} from "../../store/selectors";
-import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById, packNumberInMinMax} from "../../utils";
+import {calculateTotalPrice, formatDecimalWithRublesChar, getGuitarsWithChangedGuitarsAmountById, packNumberInMinMax, setStorageGuitars} from "../../utils";
 import OrderCard from "../order-card/order-card";
 import PromoCodeErrorBlock from "../promo-code-error-block/promo-code-error-block";
 
@@ -116,6 +116,8 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeAmountAction(guitars, guitarId, newAmount) {
     const cartGuitarsWithChangedAmount = getGuitarsWithChangedGuitarsAmountById(guitars, guitarId, newAmount);
+
+    setStorageGuitars(cartGuitarsWithChangedAmount);
 
     dispatch(changeCartGuitars(cartGuitarsWithChangedAmount));
   },
