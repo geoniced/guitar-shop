@@ -73,7 +73,6 @@ const CartCheckout = (props) => {
                 type="text"
                 name="checkout-order-promocode"
                 id="checkout-order-promocode"
-                defaultValue="GITARAHIT"
               />
               <button
                 onClick={onApplyPromoCodeClick}
