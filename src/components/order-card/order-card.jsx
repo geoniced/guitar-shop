@@ -29,20 +29,20 @@ const OrderCard = (props) => {
   };
 
   const onAmountChange = (evt) => {
-    const value = packNumberInMinMax(Number(evt.target.value), Amount.MIN);
+    const value = packNumberInMinMax(Number(evt.target.value), Amount.MIN, Amount.MAX);
 
     amountChangeHandler(id, value);
   };
 
   const onAmountPlusClick = () => {
-    amountChangeHandler(id, amount + 1);
+    amountChangeHandler(id, packNumberInMinMax(amount + 1, Amount.MIN, Amount.MAX));
   };
 
   const onAmountMinusClick = (evt) => {
     if (amount === 1) {
       deleteGuitarHandler(guitar);
     } else {
-      amountChangeHandler(id, packNumberInMinMax(amount - 1, Amount.MIN));
+      amountChangeHandler(id, packNumberInMinMax(amount - 1, Amount.MIN, Amount.MAX));
     }
   };
 

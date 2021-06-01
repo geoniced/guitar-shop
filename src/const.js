@@ -77,6 +77,7 @@ export const DefaultPrice = {
 export const Amount = {
   DEFAULT: 1,
   MIN: 1,
+  MAX: 99,
 };
 
 export const StringsCount = {
