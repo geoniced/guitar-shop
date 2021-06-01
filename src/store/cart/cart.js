@@ -1,8 +1,10 @@
-import {extend} from "../../utils";
+import {extend, getStorageGuitars} from "../../utils";
 import {ActionType} from "../actions";
 
+const storageGuitars = getStorageGuitars();
+
 const initialState = {
-  cartGuitars: [],
+  cartGuitars: storageGuitars,
 };
 
 const cart = (state = initialState, action) => {

@@ -5,7 +5,7 @@ import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {changeCartGuitars, closeDeleteFromCartPopup} from "../../store/actions";
 import {getCartGuitars, getDeleteFromCartShownGuitar} from "../../store/selectors";
-import {createBlocklayerClickHandler, isEscKeyPressed, removeGuitar} from "../../utils";
+import {createBlocklayerClickHandler, isEscKeyPressed, removeGuitar, setStorageGuitars} from "../../utils";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
 import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
 import {PropTypesValidation} from "../../const";
@@ -100,6 +100,8 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteGuitarFromCartAction(guitars, guitarId) {
     const cartGuitarsWithoutGuitar = removeGuitar(guitars, guitarId);
+
+    setStorageGuitars(cartGuitarsWithoutGuitar);
 
     dispatch(changeCartGuitars(cartGuitarsWithoutGuitar));
   }

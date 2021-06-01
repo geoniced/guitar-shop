@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {changeCartGuitars, closeAddToCartPopup, openItemAddedToCartPopup} from "../../store/actions";
-import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
+import {createBlocklayerClickHandler, isEscKeyPressed, setStorageGuitars} from "../../utils";
 import {getAddToCartShownGuitar, getCartGuitars} from "../../store/selectors";
 import ClosePopupButton from "../close-popup-button/close-popup-button";
 import GuitarInfoCardDescription from "../guitar-info-card-description/guitar-info-card-description";
@@ -88,6 +88,8 @@ const mapDispatchToProps = (dispatch) => ({
   addGuitarToCartAction(guitars, newGuitar) {
     const newCardGuitars = guitars.slice();
     newCardGuitars.push(newGuitar);
+
+    setStorageGuitars(newCardGuitars);
 
     dispatch(changeCartGuitars(newCardGuitars));
   },

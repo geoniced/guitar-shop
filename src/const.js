@@ -5,6 +5,8 @@ import {createSortingByPopularity, createSortingByPrice} from "./utils";
 
 export const PREVENT_SCROLL_CLASS = `prevent-scroll`;
 
+export const CART_STORAGE_NAME = `cart-guitars`;
+
 export const AppRoute = {
   ROOT: `/`,
   CART: `/cart`,

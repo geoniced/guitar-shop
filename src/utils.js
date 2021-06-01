@@ -1,4 +1,5 @@
 import {
+  CART_STORAGE_NAME,
   FilterOperation,
   GuitarType,
   PaginationInfo,
@@ -245,6 +246,22 @@ export const collectGuitarIds = (accumulator, guitar) => {
   accumulator[guitar.id] = guitar;
 
   return accumulator;
+};
+
+export const getStorageGuitars = () => {
+  let storageGuitars;
+  try {
+    storageGuitars = JSON.parse(window.localStorage[CART_STORAGE_NAME]);
+  } catch (err) {
+    storageGuitars = [];
+  }
+
+  return storageGuitars;
+};
+
+export const setStorageGuitars = (newCardGuitars) => {
+  const guitarsString = JSON.stringify(newCardGuitars);
+  window.localStorage.setItem(CART_STORAGE_NAME, guitarsString);
 };
 
 
