@@ -51,7 +51,6 @@ const ItemAddedToCartPopup = (props) => {
             to={AppRoute.CART}
             onClick={onGoToCartClick}
             className="item-added-to-cart-popup__button basic-popup__button button button--orange"
-            type="button"
           >
             Перейти в корзину
           </Link>
