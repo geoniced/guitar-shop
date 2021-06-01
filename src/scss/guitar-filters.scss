@@ -71,6 +71,12 @@
   margin-right: 13px;
 }
 
+.guitar-filters__checkbox:focus + .guitar-filters__checkbox-label {
+  outline: 2px solid #4d90fe;
+  outline-offset: 1px;
+  box-shadow: 0 0 5px #4d90fe;
+}
+
 .guitar-filters__checkbox-label {
   position: relative;
 
@@ -102,11 +108,13 @@
 }
 
 .guitar-filters__checkbox-label:hover .guitar-filters__checkbox-icon,
-.guitar-filters__checkbox-label:focus .guitar-filters__checkbox-icon {
+.guitar-filters__checkbox-label:focus .guitar-filters__checkbox-icon,
+.guitar-filters__checkbox:focus + .guitar-filters__checkbox-label .guitar-filters__checkbox-icon {
   stroke: $black-lightest;
 }
 
-.guitar-filters__checkbox-label:active .guitar-filters__checkbox-icon {
+.guitar-filters__checkbox-label:active .guitar-filters__checkbox-icon,
+.guitar-filters__checkbox:active + .guitar-filters__checkbox-label .guitar-filters__checkbox-icon {
   stroke: $gray;
 }
 
