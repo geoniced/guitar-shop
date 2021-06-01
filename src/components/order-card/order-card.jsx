@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {ReactComponent as IconCross} from "../../assets/img/icon-cross.svg";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 import {Amount, GuitarTypeName, PropTypesValidation} from "../../const";
-import {formatDecimalWithRublesChar, getGuitarStringsText, packNumberInMinMax} from "../../utils";
+import {formatDecimal, formatDecimalWithRublesChar, getGuitarStringsText, isEmpty, packNumberInMinMax} from "../../utils";
+import NumericField from "../numeric-field/numeric-field";
 
 const OrderCard = (props) => {
   const {index, guitar, deleteGuitarHandler, amountChangeHandler} = props;
@@ -20,6 +21,8 @@ const OrderCard = (props) => {
     amount,
   } = guitar;
 
+  const [itemAmount, setItemAmount] = useState(``);
+
   const typeText = GuitarTypeName[type];
   const stringsText = getGuitarStringsText(strings);
   const totalPrice = price * amount;
@@ -29,12 +32,29 @@ const OrderCard = (props) => {
   };
 
   const onAmountChange = (evt) => {
-    const value = packNumberInMinMax(Number(evt.target.value), Amount.MIN, Amount.MAX);
+    const value = packNumberInMinMax(Number(evt.target.value), 0, Amount.MAX);
 
-    amountChangeHandler(id, value);
+    setItemAmount(value);
+  };
+
+  const onAmountBlur = (evt) => {
+    const value = evt.target.value;
+
+    if (!isEmpty(value)) {
+      const numericValue = Number(value);
+
+      if (numericValue === 0) {
+        deleteGuitarHandler(guitar);
+        setItemAmount(amount);
+      } else {
+        setItemAmount(packNumberInMinMax(numericValue, Amount.MIN));
+        amountChangeHandler(id, packNumberInMinMax(numericValue, Amount.MIN));
+      }
+    }
   };
 
   const onAmountPlusClick = () => {
+    setItemAmount(amount + 1);
     amountChangeHandler(id, packNumberInMinMax(amount + 1, Amount.MIN, Amount.MAX));
   };
 
@@ -42,6 +62,7 @@ const OrderCard = (props) => {
     if (amount === 1) {
       deleteGuitarHandler(guitar);
     } else {
+      setItemAmount(amount - 1);
       amountChangeHandler(id, packNumberInMinMax(amount - 1, Amount.MIN, Amount.MAX));
     }
   };
@@ -68,14 +89,14 @@ const OrderCard = (props) => {
           <IconMinus className="order-card__amount-icon" />
           <span className="visually-hidden">Уменьшить</span>
         </button>
-        <input
+        <NumericField
           onChange={onAmountChange}
-          value={amount}
+          onBlur={onAmountBlur}
+          value={itemAmount}
           className="order-card__amount-input"
-          type="number"
           name={`checkout-order-amount-${index}`}
-          id={`checkout-order-amount-${index}`}
-          placeholder="1"
+          convertCallback={formatDecimal}
+          placeholder={amount}
         />
         <button
           onClick={onAmountPlusClick}

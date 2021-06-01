@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const NumericField = (props) => {
   const {
     name,
+    className,
     onChange,
     onBlur,
     value,
@@ -27,7 +28,7 @@ const NumericField = (props) => {
     <>
       {isEditing ? (
         <input
-          className="guitar-filters__numeric-input"
+          className={className}
           type="number"
           name={name}
           id={name}
@@ -37,7 +38,7 @@ const NumericField = (props) => {
         />
       ) : (
         <input
-          className="guitar-filters__numeric-input"
+          className={className}
           type="text"
           name={name}
           id={name}
@@ -54,6 +55,7 @@ const NumericField = (props) => {
 NumericField.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   convertCallback: PropTypes.func.isRequired,
   placeholder: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

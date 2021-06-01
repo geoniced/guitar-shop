@@ -106,6 +106,7 @@ const GuitarFilters = (props) => {
               onChange={onPriceFromChange}
               onBlur={onPriceFromBlur}
               value={fieldPriceFrom}
+              className="guitar-filters__numeric-input"
               name="filters-price-from"
               convertCallback={formatDecimal}
               placeholder={priceBoundaries.MIN}
@@ -118,6 +119,7 @@ const GuitarFilters = (props) => {
               onChange={onPriceToChange}
               onBlur={onPriceToBlur}
               value={fieldPriceTo}
+              className="guitar-filters__numeric-input"
               name="filters-price-to"
               convertCallback={formatDecimal}
               placeholder={priceBoundaries.MAX}
