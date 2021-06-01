@@ -5,14 +5,22 @@ const NumericField = (props) => {
   const {
     name,
     onChange,
+    onBlur,
     value,
     convertCallback,
+    placeholder,
   } = props;
 
   const [isEditing, setIsEditing] = useState(false);
 
   const toggleEditable = () => {
     setIsEditing((prevState) => !prevState);
+  };
+
+  const onNumericInputBlur = (evt) => {
+    toggleEditable();
+
+    onBlur(evt);
   };
 
   return (
@@ -24,7 +32,7 @@ const NumericField = (props) => {
           name={name}
           id={name}
           onChange={onChange}
-          onBlur={toggleEditable}
+          onBlur={onNumericInputBlur}
           value={value}
         />
       ) : (
@@ -34,7 +42,8 @@ const NumericField = (props) => {
           name={name}
           id={name}
           onFocus={toggleEditable}
-          value={convertCallback(value)}
+          value={value ? convertCallback(value) : convertCallback(placeholder)}
+          placeholder={placeholder}
           readOnly
         />
       )}
@@ -45,8 +54,9 @@ const NumericField = (props) => {
 NumericField.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   convertCallback: PropTypes.func.isRequired,
+  placeholder: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default NumericField;

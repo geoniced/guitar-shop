@@ -22,6 +22,8 @@ export const range = (from, to, step = 1) => {
   return rangeList;
 };
 
+export const isEmpty = (value) => value === ``;
+
 export const isEscKeyPressed = (evt) => (evt.key === `Escape` || evt.key === `Esc`);
 
 export const formatDecimal = (value) => {

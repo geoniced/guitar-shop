@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {ReactComponent as IconPriceLineSeparator} from "../../assets/img/icon-price-line-separator.svg";
-import {createDisabledFiltersDeletionCallback, createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, getAvailableTypesForCurrentGuitarStrings, packNumberInMinMax} from "../../utils";
+import {createDisabledFiltersDeletionCallback, createFilterChangeHandler, dispatchFilterChange, formatDecimal, getAvailableStringsForCurrentGuitarTypes, getAvailableTypesForCurrentGuitarStrings, isEmpty, packNumberInMinMax} from "../../utils";
 import {GuitarType, GuitarTypeFilterTitle, StringsCount, StringTextNumberMap} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import CheckboxField from "../checkbox-field/checkbox-field";
@@ -25,6 +25,9 @@ const GuitarFilters = (props) => {
     setFilterGuitarStrings,
   } = props;
 
+  const [fieldPriceFrom, setFieldPriceFrom] = useState(``);
+  const [fieldPriceTo, setFieldPriceTo] = useState(``);
+
   const guitarTypes = Object.values(GuitarType);
   const stringsAmounts = Object.values(StringsCount);
   const currentFilterTypes = Object.values(filterGuitarTypes);
@@ -35,16 +38,37 @@ const GuitarFilters = (props) => {
 
   const onPriceFromChange = (evt) => {
     let newValue = Number(evt.target.value);
-    newValue = packNumberInMinMax(newValue, priceBoundaries.MIN, priceTo);
+    newValue = packNumberInMinMax(newValue, 0, priceTo);
 
-    changeFilterPriceFromAction(newValue);
+    setFieldPriceFrom(newValue);
   };
 
   const onPriceToChange = (evt) => {
     let newValue = Number(evt.target.value);
-    newValue = packNumberInMinMax(newValue, priceFrom, priceBoundaries.MAX);
 
-    changeFilterPriceToAction(newValue);
+    setFieldPriceTo(newValue);
+  };
+
+  const onPriceFromBlur = (evt) => {
+    const value = evt.target.value;
+
+    if (!isEmpty(value)) {
+      const valueInRange = packNumberInMinMax(fieldPriceFrom, priceBoundaries.MIN, priceTo);
+
+      setFieldPriceFrom(valueInRange);
+      changeFilterPriceFromAction(valueInRange);
+    }
+  };
+
+  const onPriceToBlur = (evt) => {
+    const value = evt.target.value;
+
+    if (!isEmpty(value)) {
+      const valueInRange = packNumberInMinMax(fieldPriceTo, priceFrom, priceBoundaries.MAX);
+
+      setFieldPriceTo(valueInRange);
+      changeFilterPriceToAction(valueInRange);
+    }
   };
 
   const deleteDisabledTypeFiltersData = {
@@ -80,9 +104,11 @@ const GuitarFilters = (props) => {
             <label htmlFor="filters-price-from" className="visually-hidden">От</label>
             <NumericField
               onChange={onPriceFromChange}
-              value={priceFrom}
+              onBlur={onPriceFromBlur}
+              value={fieldPriceFrom}
               name="filters-price-from"
               convertCallback={formatDecimal}
+              placeholder={priceBoundaries.MIN}
             />
 
             <IconPriceLineSeparator className="guitar-filters__price-separator" />
@@ -90,9 +116,11 @@ const GuitarFilters = (props) => {
             <label htmlFor="filters-price-to" className="visually-hidden">До</label>
             <NumericField
               onChange={onPriceToChange}
-              value={priceTo}
+              onBlur={onPriceToBlur}
+              value={fieldPriceTo}
               name="filters-price-to"
               convertCallback={formatDecimal}
+              placeholder={priceBoundaries.MAX}
             />
           </div>
         </fieldset>
