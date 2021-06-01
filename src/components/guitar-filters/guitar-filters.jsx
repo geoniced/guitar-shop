@@ -38,7 +38,7 @@ const GuitarFilters = (props) => {
 
   const onPriceFromChange = (evt) => {
     let newValue = Number(evt.target.value);
-    newValue = packNumberInMinMax(newValue, 0, priceTo);
+    newValue = packNumberInMinMax(newValue, 0);
 
     setFieldPriceFrom(newValue);
   };
