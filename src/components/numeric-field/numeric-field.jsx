@@ -34,7 +34,7 @@ const NumericField = (props) => {
           id={name}
           onChange={onChange}
           onBlur={onNumericInputBlur}
-          value={value}
+          value={String(value)}
         />
       ) : (
         <input
